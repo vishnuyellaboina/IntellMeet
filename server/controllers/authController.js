@@ -46,23 +46,18 @@ const register = async (req, res) => {
       });
     }
 
+    // Generate email verification OTP
     const otp = generateOTP();
 
-user.passwordResetCode = otp;
-
-user.passwordResetExpires = new Date(
-  Date.now() + 10 * 60 * 1000
-);
+    // OTP expires after 10 minutes
+    const otpExpires = new Date(
+      Date.now() + 10 * 60 * 1000
+    );
 
     /*
-      We create a temporary user here so the OTP
-      can be stored.
-
-      A random temporary password is used because
-      the real password will be created AFTER
-      email verification.
+      Create a temporary password because the actual
+      password will be created after email verification.
     */
-
     const temporaryPassword = await bcrypt.hash(
       `TEMP_${Date.now()}_${Math.random()}`,
       10
@@ -119,7 +114,6 @@ user.passwordResetExpires = new Date(
     });
   }
 };
-
 
 
 // ==========================================
