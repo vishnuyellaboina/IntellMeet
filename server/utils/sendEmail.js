@@ -2,10 +2,11 @@ const nodemailer = require("nodemailer");
 
 const sendVerificationEmail = async (email, otp) => {
   try {
-    console.log("Starting Gmail email...");
-
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      family: 4,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
@@ -17,18 +18,16 @@ const sendVerificationEmail = async (email, otp) => {
       to: email,
       subject: "Your IntellMeet Verification Code",
       html: `
-        <div style="font-family: Arial, sans-serif;">
-          <h2>IntellMeet Email Verification</h2>
-          <p>Your verification code is:</p>
-          <h1>${otp}</h1>
-          <p>This code expires in 10 minutes.</p>
-        </div>
+        <h2>IntellMeet Email Verification</h2>
+        <p>Your verification code is:</p>
+        <h1>${otp}</h1>
+        <p>This code expires in 10 minutes.</p>
       `,
     });
 
     console.log("Verification email sent successfully.");
   } catch (error) {
-    console.error("Nodemailer email error:", error);
+    console.error("Email sending error:", error);
     throw error;
   }
 };
