@@ -8,6 +8,15 @@ const generateOTP = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
+// Generate JWT token
+const generateToken = (userId) => {
+  return jwt.sign(
+    { id: userId },
+    process.env.JWT_SECRET,
+    { expiresIn: "7d" }
+  );
+};
+
 // ==========================================
 // REGISTER
 // ==========================================
@@ -115,7 +124,6 @@ const register = async (req, res) => {
   }
 };
 
-
 // ==========================================
 // VERIFY EMAIL
 // ==========================================
@@ -193,6 +201,7 @@ const verifyEmail = async (req, res) => {
     });
   }
 };
+
 // ==========================================
 // COMPLETE REGISTRATION
 // ==========================================
@@ -203,85 +212,54 @@ const completeRegistration = async (req, res) => {
 
     if (!email || !password) {
       return res.status(400).json({
-        message:
-          "Email and password are required.",
+        message: "Email and password are required.",
       });
     }
-
-    if (password.length < 6) {
-      return res.status(400).json({
-        message:
-          "Password must contain at least 6 characters.",
-      });
-    }
-
-    const normalizedEmail =
-      email.trim().toLowerCase();
 
     const user = await User.findOne({
-      email: normalizedEmail,
+      email: email.toLowerCase().trim(),
     });
 
     if (!user) {
       return res.status(404).json({
-        message:
-          "Registration not found.",
+        message: "User not found.",
       });
     }
 
     if (!user.emailVerified) {
       return res.status(403).json({
-        message:
-          "Please verify your email first.",
+        message: "Please verify your email first.",
       });
     }
-    if (!user.registrationCompleted) {
-  return res.status(403).json({
-    message:
-      "Please complete your registration first.",
-    registrationRequired: true,
-    email: user.email,
-  });
-}
+
     if (user.registrationCompleted) {
       return res.status(400).json({
-        message:
-          "Registration is already completed.",
+        message: "Registration is already completed.",
       });
     }
 
-    const hashedPassword =
-      await bcrypt.hash(password, 10);
+    user.password = await bcrypt.hash(
+      password,
+      10
+    );
 
-    user.password = hashedPassword;
     user.registrationCompleted = true;
 
     await user.save();
 
-    const token = jwt.sign(
-      {
-        id: user._id,
-      },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: "7d",
-      }
-    );
+    const token = generateToken(user._id);
 
-    return res.status(201).json({
+    return res.status(200).json({
       success: true,
-      message:
-        "Account created successfully.",
-
+      message: "Registration completed successfully.",
       token,
-
       user: {
         id: user._id,
         name: user.name,
         email: user.email,
-        avatar: user.avatar,
-        role: user.role,
         emailVerified: user.emailVerified,
+        registrationCompleted:
+          user.registrationCompleted,
       },
     });
 
@@ -292,11 +270,11 @@ const completeRegistration = async (req, res) => {
     );
 
     return res.status(500).json({
-      message:
-        "Unable to complete registration.",
+      message: "Unable to complete registration.",
     });
   }
 };
+
 // ==========================================
 // RESEND VERIFICATION CODE
 // ==========================================
@@ -311,7 +289,8 @@ const resendVerificationCode = async (req, res) => {
       });
     }
 
-    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedEmail =
+      email.trim().toLowerCase();
 
     const user = await User.findOne({
       email: normalizedEmail,
@@ -341,9 +320,15 @@ const resendVerificationCode = async (req, res) => {
     await user.save();
 
     try {
-      await sendEmail(normalizedEmail, otp);
+      await sendEmail(
+        normalizedEmail,
+        otp
+      );
     } catch (emailError) {
-      console.error("Resend email error:", emailError);
+      console.error(
+        "Resend email error:",
+        emailError
+      );
 
       return res.status(500).json({
         message:
@@ -353,13 +338,19 @@ const resendVerificationCode = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: "A new verification code has been sent.",
+      message:
+        "A new verification code has been sent.",
     });
+
   } catch (error) {
-    console.error("Resend verification error:", error);
+    console.error(
+      "Resend verification error:",
+      error
+    );
 
     return res.status(500).json({
-      message: "Failed to resend verification code.",
+      message:
+        "Failed to resend verification code.",
     });
   }
 };
@@ -378,7 +369,8 @@ const login = async (req, res) => {
       });
     }
 
-    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedEmail =
+      email.trim().toLowerCase();
 
     const user = await User.findOne({
       email: normalizedEmail,
@@ -392,7 +384,8 @@ const login = async (req, res) => {
 
     if (!user.emailVerified) {
       return res.status(403).json({
-        message: "Please verify your email before logging in.",
+        message:
+          "Please verify your email before logging in.",
         emailVerificationRequired: true,
         email: user.email,
       });
@@ -431,14 +424,20 @@ const login = async (req, res) => {
         emailVerified: user.emailVerified,
       },
     });
+
   } catch (error) {
-    console.error("Login error:", error);
+    console.error(
+      "Login error:",
+      error
+    );
 
     return res.status(500).json({
-      message: "Login failed. Please try again.",
+      message:
+        "Login failed. Please try again.",
     });
   }
 };
+
 // ==========================================
 // FORGOT PASSWORD - SEND OTP
 // ==========================================
@@ -453,7 +452,8 @@ const forgotPassword = async (req, res) => {
       });
     }
 
-    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedEmail =
+      email.trim().toLowerCase();
 
     const user = await User.findOne({
       email: normalizedEmail,
@@ -461,7 +461,8 @@ const forgotPassword = async (req, res) => {
 
     if (!user) {
       return res.status(404).json({
-        message: "No account found with this email address.",
+        message:
+          "No account found with this email address.",
       });
     }
 
@@ -498,7 +499,8 @@ const forgotPassword = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: "Verification code sent to your email.",
+      message:
+        "Verification code sent to your email.",
     });
 
   } catch (error) {
@@ -528,7 +530,8 @@ const resendResetOTP = async (req, res) => {
       });
     }
 
-    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedEmail =
+      email.trim().toLowerCase();
 
     const user = await User.findOne({
       email: normalizedEmail,
@@ -536,7 +539,8 @@ const resendResetOTP = async (req, res) => {
 
     if (!user) {
       return res.status(404).json({
-        message: "No account found with this email address.",
+        message:
+          "No account found with this email address.",
       });
     }
 
@@ -588,6 +592,7 @@ const resendResetOTP = async (req, res) => {
     });
   }
 };
+
 // ==========================================
 // VERIFY PASSWORD RESET OTP
 // ==========================================
@@ -603,7 +608,8 @@ const verifyResetOTP = async (req, res) => {
       });
     }
 
-    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedEmail =
+      email.trim().toLowerCase();
 
     const user = await User.findOne({
       email: normalizedEmail,
@@ -658,7 +664,6 @@ const verifyResetOTP = async (req, res) => {
   }
 };
 
-
 // ==========================================
 // RESET PASSWORD
 // ==========================================
@@ -685,7 +690,8 @@ const resetPassword = async (req, res) => {
       });
     }
 
-    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedEmail =
+      email.trim().toLowerCase();
 
     const user = await User.findOne({
       email: normalizedEmail,
@@ -751,6 +757,7 @@ const resetPassword = async (req, res) => {
     });
   }
 };
+
 // ==========================================
 // GET ME
 // ==========================================
@@ -768,8 +775,12 @@ const getMe = async (req, res) => {
     }
 
     return res.status(200).json(user);
+
   } catch (error) {
-    console.error("Get me error:", error);
+    console.error(
+      "Get me error:",
+      error
+    );
 
     return res.status(500).json({
       message: "Failed to fetch user.",
@@ -814,8 +825,12 @@ const updateProfile = async (req, res) => {
         emailVerified: user.emailVerified,
       },
     });
+
   } catch (error) {
-    console.error("Update profile error:", error);
+    console.error(
+      "Update profile error:",
+      error
+    );
 
     return res.status(500).json({
       message: "Failed to update profile.",
@@ -829,7 +844,10 @@ const updateProfile = async (req, res) => {
 
 const changePassword = async (req, res) => {
   try {
-    const { currentPassword, newPassword } = req.body;
+    const {
+      currentPassword,
+      newPassword,
+    } = req.body;
 
     if (!currentPassword || !newPassword) {
       return res.status(400).json({
@@ -864,21 +882,29 @@ const changePassword = async (req, res) => {
       });
     }
 
-    user.password = await bcrypt.hash(newPassword, 10);
+    user.password = await bcrypt.hash(
+      newPassword,
+      10
+    );
 
     await user.save();
 
     return res.status(200).json({
       message: "Password changed successfully.",
     });
+
   } catch (error) {
-    console.error("Change password error:", error);
+    console.error(
+      "Change password error:",
+      error
+    );
 
     return res.status(500).json({
       message: "Failed to change password.",
     });
   }
 };
+
 // ==========================================
 // DELETE ACCOUNT
 // ==========================================
@@ -897,16 +923,22 @@ const deleteAccount = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: "Your account has been permanently deleted.",
+      message:
+        "Your account has been permanently deleted.",
     });
+
   } catch (error) {
-    console.error("Delete account error:", error);
+    console.error(
+      "Delete account error:",
+      error
+    );
 
     return res.status(500).json({
       message: "Failed to delete your account.",
     });
   }
 };
+
 module.exports = {
   register,
   login,
