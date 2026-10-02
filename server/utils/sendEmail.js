@@ -1,33 +1,33 @@
-const nodemailer = require("nodemailer");
+const sgMail = require("@sendgrid/mail");
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const sendVerificationEmail = async (email, otp) => {
   try {
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      family: 4,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
+    console.log("Starting SendGrid email...");
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+    const message = {
       to: email,
+      from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Your IntellMeet Verification Code",
       html: `
-        <h2>IntellMeet Email Verification</h2>
-        <p>Your verification code is:</p>
-        <h1>${otp}</h1>
-        <p>This code expires in 10 minutes.</p>
+        <div style="font-family: Arial, sans-serif;">
+          <h2>IntellMeet Email Verification</h2>
+          <p>Your verification code is:</p>
+          <h1>${otp}</h1>
+          <p>This code expires in 10 minutes.</p>
+        </div>
       `,
-    });
+    };
+
+    await sgMail.send(message);
 
     console.log("Verification email sent successfully.");
   } catch (error) {
-    console.error("Email sending error:", error);
+    console.error(
+      "SendGrid email error:",
+      error.response?.body || error.message
+    );
     throw error;
   }
 };
