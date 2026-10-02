@@ -112,7 +112,7 @@ function Register({ embedded = false, onSwitch }) {
 
     try {
       const response = await axios.post(
-        '${API_URL}/auth/verify-email',
+        `${API_URL}/auth/verify-email`,
         {
           email: formData.email,
           otp,
@@ -153,7 +153,7 @@ function Register({ embedded = false, onSwitch }) {
 
     try {
       const response = await axios.post(
-        '${API_URL}/auth/resend-verification',
+        `${API_URL}/auth/resend-verification`,
         {
           email: formData.email,
         }
@@ -210,7 +210,7 @@ function Register({ embedded = false, onSwitch }) {
 
     try {
       const response = await axios.post(
-        '${API_URL}/auth/complete-registration',
+        `${API_URL}/auth/complete-registration`,
         {
           email: formData.email,
           password: formData.password,
