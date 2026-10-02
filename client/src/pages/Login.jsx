@@ -229,7 +229,7 @@ try {
 
     try {
       const response = await axios.post(
-        '${API-URL}/auth/reset-password',
+        `${API_URL}/auth/reset-password`,
         {
           email: forgotEmail.trim(),
           otp,
