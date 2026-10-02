@@ -1,0 +1,2966 @@
+/* ==========================================
+   ACTION ITEMS PAGE
+========================================== */
+
+.action-items-page {
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  color: #f8fafc;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.action-items-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.action-items-header h1 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.action-items-header p {
+  margin: 6px 0 0;
+  color: #8194ad;
+  font-size: 13px;
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.action-items-error {
+  margin-bottom: 16px;
+  padding: 11px 14px;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 9px;
+  background: rgba(239, 68, 68, 0.07);
+  color: #fca5a5;
+  font-size: 13px;
+}
+
+
+/* ==========================================
+   SUMMARY CARDS
+========================================== */
+
+.action-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.action-summary-card {
+  min-height: 82px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 14px 16px;
+
+  border: 1px solid #1c3048;
+  border-radius: 10px;
+
+  background: #0b1420;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.action-summary-card:hover {
+  border-color: #294563;
+  background: #0d1827;
+  transform: translateY(-1px);
+}
+
+.action-summary-card.total {
+  border-color: #194777;
+}
+
+.action-summary-card.pending {
+  border-color: #194777;
+}
+
+.action-summary-card.progress {
+  border-color: #194777;
+}
+
+.action-summary-card.completed {
+  border-color: #194777;
+}
+
+.summary-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #102d55;
+  color: #60a5fa;
+}
+
+.pending .summary-icon {
+    background: #102d55;
+  color: #60a5fa;
+}
+
+.progress .summary-icon {
+  background: rgba(14, 116, 144, 0.18);
+  color: #38bdf8;
+}
+
+.completed .summary-icon {
+    background: #102d55;
+  color: #60a5fa;
+}
+
+.action-summary-card span {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #8397b0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.action-summary-card strong {
+  display: block;
+
+  color: #f8fafc;
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   TOOLBAR
+========================================== */
+
+.action-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.action-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.action-filter-tabs button {
+  height: 37px;
+  padding: 0 14px;
+
+  border: 1px solid #1c3048;
+  border-radius: 8px;
+
+  background: #0d1827;
+  color: #9fb0c4;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.action-filter-tabs button:hover {
+  background: #132238;
+  border-color: #2b4a6c;
+  color: #e2e8f0;
+}
+
+.action-filter-tabs button.active {
+  border-color: #1688ed;
+  background: #0b72d1;
+  color: #ffffff;
+
+  box-shadow: 0 4px 14px rgba(14, 137, 245, 0.16);
+}
+
+.action-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+.action-search {
+  width: 320px;
+  height: 40px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 0 12px;
+
+  border: 1px solid #263b55;
+  border-radius: 8px;
+
+  background: #091321;
+  color: #7187a3;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.action-search:focus-within {
+  border-color: #2588e8;
+  box-shadow: 0 0 0 2px rgba(37, 136, 232, 0.08);
+}
+
+.action-search input {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: #f8fafc;
+
+  font-size: 12px;
+}
+
+.action-search input::placeholder {
+  color: #60758f;
+}
+
+
+/* ==========================================
+   FILTER BUTTON
+========================================== */
+
+.action-filter-wrapper {
+  position: relative;
+}
+
+.action-filter-button {
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 0 13px;
+
+  border: 1px solid #263a54;
+  border-radius: 8px;
+
+  background: #101b2b;
+  color: #c5d2e1;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.action-filter-button:hover {
+  background: #15243a;
+  border-color: #385674;
+}
+
+.action-filter-menu {
+  position: absolute;
+  top: calc(100% + 7px);
+  right: 0;
+  z-index: 50;
+
+  width: 155px;
+  padding: 5px;
+
+  border: 1px solid #263b55;
+  border-radius: 9px;
+
+  background: #0d1726;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.action-filter-menu button {
+  width: 100%;
+
+  padding: 8px 10px;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #cbd5e1;
+
+  text-align: left;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.action-filter-menu button:hover {
+  background: #17263a;
+  color: #ffffff;
+}
+
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.action-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #1b3048;
+  border-radius: 10px;
+
+  background: #091321;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.action-table {
+  min-width: 1120px;
+}
+
+
+/* ==========================================
+   TABLE HEADER
+========================================== */
+
+.action-table-header {
+  min-height: 46px;
+
+  display: grid;
+
+  grid-template-columns:
+    44px
+    minmax(235px, 1.7fr)
+    minmax(155px, 1fr)
+    minmax(125px, 0.85fr)
+    95px
+    120px
+    125px
+    100px;
+
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 0 12px;
+
+  border-bottom: 1px solid #1b2c42;
+
+  background: #0e1a2a;
+
+  color: #8498b1;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+
+/* ==========================================
+   TABLE ROW
+========================================== */
+
+.action-table-row {
+  min-height: 68px;
+
+  display: grid;
+
+  grid-template-columns:
+    44px
+    minmax(235px, 1.7fr)
+    minmax(155px, 1fr)
+    minmax(125px, 0.85fr)
+    95px
+    120px
+    125px
+    100px;
+
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 0 12px;
+
+  border-bottom: 1px solid #142438;
+
+  background: #091321;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.action-table-row:last-child {
+  border-bottom: 0;
+}
+
+.action-table-row:hover {
+  background: #0d1929;
+}
+
+
+/* ==========================================
+   CHECKBOX
+========================================== */
+
+.action-check-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-checkbox,
+.task-checkbox {
+  width: 19px;
+  height: 19px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #405974;
+  border-radius: 5px;
+
+  color: #ffffff;
+}
+
+.task-checkbox.checked {
+  border-color: #1599e9;
+  background: #1599e9;
+}
+
+
+/* ==========================================
+   TASK
+========================================== */
+
+.task-cell {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  padding-right: 18px;
+}
+
+.task-cell strong {
+  overflow: hidden;
+
+  color: #edf3fa;
+
+  font-size: 13px;
+  font-weight: 650;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-cell span {
+  overflow: hidden;
+
+  color: #687f9c;
+
+  font-size: 11px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ==========================================
+   MEETING
+========================================== */
+
+.meeting-cell {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.meeting-icon {
+  width: 29px;
+  height: 29px;
+
+  flex: 0 0 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: rgba(16, 45, 86, 0.85);
+  color: #42a9ff;
+}
+
+.meeting-cell div:last-child {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.meeting-cell strong {
+  overflow: hidden;
+
+  color: #d6e1ed;
+
+  font-size: 12px;
+  font-weight: 550;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meeting-cell span {
+  color: #607691;
+  font-size: 10px;
+}
+
+
+/* ==========================================
+   ASSIGNEE
+========================================== */
+
+.assignee-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.assignee-avatar {
+  width: 30px;
+  height: 30px;
+
+  flex: 0 0 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #2563eb
+  );
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.assignee-cell span {
+  overflow: hidden;
+
+  color: #d5e0ec;
+
+  font-size: 12px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ==========================================
+   PRIORITY
+========================================== */
+
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 56px;
+
+  padding: 5px 9px;
+
+  box-sizing: border-box;
+
+  border-radius: 14px;
+
+  border: 1px solid;
+
+  text-transform: capitalize;
+
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.priority-badge.high {
+  border-color: rgba(239, 68, 68, 0.55);
+  background: rgba(239, 68, 68, 0.08);
+  color: #ff7272;
+}
+
+.priority-badge.medium {
+  border-color: rgba(234, 179, 8, 0.55);
+  background: rgba(234, 179, 8, 0.08);
+  color: #facc15;
+}
+
+.priority-badge.low {
+  border-color: rgba(16, 185, 129, 0.55);
+  background: rgba(16, 185, 129, 0.08);
+  color: #34d399;
+}
+
+
+/* ==========================================
+   DUE DATE
+========================================== */
+
+.due-date {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #a5b6ca;
+
+  font-size: 11px;
+}
+
+.due-date > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.due-date svg {
+  flex-shrink: 0;
+  color: #7188a4;
+}
+
+.due-date small {
+  color: #f87171;
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.due-date.overdue {
+  color: #f87171;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.action-status-select {
+  min-width: 108px;
+  height: 32px;
+
+  padding: 0 9px;
+
+  border: 1px solid;
+  border-radius: 16px;
+
+  outline: none;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  cursor: pointer;
+}
+
+.action-status-select.pending {
+  border-color: #8b650c;
+  background: rgba(120, 74, 5, 0.24);
+  color: #fbbf24;
+}
+
+.action-status-select.in-progress {
+  border-color: #1768b0;
+  background: rgba(17, 76, 132, 0.25);
+  color: #60a5fa;
+}
+
+.action-status-select.completed {
+  border-color: #087b55;
+  background: rgba(4, 93, 65, 0.24);
+  color: #34d399;
+}
+
+.action-status-select option {
+  background: #0d1726;
+  color: #f8fafc;
+}
+
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.action-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.action-row-actions button {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+
+  background: transparent;
+  color: #7f94ae;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.action-row-actions button:hover {
+  background: #15263b;
+  border-color: #263f5b;
+  color: #f8fafc;
+}
+
+/* ==========================================
+   TABLE — SCREENSHOT STYLE
+========================================== */
+
+.action-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #203a59;
+  border-radius: 14px;
+  background: #081321;
+}
+
+/* Keep the table wide enough for all columns */
+.action-table {
+  min-width: 1150px;
+  width: 100%;
+}
+
+/* ==========================================
+   TABLE HEADER
+========================================== */
+
+.action-table-header {
+  min-height: 54px;
+
+  display: grid;
+  grid-template-columns:
+    48px
+    minmax(250px, 2fr)
+    minmax(170px, 1.15fr)
+    minmax(145px, 1fr)
+    100px
+    145px
+    145px
+    105px;
+
+  align-items: center;
+
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #20344d;
+
+  background: #0a1727;
+
+  color: #7890ae;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   TABLE ROW
+========================================== */
+
+.action-table-row {
+  min-height: 120px;
+
+  display: grid;
+  grid-template-columns:
+    48px
+    minmax(250px, 2fr)
+    minmax(170px, 1.15fr)
+    minmax(145px, 1fr)
+    100px
+    145px
+    145px
+    105px;
+
+  align-items: center;
+
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #172b42;
+
+  background: #081321;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.action-table-row:last-child {
+  border-bottom: none;
+}
+
+.action-table-row:hover {
+  background: #0b192a;
+}
+
+/* ==========================================
+   CHECKBOX
+========================================== */
+
+.action-check-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-checkbox,
+.task-checkbox {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border: 1px solid #3a5875;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #ffffff;
+}
+
+.task-checkbox.checked {
+  border-color: #159bea;
+  background: #159bea;
+}
+
+/* ==========================================
+   TASK
+========================================== */
+
+.task-cell {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding-right: 22px;
+}
+
+.task-cell strong {
+  overflow: hidden;
+
+  color: #f1f5f9;
+
+  font-size: 15px;
+  font-weight: 650;
+
+  line-height: 1.3;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-cell span {
+  overflow: hidden;
+
+  color: #6f88a6;
+
+  font-size: 13px;
+
+  line-height: 1.3;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   MEETING
+========================================== */
+
+.meeting-cell {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+.meeting-icon {
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #102e58;
+
+  color: #35a8ff;
+}
+
+.meeting-cell div:last-child {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.meeting-cell strong {
+  overflow: hidden;
+
+  color: #e2eaf4;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meeting-cell span {
+  color: #607895;
+
+  font-size: 11px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   ASSIGNEE
+========================================== */
+
+.assignee-cell {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.assignee-avatar {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #4056e8;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.assignee-cell span {
+  overflow: hidden;
+
+  color: #e1e8f2;
+
+  font-size: 14px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   PRIORITY
+========================================== */
+
+.priority-badge {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 70px;
+
+  padding: 6px 12px;
+
+  box-sizing: border-box;
+
+  border-radius: 18px;
+
+  border: 1px solid;
+
+  text-transform: capitalize;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.priority-badge.high {
+  border-color: #743047;
+
+  background: rgba(239, 68, 68, 0.08);
+
+  color: #ff5968;
+}
+
+.priority-badge.medium {
+  border-color: #77590b;
+
+  background: rgba(234, 179, 8, 0.08);
+
+  color: #f5b900;
+}
+
+.priority-badge.low {
+  border-color: #176b56;
+
+  background: rgba(16, 185, 129, 0.08);
+
+  color: #34d399;
+}
+
+/* ==========================================
+   DUE DATE
+========================================== */
+
+.due-date {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #b0bfd0;
+
+  font-size: 13px;
+}
+
+.due-date svg {
+  flex-shrink: 0;
+
+  color: #6e89a8;
+}
+
+.due-date > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.due-date small {
+  color: #f87171;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.due-date.overdue {
+  color: #f87171;
+}
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.action-status-select {
+  width: 135px;
+  height: 40px;
+
+  padding: 0 12px;
+
+  border: 1px solid;
+
+  border-radius: 21px;
+
+  outline: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  appearance: auto;
+}
+
+.action-status-select.pending {
+  border-color: #986d00;
+
+  background: rgba(118, 78, 0, 0.24);
+
+  color: #ffbf00;
+}
+
+.action-status-select.in-progress {
+  border-color: #0877ca;
+
+  background: rgba(12, 84, 145, 0.25);
+
+  color: #3da6ff;
+}
+
+.action-status-select.completed {
+  border-color: #087b55;
+
+  background: rgba(4, 93, 65, 0.25);
+
+  color: #34d399;
+}
+
+.action-status-select option {
+  background: #0b1727;
+
+  color: #f8fafc;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.action-row-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.action-row-actions button {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #7890aa;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.action-row-actions button:hover {
+  background: #14263b;
+
+  color: #dbeafe;
+}
+/* =========================================================
+   ACTION ITEMS TABLE — FINAL OVERRIDE
+   ========================================================= */
+
+.action-table-wrapper {
+  width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  box-sizing: border-box !important;
+  border: 1px solid #203a59 !important;
+  border-radius: 14px !important;
+  background: #081321 !important;
+}
+
+.action-table {
+  width: 100% !important;
+  min-width: 1200px !important;
+  display: block !important;
+}
+
+/* HEADER */
+
+.action-table-header {
+  width: 100% !important;
+  min-width: 1200px !important;
+  height: 55px !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    48px
+    minmax(260px, 2fr)
+    minmax(175px, 1.15fr)
+    minmax(150px, 1fr)
+    100px
+    145px
+    145px
+    105px !important;
+
+  grid-template-rows: 1fr !important;
+  grid-auto-flow: row !important;
+
+  align-items: center !important;
+
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+
+  border-bottom: 1px solid #20344d !important;
+
+  background: #0a1727 !important;
+
+  color: #7890ae !important;
+
+  font-size: 12px !important;
+  font-weight: 500 !important;
+
+  text-transform: uppercase !important;
+  letter-spacing: 0.4px !important;
+
+  white-space: nowrap !important;
+}
+
+/* ROW */
+
+.action-table-row {
+  width: 100% !important;
+  min-width: 1200px !important;
+  min-height: 120px !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    48px
+    minmax(260px, 2fr)
+    minmax(175px, 1.15fr)
+    minmax(150px, 1fr)
+    100px
+    145px
+    145px
+    105px !important;
+
+  grid-template-rows: 1fr !important;
+  grid-auto-flow: row !important;
+
+  align-items: center !important;
+
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+
+  border-bottom: 1px solid #172b42 !important;
+
+  background: #081321 !important;
+
+  transition: background 0.18s ease !important;
+}
+
+.action-table-row:last-child {
+  border-bottom: none !important;
+}
+
+.action-table-row:hover {
+  background: #0c1929 !important;
+}
+
+/* PREVENT ANY CHILD FROM FORCING A NEW GRID ROW */
+
+.action-table-header > div,
+.action-table-row > div {
+  min-width: 0 !important;
+  grid-row: 1 !important;
+}
+
+/* CHECKBOX */
+
+.action-check-column {
+  width: auto !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.table-checkbox,
+.task-checkbox {
+  width: 24px !important;
+  height: 24px !important;
+
+  flex: 0 0 24px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  box-sizing: border-box !important;
+
+  border: 1px solid #3b5a78 !important;
+  border-radius: 6px !important;
+
+  background: transparent !important;
+}
+
+.task-checkbox.checked {
+  border-color: #159bea !important;
+  background: #159bea !important;
+}
+
+/* TASK */
+
+.task-cell {
+  min-width: 0 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 5px !important;
+
+  padding-right: 20px !important;
+}
+
+.task-cell strong {
+  display: block !important;
+
+  overflow: hidden !important;
+
+  color: #f1f5f9 !important;
+
+  font-size: 15px !important;
+  font-weight: 650 !important;
+
+  line-height: 1.3 !important;
+
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.task-cell span {
+  display: block !important;
+
+  overflow: hidden !important;
+
+  color: #7088a5 !important;
+
+  font-size: 13px !important;
+
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* MEETING */
+
+.meeting-cell {
+  min-width: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 11px !important;
+}
+
+.meeting-icon {
+  width: 36px !important;
+  height: 36px !important;
+
+  flex: 0 0 36px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 8px !important;
+
+  background: #102e58 !important;
+  color: #35a8ff !important;
+}
+
+.meeting-cell > div:last-child {
+  min-width: 0 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 4px !important;
+}
+
+.meeting-cell strong {
+  display: block !important;
+
+  overflow: hidden !important;
+
+  color: #e2eaf4 !important;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.meeting-cell span {
+  color: #607895 !important;
+  font-size: 11px !important;
+}
+
+/* ASSIGNEE */
+
+.assignee-cell {
+  min-width: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 10px !important;
+}
+
+.assignee-avatar {
+  width: 38px !important;
+  height: 38px !important;
+
+  flex: 0 0 38px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 50% !important;
+
+  background: #4056e8 !important;
+  color: #ffffff !important;
+
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+.assignee-cell span {
+  overflow: hidden !important;
+
+  color: #e1e8f2 !important;
+
+  font-size: 14px !important;
+
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* PRIORITY */
+
+.priority-badge {
+  display: inline-flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 70px !important;
+
+  padding: 6px 12px !important;
+
+  box-sizing: border-box !important;
+
+  border: 1px solid !important;
+  border-radius: 18px !important;
+
+  text-transform: capitalize !important;
+
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+.priority-badge.high {
+  border-color: #743047 !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+  color: #ff5968 !important;
+}
+
+.priority-badge.medium {
+  border-color: #77590b !important;
+  background: rgba(234, 179, 8, 0.08) !important;
+  color: #f5b900 !important;
+}
+
+.priority-badge.low {
+  border-color: #176b56 !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+  color: #34d399 !important;
+}
+
+/* DUE DATE */
+
+.due-date {
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 9px !important;
+
+  color: #b0bfd0 !important;
+
+  font-size: 13px !important;
+}
+
+.due-date > div {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+}
+
+.due-date svg {
+  flex-shrink: 0 !important;
+  color: #6e89a8 !important;
+}
+
+.due-date small {
+  color: #f87171 !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+
+/* STATUS */
+
+.action-status-select {
+  width: 135px !important;
+  height: 40px !important;
+
+  padding: 0 12px !important;
+
+  border: 1px solid !important;
+  border-radius: 21px !important;
+
+  outline: none !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+
+  cursor: pointer !important;
+}
+
+.action-status-select.pending {
+  border-color: #986d00 !important;
+  background: rgba(118, 78, 0, 0.24) !important;
+  color: #ffbf00 !important;
+}
+
+.action-status-select.in-progress {
+  border-color: #0877ca !important;
+  background: rgba(12, 84, 145, 0.25) !important;
+  color: #3da6ff !important;
+}
+
+.action-status-select.completed {
+  border-color: #087b55 !important;
+  background: rgba(4, 93, 65, 0.25) !important;
+  color: #34d399 !important;
+}
+
+/* ACTIONS */
+
+.action-row-actions {
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 8px !important;
+}
+
+.action-row-actions button {
+  width: 30px !important;
+  height: 30px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+
+  border: 0 !important;
+  border-radius: 6px !important;
+
+  background: transparent !important;
+
+  color: #7890aa !important;
+
+  cursor: pointer !important;
+}
+
+.action-row-actions button:hover {
+  background: #14263b !important;
+  color: #dbeafe !important;
+}
+/* =========================================================
+   RESPONSIVE ACTION ITEMS
+   Desktop → Tablet → Mobile
+   ========================================================= */
+
+/* ---------- GLOBAL ---------- */
+
+.action-items-page,
+.action-items-page * {
+  box-sizing: border-box;
+}
+
+.action-items-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   LARGE TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1200px) and (min-width: 769px) {
+
+  .action-items-page {
+    padding: 10px 8px;
+  }
+
+  /* SUMMARY */
+
+  .action-summary-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 12px;
+  }
+
+  /* TOOLBAR */
+
+  .action-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .action-toolbar-right {
+    width: 100%;
+  }
+
+  .action-search {
+    flex: 1;
+    width: auto;
+  }
+
+  /* TABLE */
+
+  .action-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .action-table {
+    min-width: 1000px !important;
+  }
+
+  .action-table-header,
+  .action-table-row {
+    min-width: 1000px !important;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) and (min-width: 769px) {
+
+  .action-items-header h1 {
+    font-size: 28px;
+  }
+
+  .action-items-header p {
+    font-size: 14px;
+  }
+
+  .action-summary-card {
+    min-height: 88px;
+    padding: 14px;
+  }
+
+  .summary-icon {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .action-toolbar {
+    gap: 10px;
+  }
+
+  .action-filter-tabs {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 3px;
+
+    scrollbar-width: none;
+  }
+
+  .action-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .action-filter-tabs button {
+    flex-shrink: 0;
+  }
+
+  .action-toolbar-right {
+    width: 100%;
+  }
+
+  .action-search {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE — 768px AND BELOW
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* PAGE */
+
+  .action-items-page {
+    width: 100%;
+    min-width: 0;
+
+    padding: 6px 0 24px;
+
+    overflow-x: hidden;
+  }
+
+
+  /* =======================================================
+     HEADER
+     ======================================================= */
+
+  .action-items-header {
+    margin-bottom: 18px;
+
+    padding: 0 2px;
+  }
+
+  .action-items-header h1 {
+    font-size: 26px;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+  }
+
+  .action-items-header p {
+    margin-top: 6px;
+
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+
+  /* =======================================================
+     SUMMARY CARDS
+     ======================================================= */
+
+  .action-summary-grid {
+    width: 100%;
+
+    display: grid !important;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 10px;
+
+    margin-bottom: 16px;
+  }
+
+  .action-summary-card {
+    min-width: 0;
+    min-height: 82px;
+
+    padding: 12px;
+
+    gap: 10px;
+
+    border-radius: 10px;
+  }
+
+  .summary-icon {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+  }
+
+  .summary-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .action-summary-card span {
+    margin-bottom: 3px;
+
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .action-summary-card strong {
+    font-size: 22px;
+  }
+
+
+  /* =======================================================
+     TOOLBAR
+     ======================================================= */
+
+  .action-toolbar {
+    width: 100%;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+
+    gap: 10px;
+
+    margin-bottom: 16px;
+  }
+
+
+  /* FILTER TABS */
+
+  .action-filter-tabs {
+    width: 100%;
+
+    display: flex;
+
+    gap: 7px;
+
+    overflow-x: auto;
+
+    flex-wrap: nowrap;
+
+    padding-bottom: 3px;
+
+    scrollbar-width: none;
+  }
+
+  .action-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .action-filter-tabs button {
+    flex: 0 0 auto;
+
+    height: 38px;
+
+    padding: 0 14px;
+
+    border-radius: 19px;
+
+    font-size: 12px;
+  }
+
+
+  /* SEARCH + FILTER */
+
+  .action-toolbar-right {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 8px;
+  }
+
+  .action-search {
+    width: auto;
+    flex: 1;
+
+    min-width: 0;
+
+    height: 42px;
+
+    border-radius: 9px;
+  }
+
+  .action-search input {
+    min-width: 0;
+
+    font-size: 12px;
+  }
+
+  .action-filter-wrapper {
+    flex: 0 0 auto;
+  }
+
+  .action-filter-button {
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    justify-content: center;
+
+    font-size: 0;
+  }
+
+  .action-filter-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .action-filter-menu {
+    right: 0;
+    width: 160px;
+  }
+
+
+  /* =======================================================
+     TABLE CONTAINER
+     ======================================================= */
+
+  .action-table-wrapper {
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    overflow: visible !important;
+
+    border-radius: 12px !important;
+  }
+
+  .action-table {
+    width: 100% !important;
+
+    min-width: 0 !important;
+  }
+
+
+  /* =======================================================
+     HIDE DESKTOP TABLE HEADER
+     ======================================================= */
+
+  .action-table-header {
+    display: none !important;
+  }
+
+
+  /* =======================================================
+     MOBILE TASK CARD
+     ======================================================= */
+
+  .action-table-row {
+    width: 100% !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+      1fr 1fr !important;
+
+    grid-template-rows: auto auto auto auto !important;
+
+    gap: 0 !important;
+
+    padding: 18px 16px !important;
+
+    border-bottom: 1px solid #172b42 !important;
+
+    background: #081321 !important;
+  }
+
+  .action-table-row:first-child {
+    border-radius: 11px 11px 0 0;
+  }
+
+  .action-table-row:last-child {
+    border-radius: 0 0 11px 11px;
+
+    border-bottom: none !important;
+  }
+
+
+  /* =======================================================
+     CHECKBOX
+     ======================================================= */
+
+  .action-table-row > .action-check-column {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+
+    justify-content: flex-start !important;
+
+    margin-bottom: 12px;
+  }
+
+
+  /* =======================================================
+     TASK — FULL WIDTH
+     ======================================================= */
+
+  .action-table-row > .task-cell {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+
+    width: 100%;
+
+    padding: 0 0 16px !important;
+
+    border-bottom: 1px solid #15283d;
+  }
+
+  .task-cell strong {
+    font-size: 15px;
+
+    white-space: normal;
+
+    line-height: 1.4;
+  }
+
+  .task-cell span {
+    margin-top: 2px;
+
+    font-size: 12px;
+
+    white-space: normal;
+
+    line-height: 1.4;
+  }
+
+
+  /* =======================================================
+     MEETING
+     ======================================================= */
+
+  .action-table-row > .meeting-cell {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+
+    padding-top: 15px;
+
+    padding-right: 8px;
+  }
+
+  .meeting-icon {
+    width: 34px !important;
+    height: 34px !important;
+
+    flex: 0 0 34px !important;
+  }
+
+  .meeting-cell strong {
+    max-width: 120px;
+
+    font-size: 12px;
+  }
+
+  .meeting-cell span {
+    font-size: 10px;
+  }
+
+
+  /* =======================================================
+     ASSIGNEE
+     ======================================================= */
+
+  .action-table-row > .assignee-cell {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+
+    padding-top: 15px;
+
+    justify-content: flex-end;
+  }
+
+  .assignee-avatar {
+    width: 34px !important;
+    height: 34px !important;
+
+    flex-basis: 34px !important;
+  }
+
+  .assignee-cell span {
+    font-size: 12px;
+  }
+
+
+  /* =======================================================
+     PRIORITY
+     ======================================================= */
+
+  .action-table-row > div:nth-child(5) {
+    grid-column: 1 !important;
+    grid-row: 4 !important;
+
+    padding-top: 14px;
+  }
+
+  .action-table-row > div:nth-child(5)::before {
+    content: "Priority";
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #617994;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+  }
+
+
+  /* =======================================================
+     DUE DATE
+     ======================================================= */
+
+  .action-table-row > .due-date {
+    grid-column: 2 !important;
+    grid-row: 4 !important;
+
+    padding-top: 14px;
+
+    justify-content: flex-end;
+  }
+
+  .action-table-row > .due-date::before {
+    content: "Due Date";
+
+    display: block;
+
+    margin-right: 8px;
+
+    color: #617994;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+  }
+
+
+  /* =======================================================
+     STATUS
+     ======================================================= */
+
+  .action-table-row > div:nth-child(7) {
+    grid-column: 1 !important;
+    grid-row: 5 !important;
+
+    padding-top: 14px;
+  }
+
+  .action-table-row > div:nth-child(7)::before {
+    content: "Status";
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #617994;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+  }
+
+  .action-status-select {
+    width: 125px !important;
+
+    max-width: 100%;
+
+    height: 36px !important;
+
+    font-size: 12px !important;
+  }
+
+
+  /* =======================================================
+     ACTIONS
+     ======================================================= */
+
+  .action-table-row > .action-row-actions {
+    grid-column: 2 !important;
+    grid-row: 5 !important;
+
+    padding-top: 14px;
+
+    justify-content: flex-end;
+  }
+
+  .action-table-row > .action-row-actions::before {
+    content: "Actions";
+
+    display: block;
+
+    margin-right: 4px;
+
+    color: #617994;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+  }
+
+  .action-row-actions {
+    gap: 4px !important;
+  }
+
+  .action-row-actions button {
+    width: 29px !important;
+    height: 29px !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .action-items-page {
+    padding: 4px 0 20px;
+  }
+
+  .action-items-header h1 {
+    font-size: 23px;
+  }
+
+  .action-items-header p {
+    font-size: 12px;
+  }
+
+
+  /* SUMMARY → 1 COLUMN */
+
+  .action-summary-grid {
+    grid-template-columns: 1fr !important;
+
+    gap: 8px;
+  }
+
+  .action-summary-card {
+    min-height: 70px;
+
+    padding: 10px 12px;
+  }
+
+  .summary-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-basis: 36px;
+  }
+
+
+  /* SEARCH */
+
+  .action-toolbar-right {
+    gap: 6px;
+  }
+
+  .action-search {
+    height: 40px;
+  }
+
+  .action-filter-button {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  /* TABLE CARD */
+
+  .action-table-row {
+    padding: 16px 13px !important;
+  }
+
+  .task-cell strong {
+    font-size: 14px;
+  }
+
+  .task-cell span {
+    font-size: 11px;
+  }
+
+  .meeting-cell {
+    gap: 7px;
+  }
+
+  .meeting-icon {
+    width: 30px !important;
+    height: 30px !important;
+
+    flex-basis: 30px !important;
+  }
+
+  .meeting-cell strong {
+    max-width: 100px;
+
+    font-size: 11px;
+  }
+
+  .meeting-cell span {
+    font-size: 9px;
+  }
+
+  .assignee-avatar {
+    width: 30px !important;
+    height: 30px !important;
+
+    flex-basis: 30px !important;
+  }
+
+  .assignee-cell {
+    gap: 6px;
+  }
+
+  .assignee-cell span {
+    max-width: 70px;
+
+    font-size: 11px;
+  }
+
+  .priority-badge {
+    min-width: 60px;
+
+    padding: 5px 9px;
+
+    font-size: 11px;
+  }
+
+  .action-status-select {
+    width: 115px !important;
+
+    font-size: 11px !important;
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .action-items-header h1 {
+    font-size: 21px;
+  }
+
+  .action-items-header p {
+    font-size: 11px;
+  }
+
+  .action-filter-tabs button {
+    padding: 0 11px;
+
+    font-size: 11px;
+  }
+
+  .action-table-row {
+    padding: 14px 10px !important;
+  }
+
+  .meeting-cell strong {
+    max-width: 80px;
+  }
+
+  .assignee-cell span {
+    max-width: 55px;
+  }
+
+  .action-status-select {
+    width: 105px !important;
+  }
+}
+
+
+/* =========================================================
+   PREVENT HORIZONTAL PAGE SCROLL
+   ========================================================= */
+
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   ACTION ITEMS — REMOVE UNNECESSARY DESKTOP HORIZONTAL SCROLL
+   ========================================================= */
+
+@media (min-width: 1201px) {
+  .action-table-wrapper {
+    overflow-x: hidden !important;
+  }
+
+  .action-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .action-table-header,
+  .action-table-row {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+
+    grid-template-columns:
+      48px
+      minmax(220px, 2fr)
+      minmax(160px, 1.25fr)
+      minmax(125px, 1fr)
+      95px
+      135px
+      155px
+      44px !important;
+  }
+
+  .action-table-header {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .action-table-row {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .action-row-actions {
+    min-width: 0 !important;
+    width: 44px !important;
+    justify-content: center !important;
+  }
+
+  .action-row-actions button {
+    flex: 0 0 30px !important;
+  }
+}
+/* =========================================================
+   INTELMEET - ACTION ITEMS
+   LIGHT THEME
+   ========================================================= */
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+html.light-theme .action-items-page {
+  color: #334155;
+  background: #f5f7fb;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+html.light-theme .action-items-header h1 {
+  color: #334155;
+}
+
+html.light-theme .action-items-header p {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+html.light-theme .action-items-error {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+html.light-theme .action-summary-card {
+  background: #ffffff;
+  border-color: #e1e5eb;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.035);
+}
+
+html.light-theme .action-summary-card:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+html.light-theme .action-summary-card.total,
+html.light-theme .action-summary-card.pending,
+html.light-theme .action-summary-card.progress,
+html.light-theme .action-summary-card.completed {
+  border-color: #dbe2ea;
+}
+
+
+/* =========================================================
+   SUMMARY ICON
+   ========================================================= */
+
+html.light-theme .summary-icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+html.light-theme .pending .summary-icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+html.light-theme .progress .summary-icon {
+  background: #cffafe;
+  color: #0891b2;
+}
+
+html.light-theme .completed .summary-icon {
+  background: #d1fae5;
+  color: #047857;
+}
+
+
+/* =========================================================
+   SUMMARY TEXT
+   ========================================================= */
+
+html.light-theme .action-summary-card span {
+  color: #64748b;
+}
+
+html.light-theme .action-summary-card strong {
+  color: #334155;
+}
+
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
+
+html.light-theme .action-filter-tabs button {
+  background: #ffffff;
+  border-color: #dfe5ec;
+  color: #64748b;
+}
+
+html.light-theme .action-filter-tabs button:hover {
+  background: #f8fafc;
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+
+html.light-theme .action-filter-tabs button.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+html.light-theme .action-search {
+  background: #ffffff;
+  border-color: #dfe5ec;
+  color: #64748b;
+}
+
+html.light-theme .action-search:focus-within {
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+html.light-theme .action-search input {
+  color: #334155;
+}
+
+html.light-theme .action-search input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+   ========================================================= */
+
+html.light-theme .action-filter-button {
+  background: #ffffff;
+  border-color: #dfe5ec;
+  color: #475569;
+}
+
+html.light-theme .action-filter-button:hover {
+  background: #f8fafc;
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   FILTER MENU
+   ========================================================= */
+
+html.light-theme .action-filter-menu {
+  background: #ffffff;
+  border-color: #e1e5eb;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+}
+
+html.light-theme .action-filter-menu button {
+  color: #475569;
+}
+
+html.light-theme .action-filter-menu button:hover {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+html.light-theme .action-table-wrapper {
+  background: #ffffff !important;
+  border-color: #e1e5eb !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+html.light-theme .action-table-header {
+  background: #f8fafc !important;
+  border-bottom-color: #e5e7eb !important;
+  color: #64748b !important;
+}
+
+
+/* =========================================================
+   TABLE ROW
+   ========================================================= */
+
+html.light-theme .action-table-row {
+  background: #ffffff !important;
+  border-bottom-color: #edf0f4 !important;
+}
+
+html.light-theme .action-table-row:hover {
+  background: #f8fafc !important;
+}
+
+
+/* =========================================================
+   CHECKBOX
+   ========================================================= */
+
+html.light-theme .table-checkbox,
+html.light-theme .task-checkbox {
+  background: #ffffff;
+  border-color: #cbd5e1 !important;
+  color: #ffffff;
+}
+
+html.light-theme .task-checkbox.checked {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+}
+
+
+/* =========================================================
+   TASK
+   ========================================================= */
+
+html.light-theme .task-cell strong {
+  color: #334155 !important;
+}
+
+html.light-theme .task-cell span {
+  color: #64748b !important;
+}
+
+
+/* =========================================================
+   MEETING
+   ========================================================= */
+
+html.light-theme .meeting-icon {
+  background: #dbeafe !important;
+  color: #2563eb !important;
+}
+
+html.light-theme .meeting-cell strong {
+  color: #475569 !important;
+}
+
+html.light-theme .meeting-cell span {
+  color: #94a3b8 !important;
+}
+
+
+/* =========================================================
+   ASSIGNEE
+   ========================================================= */
+
+html.light-theme .assignee-avatar {
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #6366f1
+  ) !important;
+
+  color: #ffffff !important;
+}
+
+html.light-theme .assignee-cell span {
+  color: #475569 !important;
+}
+
+
+/* =========================================================
+   PRIORITY
+   ========================================================= */
+
+html.light-theme .priority-badge.high {
+  background: #fef2f2 !important;
+  border-color: #fecaca !important;
+  color: #dc2626 !important;
+}
+
+html.light-theme .priority-badge.medium {
+  background: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #b45309 !important;
+}
+
+html.light-theme .priority-badge.low {
+  background: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #047857 !important;
+}
+
+
+/* =========================================================
+   DUE DATE
+   ========================================================= */
+
+html.light-theme .due-date {
+  color: #475569 !important;
+}
+
+html.light-theme .due-date svg {
+  color: #94a3b8 !important;
+}
+
+html.light-theme .due-date small {
+  color: #dc2626 !important;
+}
+
+html.light-theme .due-date.overdue {
+  color: #dc2626 !important;
+}
+
+
+/* =========================================================
+   STATUS SELECT
+   ========================================================= */
+
+html.light-theme .action-status-select.pending {
+  border-color: #fcd34d !important;
+  background: #fffbeb !important;
+  color: #b45309 !important;
+}
+
+html.light-theme .action-status-select.in-progress {
+  border-color: #93c5fd !important;
+  background: #eff6ff !important;
+  color: #2563eb !important;
+}
+
+html.light-theme .action-status-select.completed {
+  border-color: #6ee7b7 !important;
+  background: #d1fae5 !important;
+  color: #047857 !important;
+}
+
+html.light-theme .action-status-select option {
+  background: #ffffff !important;
+  color: #334155 !important;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+html.light-theme .action-row-actions button {
+  color: #94a3b8 !important;
+}
+
+html.light-theme .action-row-actions button:hover {
+  background: #eff6ff !important;
+  border-color: #dbeafe !important;
+  color: #2563eb !important;
+}
+
+
+/* =========================================================
+   MOBILE CARD - LIGHT THEME
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  html.light-theme .action-table-row {
+    background: #ffffff !important;
+    border-bottom-color: #e5e7eb !important;
+  }
+
+  html.light-theme .action-table-row:hover {
+    background: #f8fafc !important;
+  }
+
+  html.light-theme .action-table-row > .task-cell {
+    border-bottom-color: #e5e7eb !important;
+  }
+
+  html.light-theme .action-table-row > div:nth-child(5)::before,
+  html.light-theme .action-table-row > .due-date::before,
+  html.light-theme .action-table-row > div:nth-child(7)::before,
+  html.light-theme .action-table-row > .action-row-actions::before {
+    color: #94a3b8 !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  html.light-theme .action-table-row {
+    background: #ffffff !important;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  html.light-theme .action-table-row {
+    background: #ffffff !important;
+  }
+
+}

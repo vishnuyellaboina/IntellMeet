@@ -1,0 +1,724 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #070b14;
+  color: #f8fafc;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 75% 20%, rgba(59, 130, 246, 0.12), transparent 28%),
+    #070b14;
+}
+
+/* Navbar */
+
+.navbar {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 22px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #2563eb;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 10px 18px;
+  border-radius: 9px;
+  font-size: 14px;
+}
+
+.login-btn {
+  background: transparent;
+  color: #cbd5e1;
+}
+
+.signup-btn {
+  background: #2563eb;
+  color: white;
+}
+
+/* Hero */
+
+.hero {
+  max-width: 1200px;
+  margin: auto;
+  min-height: 650px;
+  padding: 90px 28px;
+
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.badge {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 7px 12px;
+  border-radius: 100px;
+
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+
+  color: #60a5fa;
+  font-size: 13px;
+}
+
+.hero h1 {
+  margin-top: 22px;
+  max-width: 680px;
+
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -3px;
+}
+
+.hero h1 span {
+  color: #3b82f6;
+}
+
+.hero-content > p {
+  max-width: 600px;
+  margin-top: 25px;
+
+  color: #94a3b8;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.primary-btn,
+.secondary-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 13px 20px;
+  border-radius: 10px;
+
+  font-weight: 600;
+}
+
+.primary-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.secondary-btn {
+  background: #111827;
+  color: #dbeafe;
+  border: 1px solid #1e293b;
+}
+
+.trust {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 25px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Meeting preview */
+
+.meeting-preview {
+  padding: 18px;
+  border-radius: 18px;
+
+  background: #0d1422;
+  border: 1px solid #1e293b;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 5px 3px 15px;
+
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.preview-header > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.video-card {
+  min-height: 125px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  background: #182234;
+
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.video-card.large {
+  min-height: 160px;
+  grid-column: span 2;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 9px;
+
+  border-radius: 50%;
+  background: #2563eb;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.avatar.purple {
+  background: #7c3aed;
+}
+
+.avatar.orange {
+  background: #ea580c;
+}
+
+.avatar.green {
+  background: #16a34a;
+}
+
+.meeting-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 15px;
+}
+
+.meeting-controls {
+  display: flex;
+  gap: 7px;
+}
+
+.meeting-controls button {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #182234;
+  color: #cbd5e1;
+}
+
+.end-btn {
+  padding: 8px 13px;
+  border-radius: 7px;
+
+  background: #dc2626;
+  color: white;
+  font-size: 12px;
+}
+
+/* Features */
+
+.features {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 28px;
+}
+
+.section-heading {
+  max-width: 650px;
+}
+
+.section-heading span,
+.cta span {
+  color: #60a5fa;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  margin-top: 12px;
+  font-size: 42px;
+  letter-spacing: -1.5px;
+}
+
+.section-heading p {
+  margin-top: 15px;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+.feature-grid {
+  margin-top: 50px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.feature-card {
+  padding: 25px;
+
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+
+  background: rgba(37, 99, 235, 0.12);
+  color: #60a5fa;
+}
+
+.feature-card h3 {
+  font-size: 16px;
+}
+
+.feature-card p {
+  margin-top: 10px;
+
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* CTA */
+
+.cta {
+  max-width: 1144px;
+  margin: 40px auto 100px;
+  padding: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 18px;
+  background: #101827;
+  border: 1px solid #1e293b;
+}
+
+.cta h2 {
+  margin-top: 8px;
+  font-size: 30px;
+}
+
+/* Footer */
+
+footer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 28px 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid #172033;
+}
+
+footer p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 50px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 18px;
+  }
+
+  .login-btn {
+    display: none;
+  }
+
+  .hero {
+    padding: 45px 18px;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+    letter-spacing: -2px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features {
+    padding: 70px 18px;
+  }
+
+  .cta {
+    margin: 20px 18px 70px;
+    padding: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  footer {
+    margin: 0 18px;
+    padding-left: 0;
+    padding-right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+/* ==========================================
+   INTELLMEET CUSTOM SCROLLBAR
+========================================== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080e19;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #2e55a9,
+    #3b82f6
+  );
+  border-radius: 10px;
+  border: 2px solid #080e19;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #2b579f,
+    #60a5fa
+  );
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #244896 #080e19;
+}
+/* =========================================================
+   GLOBAL LIGHT THEME
+   ========================================================= */
+
+html.light-theme,
+html.light-theme body {
+  background: #f4f7fb;
+  color: #172033;
+}
+
+html.light-theme body {
+  color-scheme: light;
+}
+
+/* Common application backgrounds */
+
+html.light-theme .dashboard,
+html.light-theme .dashboard-page,
+html.light-theme .dashboard-app,
+html.light-theme .dashboard-main,
+html.light-theme .notifications-page,
+html.light-theme .action-items-page,
+html.light-theme .workspace-page,
+html.light-theme .meeting-history-page,
+html.light-theme .settings-page {
+  background: #f4f7fb !important;
+  color: #172033 !important;
+}
+
+/* Cards */
+
+html.light-theme .card,
+html.light-theme .meeting-card,
+html.light-theme .stat-card,
+html.light-theme .notification-card,
+html.light-theme .action-card,
+html.light-theme .workspace-card,
+html.light-theme .settings-card {
+  background: #ffffff !important;
+  border-color: #dce4ee !important;
+  color: #172033 !important;
+}
+
+/* Sidebars */
+
+html.light-theme .sidebar,
+html.light-theme .dashboard-sidebar {
+  background: #ffffff !important;
+  border-color: #dce4ee !important;
+}
+
+/* Navigation */
+
+html.light-theme .nav-item,
+html.light-theme .dashboard-nav-item {
+  color: #59697d !important;
+}
+
+html.light-theme .nav-item:hover,
+html.light-theme .dashboard-nav-item:hover {
+  background: #eef3f8 !important;
+  color: #172033 !important;
+}
+
+html.light-theme .nav-item.active,
+html.light-theme .dashboard-nav-item.active {
+  background: #e6efff !important;
+  color: #2563eb !important;
+}
+
+/* Headings */
+
+html.light-theme h1,
+html.light-theme h2,
+html.light-theme h3,
+html.light-theme h4,
+html.light-theme strong {
+  color: #172033;
+}
+
+/* Secondary text */
+
+html.light-theme p,
+html.light-theme span {
+  color: #64748b;
+}
+
+/* Inputs */
+
+html.light-theme input,
+html.light-theme textarea,
+html.light-theme select {
+  background: #ffffff !important;
+  border-color: #d5deea !important;
+  color: #172033 !important;
+}
+
+html.light-theme input::placeholder,
+html.light-theme textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Header controls */
+
+html.light-theme .notification-bell,
+html.light-theme .profile {
+  background: #ffffff !important;
+  border-color: #dce4ee !important;
+  color: #526277 !important;
+}
+
+html.light-theme .notification-bell:hover,
+html.light-theme .profile:hover {
+  background: #eef3f8 !important;
+}
+
+/* Buttons */
+
+html.light-theme .settings-outline,
+html.light-theme .settings-back,
+html.light-theme .meeting-cancel-button {
+  background: #ffffff !important;
+  border-color: #d5deea !important;
+  color: #526277 !important;
+}
+
+/* Modals */
+
+html.light-theme .meeting-modal,
+html.light-theme .modal-content,
+html.light-theme .join-modal,
+html.light-theme .delete-modal {
+  background: #ffffff !important;
+  border-color: #dce4ee !important;
+  color: #172033 !important;
+}
+
+/* Tables */
+
+html.light-theme table,
+html.light-theme .action-table,
+html.light-theme .action-table-row,
+html.light-theme .meeting-table {
+  color: #172033;
+}
+
+html.light-theme .action-table-header,
+html.light-theme .meeting-table-header {
+  background: #f1f5f9 !important;
+  color: #64748b !important;
+}
+
+html.light-theme .action-table-row,
+html.light-theme .meeting-table-row {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Dropdowns */
+
+html.light-theme .dropdown,
+html.light-theme .menu,
+html.light-theme .popover {
+  background: #ffffff !important;
+  border-color: #dce4ee !important;
+  color: #172033 !important;
+}
+
+/* Scrollbars */
+
+html.light-theme ::-webkit-scrollbar-track {
+  background: #eef2f7;
+}
+
+html.light-theme ::-webkit-scrollbar-thumb {
+  background: #c5d0dd;
+}
+
+html.light-theme ::-webkit-scrollbar-thumb:hover {
+  background: #aebdcd;
+}

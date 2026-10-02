@@ -1,0 +1,749 @@
+/* ==========================================
+   INTELLMEET DASHBOARD LAYOUT
+========================================== */
+
+.dashboard-layout {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #0c1524;
+  color: #f8fafc;
+  padding: 10px;
+
+  
+  
+}
+
+
+/* ==========================================
+   TOP NAVBAR
+========================================== */
+
+.dashboard-topbar {
+  width: 100%;
+  height: 72px;
+  min-height: 72px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 2px 28px;
+
+
+  border-bottom: 1px solid #1e293b;
+
+  background: #08111d;
+
+  z-index: 100;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  
+}
+
+
+/* BRAND */
+
+.dashboard-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  min-width: 220px;
+
+  color: #f8fafc;
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.dashboard-brand-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+}
+
+.dashboard-brand-divider {
+  width: 1px;
+  height: 38px;
+
+  margin-right: 32px;
+
+  background: #1e293b;
+}
+
+
+/* SEARCH */
+
+.dashboard-search {
+  width: 470px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 0 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #263b51;
+  border-radius: 10px;
+
+  background: #0a1522;
+
+  color: #71869b;
+}
+
+.dashboard-search:focus-within {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+.dashboard-search input {
+  width: 100%;
+  min-width: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #f8fafc;
+
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.dashboard-search input::placeholder {
+  color: #64748b;
+}
+
+
+/* RIGHT SIDE */
+
+.dashboard-topbar-right {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+/* NOTIFICATION */
+
+.dashboard-notification {
+  position: relative;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #263449;
+  border-radius: 10px;
+
+  background: #0b1522;
+
+  color: #94a3b8;
+
+  cursor: pointer;
+}
+
+.dashboard-notification:hover {
+  background: #111d2d;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+.dashboard-notification-badge {
+  position: absolute;
+
+  top: -5px;
+  right: -5px;
+
+  min-width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 4px;
+
+  border: 2px solid #08111d;
+  border-radius: 20px;
+
+  background: #ef4444;
+
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+/* PROFILE */
+
+.dashboard-profile {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 4px 8px 4px 5px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #f8fafc;
+
+  cursor: pointer;
+}
+
+.dashboard-profile:hover {
+  background: #0d1725;
+  border-color: #1e293b;
+}
+
+.dashboard-profile-avatar {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #172b68;
+
+  color: #60a5fa;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dashboard-profile-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.dashboard-profile-info strong {
+  max-width: 130px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #f8fafc;
+
+  font-size: 13px;
+}
+
+.dashboard-profile-info span {
+  max-width: 150px;
+
+  margin-top: 2px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #64748b;
+
+  font-size: 10px;
+}
+
+
+/* ==========================================
+   BODY
+   SIDEBAR + CONTENT
+========================================== */
+
+.dashboard-body {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   SIDEBAR
+   DIRECTLY UNDER NAVBAR
+========================================== */
+
+.dashboard-sidebar {
+  width: 232px;
+  min-width: 232px;
+
+  height: 100%;
+
+  flex-shrink: 0;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+
+  padding: 22px 12px;
+
+  background: #0b111d;
+
+  border-right: 1px solid #1e293b;
+
+  overflow-y: auto;
+
+  
+  border-radius: 10px;
+}
+
+
+/* SIDEBAR NAV */
+
+.dashboard-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+/* NAV ITEM */
+
+.dashboard-nav-item {
+  width: 100%;
+  min-height: 44px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 13px;
+
+  border-radius: 10px;
+
+  color: #94a3b8;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.dashboard-nav-item:hover {
+  background: #111827;
+  color: #e2e8f0;
+}
+
+.dashboard-nav-item.active {
+  background: #172d6b;
+  color: #60a5fa;
+}
+
+
+/* LOGOUT */
+
+.dashboard-logout {
+  width: 100%;
+  min-height: 44px;
+
+  margin-top: auto;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 13px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #94a3b8;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.dashboard-logout:hover {
+  background: #3b1c24;
+  color: #fca5a5;
+}
+
+
+/* ==========================================
+   PAGE CONTENT
+========================================== */
+
+.dashboard-app {
+  flex: 1;
+
+  min-width: 0;
+  min-height: 0;
+
+  height: 100%;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+.dashboard-page-content {
+  width: 100%;
+  height: 100%;
+ 
+  box-sizing: border-box;
+
+  padding:  10px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+  .dashboard-brand {
+    min-width: auto;
+  }
+
+  .dashboard-brand-divider {
+    margin-right: 18px;
+  }
+
+  .dashboard-search {
+    width: 300px;
+  }
+
+  .dashboard-profile-info {
+    display: none;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .dashboard-topbar {
+    height: 64px;
+    min-height: 64px;
+
+    padding: 0 15px;
+  }
+
+  .dashboard-brand span {
+    display: none;
+  }
+
+  .dashboard-brand {
+    min-width: auto;
+  }
+
+  .dashboard-brand-divider {
+    margin-right: 15px;
+  }
+
+  .dashboard-search {
+    flex: 1;
+    width: auto;
+  }
+
+  .dashboard-topbar-right {
+    gap: 8px;
+  }
+
+  .dashboard-sidebar {
+    width: 68px;
+    min-width: 68px;
+
+    padding: 12px 8px;
+  }
+
+  .dashboard-nav-item span,
+  .dashboard-logout span {
+    display: none;
+  }
+
+  .dashboard-nav-item,
+  .dashboard-logout {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .dashboard-page-content {
+    padding: 5px 0px;
+  }
+}
+/* =========================================================
+   INTELLMEET - DASHBOARD LAYOUT
+   LIGHT THEME
+   ========================================================= */
+
+html.light-theme .dashboard-layout {
+  background: #f5f7fb;
+  color: #172033;
+}
+
+
+/* =========================================================
+   TOP NAVBAR
+   ========================================================= */
+
+html.light-theme .dashboard-topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+html.light-theme .dashboard-brand {
+  color: #172033;
+}
+
+html.light-theme .dashboard-brand-icon {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+html.light-theme .dashboard-brand-divider {
+  background: #e5e7eb;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+html.light-theme .dashboard-search {
+  background: #f8fafc;
+  border-color: #dfe4ea;
+  color: #64748b;
+}
+
+html.light-theme .dashboard-search:focus-within {
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+html.light-theme .dashboard-search input {
+  background: transparent;
+  color: #172033;
+}
+
+html.light-theme .dashboard-search input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   TOPBAR RIGHT SIDE
+   ========================================================= */
+
+html.light-theme .dashboard-topbar-right {
+  color: #172033;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+   ========================================================= */
+
+html.light-theme .dashboard-notification {
+  background: #ffffff;
+  border-color: #e1e5eb;
+  color: #64748b;
+}
+
+html.light-theme .dashboard-notification:hover {
+  background: #f8fafc;
+  border-color: #3b82f6;
+  color: #2563eb;
+}
+
+html.light-theme .dashboard-notification-badge {
+  border-color: #ffffff;
+  background: #ef4444;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+html.light-theme .dashboard-profile {
+  color: #172033;
+}
+
+html.light-theme .dashboard-profile:hover {
+  background: #f8fafc;
+  border-color: #e5e7eb;
+}
+
+html.light-theme .dashboard-profile-avatar {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+html.light-theme .dashboard-profile-info strong {
+  color: #172033;
+}
+
+html.light-theme .dashboard-profile-info span {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   MAIN BODY
+   ========================================================= */
+
+html.light-theme .dashboard-body {
+  background: #f5f7fb;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+html.light-theme .dashboard-sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 2px 0 10px rgba(15, 23, 42, 0.025);
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+html.light-theme .dashboard-nav-item {
+  color: #64748b;
+}
+
+html.light-theme .dashboard-nav-item:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+html.light-theme .dashboard-nav-item.active {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+html.light-theme .dashboard-logout {
+  color: #64748b;
+}
+
+html.light-theme .dashboard-logout:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+   ========================================================= */
+
+html.light-theme .dashboard-app {
+  background: #f5f7fb;
+}
+
+html.light-theme .dashboard-page-content {
+  background: #f5f7fb;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  html.light-theme .dashboard-topbar {
+    background: #ffffff;
+  }
+
+  html.light-theme .dashboard-sidebar {
+    background: #ffffff;
+  }
+
+}

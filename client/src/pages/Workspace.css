@@ -1,0 +1,886 @@
+.workspace-page {
+  min-height: 100vh;
+  
+  color: #f8fafc;
+  padding: 5px;
+}
+
+.workspace-header {
+  margin-bottom: 28px;
+}
+
+.workspace-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.workspace-back:hover {
+  color: #fff;
+}
+
+.workspace-header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.workspace-header p {
+  color: #94a3b8;
+  margin-top: 8px;
+}
+
+.workspace-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.workspace-sidebar,
+.workspace-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+}
+
+.workspace-sidebar {
+  padding: 18px;
+  height: fit-content;
+}
+
+.workspace-sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.workspace-list-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  padding: 11px;
+  margin-bottom: 6px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.workspace-list-item:hover,
+.workspace-list-item.active {
+  background: #1e293b;
+}
+
+.workspace-avatar,
+.workspace-big-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+.workspace-avatar {
+  width: 38px;
+  height: 38px;
+}
+
+.workspace-list-item strong {
+  display: block;
+}
+
+.workspace-list-item small {
+  display: block;
+  color: #64748b;
+  margin-top: 3px;
+}
+
+.create-workspace-form {
+  border-top: 1px solid #1f2937;
+  margin-top: 18px;
+  padding-top: 18px;
+}
+
+.create-workspace-form h3 {
+  margin-top: 0;
+}
+
+.create-workspace-form input,
+.create-workspace-form textarea,
+.add-member-form input,
+.add-member-form select {
+  width: 100%;
+  box-sizing: border-box;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.create-workspace-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.create-workspace-form button,
+.add-member-form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  padding: 11px;
+  cursor: pointer;
+}
+
+.create-workspace-form button:hover,
+.add-member-form button:hover {
+  background: #1d4ed8;
+}
+
+.workspace-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.workspace-card {
+  padding: 24px;
+}
+
+.workspace-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.workspace-big-avatar {
+  width: 70px;
+  height: 70px;
+  font-size: 28px;
+}
+
+.workspace-info h2 {
+  margin: 0 0 8px;
+}
+
+.workspace-info p {
+  margin: 0 0 8px;
+  color: #94a3b8;
+}
+
+.workspace-info span,
+.section-heading p,
+.member-left span {
+  color: #64748b;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0 0 5px;
+}
+
+.section-heading p {
+  margin: 0;
+}
+
+.add-member-form {
+  display: grid;
+  grid-template-columns: 1fr 140px 140px;
+  gap: 10px;
+}
+
+.add-member-form input,
+.add-member-form select {
+  margin-bottom: 0;
+}
+
+.members-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #1f2937;
+}
+
+.member-row:last-child {
+  border-bottom: none;
+}
+
+.member-left,
+.member-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.member-left span {
+  display: block;
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.member-avatar {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #334155;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.member-role {
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #1e293b;
+  color: #cbd5e1;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.member-role.owner {
+  background: #172554;
+  color: #93c5fd;
+}
+
+.member-role.admin {
+  background: #422006;
+  color: #fdba74;
+}
+
+.remove-member {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #ef4444;
+  cursor: pointer;
+}
+
+.workspace-loading,
+.workspace-no-selection,
+.workspace-empty-small {
+  color: #94a3b8;
+}
+
+.workspace-error {
+  background: #450a0a;
+  border: 1px solid #7f1d1d;
+  color: #fca5a5;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .workspace-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .add-member-form {
+    grid-template-columns: 1fr;
+  }
+}
+.delete-workspace-button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 18px;
+  padding: 9px 13px;
+  border: 1px solid #4c1d1d;
+  border-radius: 8px;
+  background: #241214;
+  color: #f87171;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-workspace-button:hover {
+  border-color: #7f1d1d;
+  background: #35171a;
+  color: #fca5a5;
+}
+.upload-file-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 13px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.upload-file-button:hover {
+  background: #1d4ed8;
+}
+
+.workspace-files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.workspace-file-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  background: #0c1320;
+}
+
+.workspace-file-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #111d38;
+  color: #60a5fa;
+}
+
+.workspace-file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.workspace-file-info strong {
+  display: block;
+  overflow: hidden;
+  color: #f8fafc;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspace-file-info span {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.workspace-file-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.workspace-file-actions a,
+.workspace-file-actions button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.workspace-file-actions a:hover {
+  background: #172033;
+  color: #60a5fa;
+}
+
+.workspace-file-actions button:hover {
+  background: #241214;
+  color: #f87171;
+}
+
+.workspace-files-empty {
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 16px;
+  border: 1px dashed #263449;
+  border-radius: 10px;
+  color: #64748b;
+  text-align: center;
+}
+
+.workspace-files-empty strong {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.workspace-files-empty span {
+  font-size: 11px;
+}
+.workspace-list-item {
+  position: relative;
+}
+
+.workspace-list-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding-right: 30px;
+}
+
+.workspace-list-delete {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #64748b;
+
+  cursor: pointer;
+  opacity: 0;
+
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.workspace-list-item:hover .workspace-list-delete {
+  opacity: 1;
+}
+
+.workspace-list-delete:hover {
+  background: #241214;
+  color: #f87171;
+}
+/* =========================================================
+   INTELMEET - WORKSPACE
+   LIGHT THEME
+   ========================================================= */
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+html.light-theme .workspace-page {
+  color: #334155;
+  background: #f5f7fb;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+html.light-theme .workspace-back {
+  color: #64748b;
+}
+
+html.light-theme .workspace-back:hover {
+  color: #2563eb;
+}
+
+html.light-theme .workspace-header h1 {
+  color: #334155;
+}
+
+html.light-theme .workspace-header p {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   SIDEBAR + CARDS
+   ========================================================= */
+
+html.light-theme .workspace-sidebar,
+html.light-theme .workspace-card {
+  background: #ffffff;
+  border-color: #e1e5eb;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.035);
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+html.light-theme .workspace-sidebar-title {
+  color: #475569;
+}
+
+html.light-theme .workspace-list-item {
+  color: #475569;
+}
+
+html.light-theme .workspace-list-item:hover,
+html.light-theme .workspace-list-item.active {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+html.light-theme .workspace-list-item strong {
+  color: #334155;
+}
+
+html.light-theme .workspace-list-item small {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   WORKSPACE AVATARS
+   ========================================================= */
+
+html.light-theme .workspace-avatar,
+html.light-theme .workspace-big-avatar {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   CREATE WORKSPACE
+   ========================================================= */
+
+html.light-theme .create-workspace-form {
+  border-top-color: #e5e7eb;
+}
+
+html.light-theme .create-workspace-form h3 {
+  color: #475569;
+}
+
+html.light-theme .create-workspace-form input,
+html.light-theme .create-workspace-form textarea,
+html.light-theme .add-member-form input,
+html.light-theme .add-member-form select {
+  background: #ffffff;
+  border-color: #dfe5ec;
+  color: #334155;
+}
+
+html.light-theme .create-workspace-form input::placeholder,
+html.light-theme .create-workspace-form textarea::placeholder,
+html.light-theme .add-member-form input::placeholder {
+  color: #94a3b8;
+}
+
+html.light-theme .create-workspace-form input:focus,
+html.light-theme .create-workspace-form textarea:focus,
+html.light-theme .add-member-form input:focus,
+html.light-theme .add-member-form select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+
+/* =========================================================
+   PRIMARY BUTTONS
+   ========================================================= */
+
+html.light-theme .create-workspace-form button,
+html.light-theme .add-member-form button {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+html.light-theme .create-workspace-form button:hover,
+html.light-theme .add-member-form button:hover {
+  background: #1d4ed8;
+}
+
+
+/* =========================================================
+   WORKSPACE INFORMATION
+   ========================================================= */
+
+html.light-theme .workspace-info h2 {
+  color: #334155;
+}
+
+html.light-theme .workspace-info p {
+  color: #64748b;
+}
+
+html.light-theme .workspace-info span,
+html.light-theme .section-heading p,
+html.light-theme .member-left span {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+html.light-theme .section-heading h2 {
+  color: #334155;
+}
+
+
+/* =========================================================
+   ADD MEMBER FORM
+   ========================================================= */
+
+html.light-theme .add-member-form select option {
+  background: #ffffff;
+  color: #334155;
+}
+
+
+/* =========================================================
+   MEMBERS
+   ========================================================= */
+
+html.light-theme .member-row {
+  border-bottom-color: #edf0f4;
+}
+
+html.light-theme .member-avatar {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+
+/* =========================================================
+   MEMBER ROLES
+   ========================================================= */
+
+html.light-theme .member-role {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+html.light-theme .member-role.owner {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+html.light-theme .member-role.admin {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+
+/* =========================================================
+   REMOVE MEMBER
+   ========================================================= */
+
+html.light-theme .remove-member {
+  color: #ef4444;
+}
+
+html.light-theme .remove-member:hover {
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   EMPTY / LOADING
+   ========================================================= */
+
+html.light-theme .workspace-loading,
+html.light-theme .workspace-no-selection,
+html.light-theme .workspace-empty-small {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+html.light-theme .workspace-error {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   DELETE WORKSPACE
+   ========================================================= */
+
+html.light-theme .delete-workspace-button {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+html.light-theme .delete-workspace-button:hover {
+  border-color: #fca5a5;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+
+/* =========================================================
+   UPLOAD FILE
+   ========================================================= */
+
+html.light-theme .upload-file-button {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+html.light-theme .upload-file-button:hover {
+  background: #1d4ed8;
+}
+
+
+/* =========================================================
+   FILE LIST
+   ========================================================= */
+
+html.light-theme .workspace-files-list {
+  color: #334155;
+}
+
+html.light-theme .workspace-file-row {
+  background: #f8fafc;
+  border-color: #e1e5eb;
+}
+
+html.light-theme .workspace-file-row:hover {
+  background: #f1f5f9;
+}
+
+
+/* =========================================================
+   FILE ICON
+   ========================================================= */
+
+html.light-theme .workspace-file-icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   FILE INFORMATION
+   ========================================================= */
+
+html.light-theme .workspace-file-info strong {
+  color: #475569;
+}
+
+html.light-theme .workspace-file-info span {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   FILE ACTIONS
+   ========================================================= */
+
+html.light-theme .workspace-file-actions a,
+html.light-theme .workspace-file-actions button {
+  color: #94a3b8;
+}
+
+html.light-theme .workspace-file-actions a:hover {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+html.light-theme .workspace-file-actions button:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   EMPTY FILES
+   ========================================================= */
+
+html.light-theme .workspace-files-empty {
+  border-color: #cbd5e1;
+  color: #64748b;
+}
+
+html.light-theme .workspace-files-empty strong {
+  color: #475569;
+}
+
+html.light-theme .workspace-files-empty span {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   WORKSPACE LIST DELETE
+   ========================================================= */
+
+html.light-theme .workspace-list-delete {
+  color: #94a3b8;
+}
+
+html.light-theme .workspace-list-delete:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  html.light-theme .workspace-layout {
+    background: transparent;
+  }
+
+}

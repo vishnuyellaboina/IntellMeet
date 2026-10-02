@@ -1,0 +1,99 @@
+/* ==========================================
+   INTELLMEET - GLOBAL RESPONSIVE SYSTEM
+========================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+/* ==========================================
+   LARGE DESKTOP
+   1200px+
+========================================== */
+
+@media (min-width: 1200px) {
+  .meetings-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================
+   LAPTOP
+   992px - 1199px
+========================================== */
+
+@media (max-width: 1199px) {
+  .meetings-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* ==========================================
+   TABLET
+   768px - 991px
+========================================== */
+
+@media (max-width: 991px) {
+  .meetings-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+   576px - 767px
+========================================== */
+
+@media (max-width: 767px) {
+  .meetings-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+   0px - 575px
+========================================== */
+
+@media (max-width: 575px) {
+  .meetings-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* ==========================================
+   VERY SMALL PHONES
+   380px and below
+========================================== */
+
+@media (max-width: 380px) {
+  .meetings-list {
+    gap: 10px;
+  }
+}
