@@ -2181,62 +2181,109 @@ html.light-theme .cancel-button:disabled {
   color: #ffffff;
 }
 /* ==========================================
-   MOBILE CREATE MEETING FORM
+   MOBILE CREATE MEETING BOTTOM SHEET
    DARK + LIGHT MODE
    ========================================== */
 
 @media (max-width: 600px) {
 
-  /* Create Meeting form/modal */
-  .create-meeting-modal,
-  .create-meeting-form {
+  /* Overlay */
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  /* Create Meeting modal */
+  .modal-overlay .meeting-modal {
     width: 100%;
     max-width: 100%;
 
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    max-height: 88vh;
 
     margin: 0;
 
     border-radius: 18px 18px 0 0;
 
-    max-height: 85vh;
     overflow-y: auto;
 
-    z-index: 1100;
-
     box-sizing: border-box;
+
+    animation: mobileMeetingSheet 0.25s ease-out;
   }
 
-  /* Keep form content comfortable on phones */
-  .create-meeting-modal-content,
-  .create-meeting-form {
-    padding: 18px 16px;
+  /* Header */
+  .modal-overlay .meeting-modal .modal-header {
+    padding: 16px 16px 12px;
   }
 
-  /* Form title */
-  .create-meeting-modal h2,
-  .create-meeting-form h2 {
+  .modal-overlay .meeting-modal .modal-header h2 {
     font-size: 19px;
-    margin-bottom: 14px;
   }
 
-  /* Inputs */
-  .create-meeting-modal input,
-  .create-meeting-modal textarea,
-  .create-meeting-modal select,
-  .create-meeting-form input,
-  .create-meeting-form textarea,
-  .create-meeting-form select {
+  .modal-overlay .meeting-modal .modal-header p {
+    font-size: 11px;
+  }
+
+  /* Form */
+  .modal-overlay .meeting-modal .meeting-form {
+    padding: 0 16px 16px;
+  }
+
+  .modal-overlay .meeting-modal .meeting-form label {
+    font-size: 12px;
+  }
+
+  .modal-overlay .meeting-modal .meeting-form input,
+  .modal-overlay .meeting-modal .meeting-form textarea {
     width: 100%;
     box-sizing: border-box;
+
+    font-size: 13px;
   }
 
   /* Buttons */
-  .create-meeting-modal button,
-  .create-meeting-form button {
+  .modal-overlay .meeting-modal .modal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    padding-top: 8px;
+  }
+
+  .modal-overlay .meeting-modal .modal-actions button {
+    width: 100%;
     min-height: 42px;
+  }
+}
+
+
+/* ==========================================
+   MOBILE CREATE SHEET ANIMATION
+========================================== */
+
+@keyframes mobileMeetingSheet {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+/* ==========================================
+   LIGHT MODE — MOBILE CREATE SHEET
+========================================== */
+
+@media (max-width: 600px) {
+
+  html.light-theme .modal-overlay .meeting-modal {
+    background: #ffffff;
+    color: #172033;
+
+    box-shadow:
+      0 -8px 30px rgba(15, 23, 42, 0.12);
   }
 }
