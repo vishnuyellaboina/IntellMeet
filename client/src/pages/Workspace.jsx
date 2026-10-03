@@ -49,7 +49,7 @@ const [uploadingFile, setUploadingFile] =
       setLoading(true);
 
       const response = await axios.get(
-        `${API}/workspaces`,
+        `${API_URL}/workspaces`,
         config
       );
 
@@ -80,7 +80,7 @@ const [uploadingFile, setUploadingFile] =
 
     try {
       const response = await axios.post(
-        `${API}/workspaces`,
+        `${API_URL}/workspaces`,
         {
           name,
           description,
@@ -114,7 +114,7 @@ const [uploadingFile, setUploadingFile] =
 
     try {
       const response = await axios.post(
-        `${API}/workspaces/${selectedWorkspace._id}/members`,
+        `${API_URL}/workspaces/${selectedWorkspace._id}/members`,
         {
           email: memberEmail,
           role: memberRole,
@@ -151,7 +151,7 @@ const [uploadingFile, setUploadingFile] =
 
     try {
       const response = await axios.delete(
-        `${API}/workspaces/${selectedWorkspace._id}/members/${userId}`,
+        `${API_URL}/workspaces/${selectedWorkspace._id}/members/${userId}`,
         config
       );
 
@@ -177,7 +177,7 @@ const [uploadingFile, setUploadingFile] =
       setLoadingFiles(true);
 
       const response = await axios.get(
-        `${API}/workspaces/${workspaceId}/files`,
+        `${API_URL}/workspaces/${workspaceId}/files`,
         config
       );
 
@@ -210,7 +210,7 @@ const [uploadingFile, setUploadingFile] =
       formData.append("file", file);
 
       const response = await axios.post(
-        `${API}/workspaces/${selectedWorkspace._id}/files`,
+        `${API_URL}/workspaces/${selectedWorkspace._id}/files`,
         formData,
         {
           headers: {
@@ -243,7 +243,7 @@ const [uploadingFile, setUploadingFile] =
 
     try {
       await axios.delete(
-        `${API}/workspaces/${selectedWorkspace._id}/files/${fileId}`,
+        `${API_URL}/workspaces/${selectedWorkspace._id}/files/${fileId}`,
         config
       );
 
@@ -273,7 +273,7 @@ const [uploadingFile, setUploadingFile] =
 
     try {
       await axios.delete(
-        `${API}/workspaces/${workspaceId}`,
+        `${API_URL}/workspaces/${workspaceId}`,
         config
       );
 
