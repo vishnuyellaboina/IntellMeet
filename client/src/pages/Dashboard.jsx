@@ -1030,7 +1030,7 @@ const handleDeleteMeeting = async (meetingId) => {
 
                       )}
 
-                  {meeting.host?._id === user?.id &&
+                  {meeting.host?._id === (user?._id || user?.id) &&
   (meeting.status === "scheduled" ||
    meeting.status === "live") && (
 
