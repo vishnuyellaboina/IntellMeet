@@ -2235,113 +2235,399 @@ html.light-theme .cancel-button:disabled {
 
 
 /* =========================================================
-   CREATE MEETING POPUP — MOBILE ONLY
-   Desktop / Web CSS above remains unchanged
+   MOBILE UI ONLY
+   <= 600px
+   DO NOT MODIFY DESKTOP CSS
    ========================================================= */
 
 @media screen and (max-width: 600px) {
 
+  /* ==========================================
+     DASHBOARD PAGE
+  ========================================== */
+
+  .dashboard-home-content {
+    padding: 16px 12px 88px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+  /* ==========================================
+     HEADER
+  ========================================== */
+
+  .dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+  }
+
+  .dashboard-header h1 {
+    margin: 0;
+
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .header-description {
+    margin-top: 5px;
+
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .dashboard-header-actions {
+    gap: 7px;
+    flex-shrink: 0;
+  }
+
+
+  /* ==========================================
+     QUICK ACTIONS
+  ========================================== */
+
+  .quick-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+  }
+
+  .create-meeting,
+  .join-meeting {
+    min-width: 0;
+
+    padding: 12px;
+
+    gap: 9px;
+
+    border-radius: 12px;
+  }
+
+  .create-meeting > div,
+  .join-meeting > div {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .create-meeting strong,
+  .join-meeting strong {
+    display: block;
+
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .create-meeting small,
+  .join-meeting small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 9px;
+    line-height: 1.3;
+  }
+
+
+  /* ==========================================
+     STAT CARDS
+  ========================================== */
+
+  .stats-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+
+    margin-bottom: 22px;
+  }
+
+  .stat-card {
+    min-width: 0;
+
+    padding: 11px;
+
+    gap: 9px;
+
+    border-radius: 11px;
+  }
+
+  .stat-icon {
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+  }
+
+  .stat-card h3 {
+    margin: 0;
+
+    font-size: 17px;
+    line-height: 1.1;
+  }
+
+  .stat-card p {
+    margin-top: 3px;
+
+    font-size: 9px;
+  }
+
+
+  /* ==========================================
+     RECENT MEETINGS HEADER
+  ========================================== */
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    margin-bottom: 11px;
+  }
+
+  .section-title h2 {
+    margin: 0;
+
+    font-size: 17px;
+  }
+
+  .section-title button {
+    font-size: 10px;
+  }
+
+
+  /* ==========================================
+     MEETING LIST
+  ========================================== */
+
+  .meetings-list {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+  }
+
+
+  /* ==========================================
+     MEETING CARD
+  ========================================== */
+
+  .meeting-card {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 11px;
+
+    box-sizing: border-box;
+
+    border-radius: 11px;
+  }
+
+  .meeting-card-info {
+    width: auto;
+
+    min-width: 0;
+
+    flex: 1;
+  }
+
+  .meeting-card-info h3 {
+    font-size: 13px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .meeting-card-info p {
+    font-size: 10px;
+  }
+
+  .meeting-card-info span {
+    font-size: 9px;
+  }
+
+
+  /* ==========================================
+     MEETING CARD ACTIONS
+  ========================================== */
+
+  .meeting-card-actions {
+    width: auto;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 5px;
+
+    padding-left: 0;
+  }
+
+  .meeting-card-actions button {
+    min-height: 34px;
+
+    padding: 7px 9px;
+
+    font-size: 10px;
+  }
+
+
+  /* ==========================================
+     CREATE / JOIN MODAL
+     MOBILE ONLY
+  ========================================== */
+
   .modal-overlay {
-    position: fixed !important;
-    inset: 0 !important;
-
-    width: 100vw !important;
-    height: 100vh !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    padding: 14px !important;
-    box-sizing: border-box !important;
-
-    z-index: 9999 !important;
+    padding: 12px;
   }
 
-  .modal-overlay .meeting-modal {
-    width: 100% !important;
-    max-width: 430px !important;
-    max-height: 90vh !important;
+  .meeting-modal {
+    width: 100%;
 
-    margin: 0 !important;
-    padding: 20px !important;
+    max-width: 430px;
 
-    box-sizing: border-box !important;
+    max-height: 90vh;
 
-    overflow-y: auto !important;
+    padding: 18px;
 
-    border-radius: 16px !important;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+    border-radius: 16px;
   }
 
-  .modal-overlay .meeting-modal .modal-header {
-    gap: 12px !important;
-    margin-bottom: 18px !important;
+  .modal-header {
+    gap: 10px;
+
+    margin-bottom: 15px;
   }
 
-  .modal-overlay .meeting-modal .modal-header h2 {
-    font-size: 20px !important;
+  .modal-header h2 {
+    font-size: 19px;
   }
 
-  .modal-overlay .meeting-modal .modal-header p {
-    font-size: 12px !important;
+  .modal-header p {
+    font-size: 11px;
   }
 
-  .modal-overlay .meeting-modal .modal-close {
-    width: 34px !important;
-    height: 34px !important;
-    min-width: 34px !important;
-    min-height: 34px !important;
+  .modal-close {
+    width: 32px;
+    height: 32px;
+
+    min-width: 32px;
   }
 
-  .modal-overlay .meeting-modal .meeting-form {
-    gap: 8px !important;
+
+  /* ==========================================
+     FORM
+  ========================================== */
+
+  .meeting-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
   }
 
-  .modal-overlay .meeting-modal .meeting-form input,
-  .modal-overlay .meeting-modal .meeting-form textarea {
-    width: 100% !important;
-    box-sizing: border-box !important;
-    font-size: 14px !important;
+  .meeting-form label {
+    font-size: 11px;
   }
 
-  .modal-overlay .meeting-modal .meeting-form textarea {
-    min-height: 80px !important;
+  .meeting-form input,
+  .meeting-form textarea,
+  .meeting-form select {
+    width: 100%;
+
+    min-height: 40px;
+
+    box-sizing: border-box;
+
+    font-size: 13px;
   }
 
-  .modal-overlay .meeting-modal .meeting-form-buttons {
-    width: 100% !important;
+  .meeting-form textarea {
+    min-height: 75px;
 
-    display: flex !important;
-    gap: 10px !important;
-
-    margin-top: 10px !important;
+    resize: vertical;
   }
 
-  .modal-overlay .meeting-modal .meeting-form-buttons button {
-    flex: 1 !important;
-    width: auto !important;
-    min-height: 42px !important;
+
+  /* ==========================================
+     FORM BUTTONS
+  ========================================== */
+
+  .meeting-form-buttons,
+  .modal-actions {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 8px;
+  }
+
+  .meeting-form-buttons button,
+  .modal-actions button {
+    width: 100%;
+
+    min-height: 42px;
+
+    font-size: 12px;
+  }
+
+
+  /* ==========================================
+     MOBILE SPACING
+  ========================================== */
+
+  .dashboard-home-content > section {
+    margin-bottom: 18px;
   }
 }
 
 
 /* =========================================================
-   LIGHT MODE — MOBILE CREATE POPUP
+   LIGHT MODE — MOBILE ONLY
+   Keep existing light-mode colors
    ========================================================= */
 
 @media screen and (max-width: 600px) {
 
-  html.light-theme .modal-overlay {
-    background: rgba(15, 23, 42, 0.35);
-    backdrop-filter: blur(6px);
+  html.light-theme .meeting-modal {
+    box-shadow:
+      0 20px 50px rgba(15, 23, 42, 0.15);
   }
 
-  html.light-theme .modal-overlay .meeting-modal {
+  html.light-theme .meeting-form input,
+  html.light-theme .meeting-form textarea,
+  html.light-theme .meeting-form select {
     background: #ffffff;
-    border-color: #e1e5eb;
     color: #172033;
-
-    box-shadow:
-      0 25px 60px rgba(15, 23, 42, 0.18);
   }
 }
