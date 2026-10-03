@@ -533,8 +533,7 @@
   font-weight: 800;
   letter-spacing: 1.4px;
 }
-
-.section-heading h2,
+.landing-section .section-heading h2,
 .landing-about h2,
 .landing-security h2,
 .landing-cta h2 {
