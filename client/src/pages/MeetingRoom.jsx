@@ -708,7 +708,7 @@ socket.on(
 
       const response =
         await axios.get(
-          `${API_URL}/api/transcripts/${roomId}`,
+          `${API_URL}/transcripts/${roomId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -755,7 +755,7 @@ socket.on(
     const cleanText = text.trim();
 
     const response = await axios.post(
-      `${API_URL}/api/transcripts`,
+      `${API_URL}/transcripts`,
       {
         meetingRoomId: roomId,
         text: cleanText,
@@ -832,7 +832,7 @@ const loadMeetingDetails = async () => {
     }
 
     const response = await axios.get(
-      `${API_URL}/api/meetings/${roomId}`,
+      `${API_URL}/meetings/${roomId}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -940,7 +940,7 @@ const loadMeetingDetails = async () => {
       setAiError("");
 
       const response = await axios.get(
-        `${API_URL}/api/ai/meeting/${roomId}`,
+        `${API_URL}/ai/meeting/${roomId}`,
         {
           headers: {
             Authorization:
@@ -988,7 +988,7 @@ const loadSavedAIInsights = async () => {
     setLoadingSavedInsights(true);
 
     const response = await axios.get(
-      `${API_URL}/api/ai/meeting/${roomId}/saved`,
+      `${API_URL}/ai/meeting/${roomId}/saved`,
       {
         headers: {
           Authorization:
@@ -1063,7 +1063,7 @@ const loadActionItems = async () => {
     setActionItemError("");
 
     const response = await axios.get(
-      `${API_URL}/api/action-items/meeting/${roomId}`,
+      `${API_URL}/action-items/meeting/${roomId}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -2751,7 +2751,7 @@ useEffect(() => {
 
                   const response =
                     await axios.put(
-                      `${API_URL}/api/action-items/${item._id}`,
+                      `${API_URL}/action-items/${item._id}`,
                       {
                         status:
                           event.target.value,
