@@ -162,6 +162,9 @@ function Notifications() {
       )
     );
   };
+  window.dispatchEvent(
+  new Event("notificationsUpdated")
+);
 
   const markAllAsRead = async () => {
   try {

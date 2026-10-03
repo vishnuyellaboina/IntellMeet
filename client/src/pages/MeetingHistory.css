@@ -623,105 +623,7 @@
   margin: 0;
 }
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
 
-@media (max-width: 1250px) {
-  .history-table-header,
-  .history-table-row {
-    grid-template-columns:
-      minmax(220px, 1.5fr)
-      minmax(140px, 1fr)
-      minmax(130px, 0.9fr)
-      80px
-      100px
-      155px;
-  }
-
-  .history-meeting-icon {
-    width: 43px;
-    height: 43px;
-  }
-
-  .view-meeting-button {
-    padding: 0 13px;
-  }
-}
-
-@media (max-width: 1050px) {
-  .history-table-wrapper {
-    overflow-x: auto;
-  }
-
-  .history-table-header,
-  .history-table-row {
-    min-width: 980px;
-  }
-
-  .history-filter-row {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .history-selects {
-    width: 100%;
-  }
-}
-
-@media (max-width: 700px) {
-  .history-topbar {
-    justify-content: space-between;
-    gap: 12px;
-    padding: 0 14px;
-  }
-
-  .history-search {
-    width: 100%;
-  }
-
-  .history-profile span,
-  .history-profile > svg {
-    display: none;
-  }
-
-  .meeting-history-content {
-    padding: 18px 14px;
-  }
-
-  .history-page-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .history-page-header h1 {
-    font-size: 28px;
-  }
-
-  .export-history-button {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .history-status-filters {
-    width: 100%;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 4px;
-  }
-
-  .history-filter {
-    flex: 0 0 auto;
-  }
-
-  .history-selects {
-    flex-direction: column;
-  }
-
-  .history-select {
-    width: 100%;
-  }
-}
 /* ==========================================
    DELETE CONFIRMATION MODAL
 ========================================== */
@@ -1334,28 +1236,354 @@ html.light-theme .delete-confirm-button:disabled {
   cursor: not-allowed;
 }
 
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
-/* =========================================================
-   RESPONSIVE LIGHT THEME
-   ========================================================= */
+/* TABLET */
+@media (max-width: 1250px) {
+  .history-table-header,
+  .history-table-row {
+    grid-template-columns:
+      minmax(220px, 1.5fr)
+      minmax(140px, 1fr)
+      minmax(130px, 0.9fr)
+      80px
+      100px
+      155px;
+  }
+
+  .history-meeting-icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .view-meeting-button {
+    padding: 0 13px;
+  }
+}
+
+/* SMALL TABLET */
+@media (max-width: 1050px) {
+  .meeting-history-content {
+    padding: 24px 18px;
+  }
+
+  .history-topbar {
+    padding: 0 18px;
+  }
+
+  .history-filter-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .history-status-filters {
+    width: 100%;
+  }
+
+  .history-selects {
+    width: 100%;
+  }
+
+  .history-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .history-table-header,
+  .history-table-row {
+    min-width: 980px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .history-topbar {
+    height: auto;
+    min-height: 60px;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 14px;
+  }
+
+  .history-search {
+    width: 100%;
+    max-width: none;
+    height: 42px;
+  }
+
+  .history-user-area {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .history-profile span,
+  .history-profile > svg {
+    display: none;
+  }
+
+  .history-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .meeting-history-content {
+    padding: 18px 14px 30px;
+  }
+
+  .history-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .history-page-header h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .history-page-header p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .export-history-button {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .history-filter-row {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .history-status-filters {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 7px;
+    padding-bottom: 5px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .history-status-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .history-filter {
+    flex: 0 0 auto;
+    height: 43px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+
+  .history-selects {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .history-select {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .history-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .history-table-header,
+  .history-table-row {
+    min-width: 980px;
+  }
+
+  .history-message,
+  .history-error,
+  .history-empty {
+    min-height: 220px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .history-topbar {
+    padding: 9px 10px;
+  }
+
+  .history-search {
+    height: 40px;
+    padding: 0 11px;
+    gap: 8px;
+  }
+
+  .history-search input {
+    font-size: 13px;
+  }
+
+  .history-notification {
+    width: 32px;
+    height: 32px;
+  }
+
+  .history-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .meeting-history-content {
+    padding: 16px 10px 26px;
+  }
+
+  .history-page-header h1 {
+    font-size: 25px;
+    letter-spacing: -0.4px;
+  }
+
+  .history-page-header p {
+    font-size: 13px;
+  }
+
+  .export-history-button {
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .history-filter {
+    height: 41px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .history-select {
+    min-height: 42px;
+  }
+}
+
+/* EXTRA SMALL MOBILE */
+@media (max-width: 360px) {
+  .history-topbar {
+    gap: 7px;
+  }
+
+  .history-search {
+    min-width: 0;
+  }
+
+  .history-search input {
+    min-width: 0;
+    font-size: 12px;
+  }
+
+  .history-user-area {
+    gap: 4px;
+  }
+
+  .meeting-history-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .history-page-header h1 {
+    font-size: 23px;
+  }
+}
+
+/* ==========================================
+   LIGHT THEME - RESPONSIVE
+========================================== */
 
 @media (max-width: 1050px) {
+  html.light-theme .meeting-history-content {
+    background: #f5f7fb;
+  }
 
   html.light-theme .history-table-wrapper {
     background: #ffffff;
   }
 
+  html.light-theme .history-table-header {
+    background: #f8fafc;
+    border-bottom-color: #e5e7eb;
+  }
+
+  html.light-theme .history-table-row {
+    background: #ffffff;
+    border-bottom-color: #edf0f4;
+  }
+
+  html.light-theme .history-table-row:hover {
+    background: #f8fafc;
+  }
 }
 
-
 @media (max-width: 700px) {
-
   html.light-theme .history-topbar {
     background: #ffffff;
+    border-bottom-color: #e5e7eb;
   }
 
   html.light-theme .meeting-history-content {
     background: #f5f7fb;
+  }
+
+  html.light-theme .history-status-filters {
+    scrollbar-color: #cbd5e1 transparent;
+  }
+
+  html.light-theme .history-filter {
+    background: #ffffff;
+    border-color: #e5e7eb;
+  }
+
+  html.light-theme .history-select {
+    background: #ffffff;
+    border-color: #e5e7eb;
+    color: #1f2937;
+  }
+
+  html.light-theme .history-table-wrapper {
+    background: #ffffff;
+    border-color: #e5e7eb;
+  }
+
+  html.light-theme .history-table-header {
+    background: #f8fafc;
+    border-bottom-color: #e5e7eb;
+  }
+
+  html.light-theme .history-table-row {
+    background: #ffffff;
+    border-bottom-color: #edf0f4;
+  }
+
+  html.light-theme .history-table-row:hover {
+    background: #f8fafc;
+  }
+
+  html.light-theme .history-message,
+  html.light-theme .history-error,
+  html.light-theme .history-empty {
+    background: #ffffff;
+    border-color: #e5e7eb;
+  }
+}
+
+@media (max-width: 480px) {
+  html.light-theme .history-search {
+    background: #f8fafc;
+    border-color: #e5e7eb;
   }
 
   html.light-theme .history-filter {
@@ -1366,4 +1594,14 @@ html.light-theme .delete-confirm-button:disabled {
     background: #ffffff;
   }
 
+  html.light-theme .export-history-button {
+    background: #ffffff;
+    border-color: #e5e7eb;
+  }
+}
+
+@media (max-width: 360px) {
+  html.light-theme .meeting-history-content {
+    background: #f5f7fb;
+  }
 }
