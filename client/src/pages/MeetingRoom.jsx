@@ -951,12 +951,20 @@ const loadMeetingDetails = async () => {
         }
       );
 
-      if (response.data.success) {
+if (response.data.success) {
   const insights =
     response.data.insights;
 
   setAiInsights(insights);
   setSavedAIInsights(insights);
+
+  // Reload action items created by AI
+  await loadActionItems();
+
+  console.log(
+    "AI insights generated successfully:",
+    insights
+  );
 } else {
         setAiError(
           response.data.message ||
@@ -1039,21 +1047,7 @@ if (response.data.success) {
     setLoadingSavedInsights(false);
   }
 };
-useEffect(() => {
-  if (!roomId) {
-    return;
-  }
 
-  const openSavedAIInsights = async () => {
-    const insights = await loadSavedAIInsights();
-
-    if (insights) {
-      setShowAIInsights(true);
-    }
-  };
-
-  openSavedAIInsights();
-}, [roomId]);
 const loadActionItems = async () => {
   try {
     const token = localStorage.getItem("token");
