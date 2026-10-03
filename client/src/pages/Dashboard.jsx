@@ -97,9 +97,23 @@ function Dashboard() {
     }
   );
 
-      setMeetings(
-        response.data.meetings || []
-      );
+     const meetings = response.data.meetings || [];
+
+const sortedMeetings = [...meetings].sort(
+  (a, b) => {
+    const dateA = new Date(
+      a.startTime || a.createdAt
+    ).getTime();
+
+    const dateB = new Date(
+      b.startTime || b.createdAt
+    ).getTime();
+
+    return dateB - dateA;
+  }
+);
+
+setMeetings(sortedMeetings);
     } catch (error) {
       console.error(
         "Failed to fetch meetings:",
