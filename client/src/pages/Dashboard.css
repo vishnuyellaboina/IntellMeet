@@ -2262,13 +2262,43 @@ html.light-theme .cancel-button:disabled {
    MOBILE CREATE SHEET ANIMATION
 ========================================== */
 
-@keyframes mobileMeetingSheet {
-  from {
-    transform: translateY(100%);
+/* ==========================================
+   MOBILE CREATE MEETING POPUP
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  .modal-overlay .meeting-modal {
+    width: calc(100% - 28px);
+    max-width: 430px;
+
+    max-height: 90vh;
+
+    margin: auto;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    border-radius: 14px;
   }
 
-  to {
-    transform: translateY(0);
+  .modal-overlay .meeting-modal .modal-header {
+    padding: 16px;
+  }
+
+  .modal-overlay .meeting-modal .meeting-form {
+    padding: 0 16px 16px;
+  }
+
+  .modal-overlay .meeting-modal .modal-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .modal-overlay .meeting-modal .modal-actions button {
+    flex: 1;
+    min-height: 42px;
   }
 }
 
