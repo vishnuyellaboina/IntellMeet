@@ -419,32 +419,29 @@ function Dashboard() {
       return;
     }
 
-    const startTime =
-      `${formData.meetingDate}T${formData.meetingTime}:00`;
+  const startDate = new Date(
+  `${formData.meetingDate}T${formData.meetingTime}:00`
+);
 
-    const endTime =
-      `${formData.meetingDate}T${formData.meetingEndTime}:00`;
+const endDate = new Date(
+  `${formData.meetingDate}T${formData.meetingEndTime}:00`
+);
 
-    const startDate =
-      new Date(startTime);
-
-    const endDate =
-      new Date(endTime);
-    if (startDate <= new Date()) {
+if (startDate <= new Date()) {
   setError(
     "Meeting start time must be in the future."
   );
   return;
 }
 
-    if (endDate <= startDate) {
-      setError(
-        "End time must be after start time."
-      );
-      return;
-    }
+if (endDate <= startDate) {
+  setError(
+    "End time must be after start time."
+  );
+  return;
+}
 
-    setLoading(true);
+setLoading(true);
 
     try {
       const token =
@@ -456,12 +453,11 @@ function Dashboard() {
       }
 
       const meetingData = {
-        title: formData.title.trim(),
-        description:
-          formData.description.trim(),
-        startTime,
-        endTime,
-      };
+  title: formData.title.trim(),
+  description: formData.description.trim(),
+  startTime: startDate.toISOString(),
+  endTime: endDate.toISOString(),
+};
 
       await axios.post(
   `${API_URL}/meetings`,
