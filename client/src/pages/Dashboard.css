@@ -688,46 +688,6 @@
 }
 
 
-@media (max-width: 600px) {
-
-  .dashboard-home-content {
-    padding: 20px 14px;
-  }
-
-  .dashboard-header {
-    align-items: flex-start;
-  }
-
-  .dashboard-header-actions {
-    gap: 8px;
-  }
-
-  .profile-info {
-    display: none;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section-title {
-    align-items: flex-start;
-  }
-
-  .meeting-card {
-    flex-wrap: wrap;
-  }
-
-  .meeting-card-info {
-    width: calc(100% - 54px);
-  }
-
-  .meeting-card-actions {
-    width: 100%;
-    justify-content: flex-start;
-    padding-left: 53px;
-  }
-}
 
 
 @media (max-width: 430px) {
@@ -1334,204 +1294,108 @@ input::placeholder {
   line-height: 1.45;
 
 }
-
-
-/* ==========================================
-   MOBILE
-========================================== */
-
 @media (max-width: 600px) {
-
-  .join-meeting-modal {
-
-    max-width: calc(100vw - 28px);
-
-    padding: 22px;
-
+  .dashboard-home-content {
+    padding: 18px 12px 24px;
   }
 
-  .join-modal-actions {
-
-    flex-direction: column-reverse;
-
+  .dashboard-header {
+    align-items: center;
+    margin-bottom: 20px;
   }
 
-  .join-modal-actions button {
+  .dashboard-header-actions {
+    gap: 8px;
+  }
 
+  .profile-info {
+    display: none;
+  }
+
+  /* Keep the same cards and colors,
+     only make the mobile arrangement more compact */
+  .quick-actions {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .create-meeting,
+  .join-meeting {
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .create-meeting > div,
+  .join-meeting > div {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .create-meeting strong,
+  .join-meeting strong {
+    font-size: 12px;
+  }
+
+  .create-meeting small,
+  .join-meeting small {
+    font-size: 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .stat-card {
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .stat-icon {
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+  }
+
+  .stat-card h3 {
+    font-size: 17px;
+  }
+
+  .section-title {
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .section-title h2 {
+    font-size: 17px;
+  }
+
+  .meetings-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .meeting-card {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .meeting-card-info {
+    width: calc(100% - 50px);
+  }
+
+  .meeting-card-actions {
     width: 100%;
-
+    justify-content: flex-start;
+    padding-left: 50px;
   }
-
-}
-/* ==========================================
-   CREATE MEETING MODAL
-========================================== */
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.72);
-  backdrop-filter: blur(6px);
 }
 
-.meeting-modal {
-  width: 100%;
-  max-width: 560px;
-  padding: 26px;
-  border: 1px solid #263449;
-  border-radius: 12px;
-  background: #0d1422;
-  color: #f8fafc;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-}
 
-.modal-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 24px;
-}
-
-.modal-header h2 {
-  margin: 0;
-  color: #f8fafc;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.modal-header p {
-  margin: 6px 0 0;
-  color: #94a3b8;
-  font-size: 14px;
-}
-
-.modal-close {
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid #334155;
-  border-radius: 8px;
-  background: #111827;
-  color: #94a3b8;
-  cursor: pointer;
-}
-
-.modal-close:hover {
-  background: #1e293b;
-  color: #f8fafc;
-}
-
-.meeting-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.meeting-form label {
-  color: #cbd5e1;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.meeting-form input,
-.meeting-form textarea {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 11px 13px;
-  border: 1px solid #334155;
-  border-radius: 8px;
-  outline: none;
-  background: #080e19;
-  color: #f8fafc;
-  font-size: 14px;
-}
-
-.meeting-form input:focus,
-.meeting-form textarea:focus {
-  border-color: #2563eb;
-}
-
-.meeting-form textarea {
-  min-height: 90px;
-  resize: vertical;
-}
-
-.meeting-form input::placeholder,
-.meeting-form textarea::placeholder {
-  color: #64748b;
-}
-
-.modal-error {
-  margin-bottom: 16px;
-  padding: 11px 13px;
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  border-radius: 8px;
-  background: rgba(239, 68, 68, 0.1);
-  color: #fca5a5;
-  font-size: 13px;
-}
-
-.modal-success {
-  margin-bottom: 16px;
-  padding: 11px 13px;
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  border-radius: 8px;
-  background: rgba(34, 197, 94, 0.1);
-  color: #86efac;
-  font-size: 13px;
-}
-
-.meeting-form-buttons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.cancel-button,
-.submit-meeting-button {
-  height: 42px;
-  padding: 0 18px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.cancel-button {
-  border: 1px solid #334155;
-  background: #111827;
-  color: #cbd5e1;
-}
-
-.cancel-button:hover {
-  background: #1e293b;
-}
-
-.submit-meeting-button {
-  border: 1px solid #2563eb;
-  background: #2563eb;
-  color: #ffffff;
-}
-
-.submit-meeting-button:hover {
-  background: #1d4ed8;
-}
-
-.submit-meeting-button:disabled,
-.cancel-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
 /* =========================================================
    INTELLMEET - DASHBOARD
    LIGHT THEME
@@ -2177,20 +2041,104 @@ html.light-theme .cancel-button:disabled {
 
 
 @media (max-width: 600px) {
-
-  html.light-theme .dashboard-home-content {
-    background: #f5f7fb;
+  .dashboard-home-content {
+    padding: 18px 12px 24px;
   }
 
-  html.light-theme .meeting-card {
-    border-color: #e1e5eb;
+  .dashboard-header {
+    align-items: center;
+    margin-bottom: 20px;
   }
 
-  html.light-theme .join-meeting-modal,
-  html.light-theme .meeting-modal {
-    background: #ffffff;
+  .dashboard-header-actions {
+    gap: 8px;
   }
 
+  .profile-info {
+    display: none;
+  }
+
+  /* Keep the same cards and colors,
+     only make the mobile arrangement more compact */
+  .quick-actions {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .create-meeting,
+  .join-meeting {
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .create-meeting > div,
+  .join-meeting > div {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .create-meeting strong,
+  .join-meeting strong {
+    font-size: 12px;
+  }
+
+  .create-meeting small,
+  .join-meeting small {
+    font-size: 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .stat-card {
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .stat-icon {
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+  }
+
+  .stat-card h3 {
+    font-size: 17px;
+  }
+
+  .section-title {
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .section-title h2 {
+    font-size: 17px;
+  }
+
+  .meetings-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .meeting-card {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .meeting-card-info {
+    width: calc(100% - 50px);
+  }
+
+  .meeting-card-actions {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 50px;
+  }
 }
 
 
