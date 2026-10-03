@@ -342,24 +342,25 @@
 .section-heading {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 12px;
+  margin: 0;
+  text-align: left;
 }
 
 .section-heading h2 {
   margin: 0;
-
   font-size: 18px;
-  line-height: 1.2;
   font-weight: 650;
-
   color: #f8fafc;
+  text-align: left;
 }
 
 .section-heading p {
   margin: 4px 0 0;
-
   color: #71839b;
   font-size: 12px;
+  text-align: left;
 }
 
 .section-icon {
