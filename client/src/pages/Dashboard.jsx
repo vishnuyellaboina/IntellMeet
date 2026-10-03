@@ -419,12 +419,31 @@ function Dashboard() {
       return;
     }
 
-  const startDate = new Date(
-  `${formData.meetingDate}T${formData.meetingTime}:00`
+  const [year, month, day] =
+  formData.meetingDate.split("-").map(Number);
+
+const [startHour, startMinute] =
+  formData.meetingTime.split(":").map(Number);
+
+const [endHour, endMinute] =
+  formData.meetingEndTime.split(":").map(Number);
+
+const startDate = new Date(
+  year,
+  month - 1,
+  day,
+  startHour,
+  startMinute,
+  0
 );
 
 const endDate = new Date(
-  `${formData.meetingDate}T${formData.meetingEndTime}:00`
+  year,
+  month - 1,
+  day,
+  endHour,
+  endMinute,
+  0
 );
 
 if (startDate <= new Date()) {
