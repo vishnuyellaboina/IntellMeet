@@ -1159,7 +1159,7 @@
   margin-bottom: 14px;
 }
 
-.action-items-header > div {
+.action-items-header {
   display: flex;
   align-items: center;
   gap: 8px;
