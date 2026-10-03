@@ -2180,3 +2180,196 @@ html.light-theme .cancel-button:disabled {
   border-color: #f87171;
   color: #ffffff;
 }
+
+
+/* =========================================================
+   CREATE MEETING POPUP — MOBILE ONLY
+   Desktop / Web view is NOT changed
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  .modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 14px !important;
+    box-sizing: border-box !important;
+
+    z-index: 9999 !important;
+
+    background: rgba(0, 0, 0, 0.72) !important;
+    backdrop-filter: blur(6px);
+  }
+
+  .modal-overlay .meeting-modal {
+    position: relative !important;
+
+    width: 100% !important;
+    max-width: 430px !important;
+    max-height: 90vh !important;
+
+    margin: 0 !important;
+    padding: 20px !important;
+
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+
+    border: 1px solid #263449 !important;
+    border-radius: 16px !important;
+
+    background: #0d1422 !important;
+    color: #f8fafc !important;
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55) !important;
+  }
+
+  .modal-overlay .meeting-modal .modal-header {
+    width: 100% !important;
+
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+
+    gap: 12px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .modal-overlay .meeting-modal .modal-header h2 {
+    margin: 0 !important;
+    color: #f8fafc !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+  }
+
+  .modal-overlay .meeting-modal .modal-header p {
+    margin: 5px 0 0 !important;
+    color: #94a3b8 !important;
+    font-size: 12px !important;
+  }
+
+  .modal-overlay .meeting-modal .modal-close {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+
+    flex-shrink: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+  }
+
+  .modal-overlay .meeting-modal .meeting-form {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .modal-overlay .meeting-modal .meeting-form label {
+    display: block !important;
+
+    margin-top: 4px !important;
+
+    color: #cbd5e1 !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
+
+  .modal-overlay .meeting-modal .meeting-form input,
+  .modal-overlay .meeting-modal .meeting-form textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+  }
+
+  .modal-overlay .meeting-modal .meeting-form textarea {
+    min-height: 80px !important;
+    resize: vertical;
+  }
+
+  .modal-overlay .meeting-modal .modal-actions,
+  .modal-overlay .meeting-modal .meeting-form-buttons {
+    width: 100% !important;
+
+    display: flex !important;
+    gap: 10px !important;
+
+    margin-top: 10px !important;
+  }
+
+  .modal-overlay .meeting-modal .modal-actions button,
+  .modal-overlay .meeting-modal .meeting-form-buttons button {
+    flex: 1 !important;
+    min-height: 42px !important;
+  }
+}
+
+
+/* =========================================================
+   CREATE MEETING POPUP — LIGHT MODE / MOBILE ONLY
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  html.light-theme .modal-overlay {
+    background: rgba(15, 23, 42, 0.35) !important;
+  }
+
+  html.light-theme .modal-overlay .meeting-modal {
+    background: #ffffff !important;
+    border-color: #e1e5eb !important;
+    color: #172033 !important;
+
+    box-shadow:
+      0 25px 60px rgba(15, 23, 42, 0.18) !important;
+  }
+
+  html.light-theme .modal-overlay .meeting-modal .modal-header h2 {
+    color: #172033 !important;
+  }
+
+  html.light-theme .modal-overlay .meeting-modal .modal-header p {
+    color: #64748b !important;
+  }
+
+  html.light-theme .modal-overlay .meeting-modal .meeting-form label {
+    color: #334155 !important;
+  }
+
+  html.light-theme .modal-overlay .meeting-modal .meeting-form input,
+  html.light-theme .modal-overlay .meeting-modal .meeting-form textarea {
+    background: #ffffff !important;
+    border-color: #dbe2ea !important;
+    color: #172033 !important;
+  }
+
+  html.light-theme .modal-overlay .meeting-modal .meeting-form input::placeholder,
+  html.light-theme .modal-overlay .meeting-modal .meeting-form textarea::placeholder {
+    color: #94a3b8 !important;
+  }
+
+  html.light-theme .modal-overlay .meeting-modal .modal-close {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #64748b !important;
+  }
+
+  html.light-theme .modal-overlay .meeting-modal .modal-close:hover {
+    background: #eff6ff !important;
+    border-color: #93c5fd !important;
+    color: #2563eb !important;
+  }
+}
