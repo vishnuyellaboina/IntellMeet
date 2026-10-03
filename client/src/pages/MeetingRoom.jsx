@@ -999,24 +999,25 @@ const loadSavedAIInsights = async () => {
       }
     );
 
-    if (response.data.success) {
+if (response.data.success) {
   const insights =
     response.data.insights;
 
-  // Store saved insights
+  setAiInsights(insights);
   setSavedAIInsights(insights);
 
-  // DO NOT display automatically
-  // setAiInsights(insights);
-
-  setAiError("");
+  // Reload action items created by AI
+  await loadActionItems();
 
   console.log(
-    "Previous AI insights loaded:",
+    "AI insights generated successfully:",
     insights
   );
-
-  return insights;
+} else {
+  setAiError(
+    response.data.message ||
+      "Failed to generate AI insights."
+  );
 }
 
     return null;
