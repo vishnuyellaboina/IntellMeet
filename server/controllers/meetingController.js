@@ -392,9 +392,6 @@ const getMeetingHistory = async (req, res) => {
         { host: userId },
         { participants: userId },
       ],
-      endTime: {
-        $ne: null,
-      },
     })
       .populate("host", "name email avatar")
       .populate(
@@ -402,9 +399,11 @@ const getMeetingHistory = async (req, res) => {
         "name email avatar"
       )
       .sort({
-        endTime: -1,
+        startTime: -1,
         updatedAt: -1,
       });
+
+    const now = new Date();
 
     const history = meetings.map((meeting) => {
       let durationMinutes = 0;
@@ -430,6 +429,25 @@ const getMeetingHistory = async (req, res) => {
         );
       }
 
+      let status = meeting.status;
+
+      // Never change cancelled meetings
+      if (status !== "cancelled") {
+        if (
+          meeting.endTime &&
+          now >= new Date(meeting.endTime)
+        ) {
+          status = "completed";
+        } else if (
+          meeting.startTime &&
+          now >= new Date(meeting.startTime)
+        ) {
+          status = "live";
+        } else {
+          status = "scheduled";
+        }
+      }
+
       return {
         _id: meeting._id,
         title: meeting.title,
@@ -440,10 +458,7 @@ const getMeetingHistory = async (req, res) => {
         startTime: meeting.startTime,
         endTime: meeting.endTime,
         durationMinutes,
-        status:
-          meeting.status === "cancelled"
-            ? "cancelled"
-            : "completed",
+        status,
         createdAt: meeting.createdAt,
       };
     });
