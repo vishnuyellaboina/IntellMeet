@@ -155,18 +155,20 @@ const [showActionItems, setShowActionItems] =
   const senderName = user.name || "You";
 
   const hostId =
-    meetingDetails?.host?._id ||
-    meetingDetails?.host ||
-    null;
+  meetingDetails?.host?._id ||
+  meetingDetails?.host ||
+  null;
 
-  const isMeetingHost =
-    !!user?.id &&
-    !!hostId &&
-    hostId.toString() === user.id.toString();
+const currentUserId = user?.id || user?._id;
 
-  const hostName =
-    meetingDetails?.host?.name ||
-    "Host";
+const isMeetingHost =
+  !!currentUserId &&
+  !!hostId &&
+  hostId.toString() === currentUserId.toString();
+
+const hostName =
+  meetingDetails?.host?.name ||
+  "Host";
 
   // ==========================================
   // START MEDIA
