@@ -2180,3 +2180,63 @@ html.light-theme .cancel-button:disabled {
   border-color: #f87171;
   color: #ffffff;
 }
+/* ==========================================
+   MOBILE CREATE MEETING FORM
+   DARK + LIGHT MODE
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  /* Create Meeting form/modal */
+  .create-meeting-modal,
+  .create-meeting-form {
+    width: 100%;
+    max-width: 100%;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    margin: 0;
+
+    border-radius: 18px 18px 0 0;
+
+    max-height: 85vh;
+    overflow-y: auto;
+
+    z-index: 1100;
+
+    box-sizing: border-box;
+  }
+
+  /* Keep form content comfortable on phones */
+  .create-meeting-modal-content,
+  .create-meeting-form {
+    padding: 18px 16px;
+  }
+
+  /* Form title */
+  .create-meeting-modal h2,
+  .create-meeting-form h2 {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  /* Inputs */
+  .create-meeting-modal input,
+  .create-meeting-modal textarea,
+  .create-meeting-modal select,
+  .create-meeting-form input,
+  .create-meeting-form textarea,
+  .create-meeting-form select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Buttons */
+  .create-meeting-modal button,
+  .create-meeting-form button {
+    min-height: 42px;
+  }
+}
