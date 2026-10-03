@@ -16,7 +16,7 @@
 ========================================== */
 
 .action-items-header {
-  display: flex;
+  display: flex-column;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
