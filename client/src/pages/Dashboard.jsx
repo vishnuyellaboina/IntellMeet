@@ -10,6 +10,7 @@ import {
   CheckSquare,
   X,
   Link,
+  Trash2,
 } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
@@ -598,7 +599,64 @@ setLoading(true);
       );
     }
   };
+  // ==========================================
+// DELETE MEETING
+// ==========================================
 
+const handleDeleteMeeting = async (meetingId) => {
+  const confirmDelete = window.confirm(
+    "Are you sure you want to permanently delete this meeting?"
+  );
+
+  if (!confirmDelete) {
+    return;
+  }
+
+  try {
+    setError("");
+    setSuccess("");
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
+    await axios.delete(
+      `${API_URL}/meetings/${meetingId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    setMeetings((previousMeetings) =>
+      previousMeetings.filter(
+        (meeting) => meeting._id !== meetingId
+      )
+    );
+
+    setSuccess("Meeting deleted successfully.");
+
+    await loadDashboardAnalytics();
+
+    setTimeout(() => {
+      setSuccess("");
+    }, 2000);
+  } catch (error) {
+    console.error(
+      "Delete meeting error:",
+      error.response?.data || error.message
+    );
+
+    setError(
+      error.response?.data?.message ||
+        "Failed to delete meeting."
+    );
+  }
+};
   // ==========================================
   // FORMAT MEETING HOURS
   // ==========================================
@@ -984,7 +1042,19 @@ setLoading(true);
   >
     Cancel
   </button>
-
+  
+)}
+{meeting.host?._id === user?.id && (
+  <button
+    className="meeting-delete-button"
+    onClick={() =>
+      handleDeleteMeeting(meeting._id)
+    }
+    title="Delete meeting"
+  >
+    <Trash2 size={15} />
+    Delete
+  </button>
 )}
 
                     </div>
