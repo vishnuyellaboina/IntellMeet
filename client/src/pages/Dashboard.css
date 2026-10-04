@@ -1549,7 +1549,7 @@ html.light-theme .cancel-button:disabled {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
     .create-meeting,
     .join-meeting {
@@ -1584,7 +1584,7 @@ html.light-theme .cancel-button:disabled {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 9px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
     .stat-card {
       min-width: 0;
