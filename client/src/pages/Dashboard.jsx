@@ -89,32 +89,32 @@ function Dashboard() {
         return;
       }
 
-        const response = await axios.get(
-    `${API_URL}/meetings`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+      const response = await axios.get(
+        `${API_URL}/meetings`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-     const meetings = response.data.meetings || [];
+      const meetings = response.data.meetings || [];
 
-const sortedMeetings = [...meetings].sort(
-  (a, b) => {
-    const dateA = new Date(
-      a.startTime || a.createdAt
-    ).getTime();
+      const sortedMeetings = [...meetings].sort(
+        (a, b) => {
+          const dateA = new Date(
+            a.startTime || a.createdAt
+          ).getTime();
 
-    const dateB = new Date(
-      b.startTime || b.createdAt
-    ).getTime();
+          const dateB = new Date(
+            b.startTime || b.createdAt
+          ).getTime();
 
-    return dateB - dateA;
-  }
-);
+          return dateB - dateA;
+        }
+      );
 
-setMeetings(sortedMeetings);
+      setMeetings(sortedMeetings);
     } catch (error) {
       console.error(
         "Failed to fetch meetings:",
@@ -133,7 +133,7 @@ setMeetings(sortedMeetings);
 
       setError(
         error.response?.data?.message ||
-          "Unable to load your meetings. Please check your connection and try again."
+        "Unable to load your meetings. Please check your connection and try again."
       );
     } finally {
       setLoadingMeetings(false);
@@ -150,13 +150,13 @@ setMeetings(sortedMeetings);
         localStorage.getItem("token");
 
       const response = await axios.get(
-  `${API_URL}/notifications`,
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
-);
+        `${API_URL}/notifications`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       const notifications =
         response.data.notifications || [];
@@ -193,13 +193,13 @@ setMeetings(sortedMeetings);
         setAnalyticsError("");
 
         const response = await axios.get(
-  `${API_URL}/analytics/dashboard`,
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
-);
+          `${API_URL}/analytics/dashboard`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         if (response.data.success) {
           setAnalytics(
@@ -210,12 +210,12 @@ setMeetings(sortedMeetings);
         console.error(
           "Load dashboard analytics error:",
           error.response?.data ||
-            error.message
+          error.message
         );
 
         setAnalyticsError(
           error.response?.data?.message ||
-            "Failed to load analytics."
+          "Failed to load analytics."
         );
       } finally {
         setLoadingAnalytics(false);
@@ -328,13 +328,13 @@ setMeetings(sortedMeetings);
 
     try {
       await axios.get(
-  `${API_URL}/meetings/${trimmedMeetingId}`,
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
-);
+        `${API_URL}/meetings/${trimmedMeetingId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       setShowJoinModal(false);
       setMeetingId("");
@@ -347,7 +347,7 @@ setMeetings(sortedMeetings);
       console.error(
         "Join meeting validation error:",
         error.response?.data ||
-          error.message
+        error.message
       );
 
       const status =
@@ -359,17 +359,17 @@ setMeetings(sortedMeetings);
       if (status === 410) {
         setJoinError(
           message ||
-            "This meeting has already ended. The Meeting ID is no longer active."
+          "This meeting has already ended. The Meeting ID is no longer active."
         );
       } else if (status === 404) {
         setJoinError(
           message ||
-            "This Meeting ID is invalid or does not exist."
+          "This Meeting ID is invalid or does not exist."
         );
       } else {
         setJoinError(
           message ||
-            "Unable to access this meeting. Please try again."
+          "Unable to access this meeting. Please try again."
         );
       }
     } finally {
@@ -434,48 +434,48 @@ setMeetings(sortedMeetings);
       return;
     }
 
-  const [year, month, day] =
-  formData.meetingDate.split("-").map(Number);
+    const [year, month, day] =
+      formData.meetingDate.split("-").map(Number);
 
-const [startHour, startMinute] =
-  formData.meetingTime.split(":").map(Number);
+    const [startHour, startMinute] =
+      formData.meetingTime.split(":").map(Number);
 
-const [endHour, endMinute] =
-  formData.meetingEndTime.split(":").map(Number);
+    const [endHour, endMinute] =
+      formData.meetingEndTime.split(":").map(Number);
 
-const startDate = new Date(
-  year,
-  month - 1,
-  day,
-  startHour,
-  startMinute,
-  0
-);
+    const startDate = new Date(
+      year,
+      month - 1,
+      day,
+      startHour,
+      startMinute,
+      0
+    );
 
-const endDate = new Date(
-  year,
-  month - 1,
-  day,
-  endHour,
-  endMinute,
-  0
-);
+    const endDate = new Date(
+      year,
+      month - 1,
+      day,
+      endHour,
+      endMinute,
+      0
+    );
 
-if (startDate <= new Date()) {
-  setError(
-    "Meeting start time must be in the future."
-  );
-  return;
-}
+    if (startDate <= new Date()) {
+      setError(
+        "Meeting start time must be in the future."
+      );
+      return;
+    }
 
-if (endDate <= startDate) {
-  setError(
-    "End time must be after start time."
-  );
-  return;
-}
+    if (endDate <= startDate) {
+      setError(
+        "End time must be after start time."
+      );
+      return;
+    }
 
-setLoading(true);
+    setLoading(true);
 
     try {
       const token =
@@ -487,23 +487,23 @@ setLoading(true);
       }
 
       const meetingData = {
-  title: formData.title.trim(),
-  description: formData.description.trim(),
-  startTime: startDate.toISOString(),
-  endTime: endDate.toISOString(),
-};
+        title: formData.title.trim(),
+        description: formData.description.trim(),
+        startTime: startDate.toISOString(),
+        endTime: endDate.toISOString(),
+      };
 
       await axios.post(
-  `${API_URL}/meetings`,
-  meetingData,
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type":
-        "application/json",
-    },
-  }
-);
+        `${API_URL}/meetings`,
+        meetingData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type":
+              "application/json",
+          },
+        }
+      );
 
       setSuccess(
         "Meeting created successfully!"
@@ -532,7 +532,7 @@ setLoading(true);
 
       setError(
         error.response?.data?.message ||
-          "Failed to create meeting. Please try again."
+        "Failed to create meeting. Please try again."
       );
     } finally {
       setLoading(false);
@@ -568,14 +568,14 @@ setLoading(true);
       }
 
       await axios.put(
-  `${API_URL}/meetings/${roomId}/cancel`,
-  {},
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
-);
+        `${API_URL}/meetings/${roomId}/cancel`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       setSuccess(
         "Meeting cancelled successfully."
@@ -595,68 +595,68 @@ setLoading(true);
 
       setError(
         error.response?.data?.message ||
-          "Failed to cancel meeting."
+        "Failed to cancel meeting."
       );
     }
   };
   // ==========================================
-// DELETE MEETING
-// ==========================================
+  // DELETE MEETING
+  // ==========================================
 
-const handleDeleteMeeting = async (meetingId) => {
-  const confirmDelete = window.confirm(
-    "Are you sure you want to permanently delete this meeting?"
-  );
+  const handleDeleteMeeting = async (meetingId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to permanently delete this meeting?"
+    );
 
-  if (!confirmDelete) {
-    return;
-  }
-
-  try {
-    setError("");
-    setSuccess("");
-
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      navigate("/login");
+    if (!confirmDelete) {
       return;
     }
 
-    await axios.delete(
-      `${API_URL}/meetings/${meetingId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    setMeetings((previousMeetings) =>
-      previousMeetings.filter(
-        (meeting) => meeting._id !== meetingId
-      )
-    );
-
-    setSuccess("Meeting deleted successfully.");
-
-    await loadDashboardAnalytics();
-
-    setTimeout(() => {
+    try {
+      setError("");
       setSuccess("");
-    }, 2000);
-  } catch (error) {
-    console.error(
-      "Delete meeting error:",
-      error.response?.data || error.message
-    );
 
-    setError(
-      error.response?.data?.message ||
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+
+      await axios.delete(
+        `${API_URL}/meetings/${meetingId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setMeetings((previousMeetings) =>
+        previousMeetings.filter(
+          (meeting) => meeting._id !== meetingId
+        )
+      );
+
+      setSuccess("Meeting deleted successfully.");
+
+      await loadDashboardAnalytics();
+
+      setTimeout(() => {
+        setSuccess("");
+      }, 2000);
+    } catch (error) {
+      console.error(
+        "Delete meeting error:",
+        error.response?.data || error.message
+      );
+
+      setError(
+        error.response?.data?.message ||
         "Failed to delete meeting."
-    );
-  }
-};
+      );
+    }
+  };
   // ==========================================
   // FORMAT MEETING HOURS
   // ==========================================
@@ -780,7 +780,7 @@ const handleDeleteMeeting = async (meetingId) => {
               loadingAnalytics
                 ? "..."
                 : analytics?.totalMeetings ??
-                  0
+                0
             }
             description="Your meetings"
           />
@@ -792,7 +792,7 @@ const handleDeleteMeeting = async (meetingId) => {
               loadingAnalytics
                 ? "..."
                 : analytics?.completedMeetings ??
-                  0
+                0
             }
             description="Completed"
           />
@@ -804,9 +804,9 @@ const handleDeleteMeeting = async (meetingId) => {
               loadingAnalytics
                 ? "..."
                 : formatDuration(
-                    analytics?.totalDurationMinutes ??
-                      0
-                  )
+                  analytics?.totalDurationMinutes ??
+                  0
+                )
             }
             description="Total duration"
           />
@@ -818,7 +818,7 @@ const handleDeleteMeeting = async (meetingId) => {
               loadingAnalytics
                 ? "..."
                 : analytics?.totalActionItems ??
-                  0
+                0
             }
             description="Total tasks"
           />
@@ -1015,47 +1015,47 @@ const handleDeleteMeeting = async (meetingId) => {
                       {(meeting.status ===
                         "scheduled" ||
                         meeting.status ===
-                          "live") && (
+                        "live") && (
 
+                          <button
+                            className="meeting-join-button"
+                            onClick={() =>
+                              handleJoinMeeting(
+                                meeting.roomId
+                              )
+                            }
+                          >
+                            Join
+                          </button>
+
+                        )}
+
+                      {meeting.host?._id === (user?._id || user?.id) &&
+                        (meeting.status === "scheduled" ||
+                          meeting.status === "live") && (
+
+                          <button
+                            className="meeting-cancel-button"
+                            onClick={() =>
+                              handleCancelMeeting(meeting.roomId)
+                            }
+                          >
+                            Cancel
+                          </button>
+
+                        )}
+                      {meeting.host?._id === user?.id && (
                         <button
-                          className="meeting-join-button"
+                          className="meeting-delete-button"
                           onClick={() =>
-                            handleJoinMeeting(
-                              meeting.roomId
-                            )
+                            handleDeleteMeeting(meeting._id)
                           }
+                          title="Delete meeting"
                         >
-                          Join
+                          <Trash2 size={15} />
+                          Delete
                         </button>
-
                       )}
-
-                  {meeting.host?._id === (user?._id || user?.id) &&
-  (meeting.status === "scheduled" ||
-   meeting.status === "live") && (
-
-  <button
-    className="meeting-cancel-button"
-    onClick={() =>
-      handleCancelMeeting(meeting.roomId)
-    }
-  >
-    Cancel
-  </button>
-  
-)}
-{meeting.host?._id === user?.id && (
-  <button
-    className="meeting-delete-button"
-    onClick={() =>
-      handleDeleteMeeting(meeting._id)
-    }
-    title="Delete meeting"
-  >
-    <Trash2 size={15} />
-    Delete
-  </button>
-)}
 
                     </div>
 
@@ -1135,15 +1135,15 @@ const handleDeleteMeeting = async (meetingId) => {
                     {joinError.includes(
                       "ended"
                     ) ||
-                    joinError.includes(
-                      "no longer active"
-                    )
+                      joinError.includes(
+                        "no longer active"
+                      )
                       ? "Meeting Completed"
                       : joinError.includes(
-                          "cancelled"
-                        )
-                      ? "Meeting Cancelled"
-                      : "Unable to Join Meeting"}
+                        "cancelled"
+                      )
+                        ? "Meeting Cancelled"
+                        : "Unable to Join Meeting"}
                   </strong>
 
                   <p>
@@ -1153,9 +1153,9 @@ const handleDeleteMeeting = async (meetingId) => {
                   {joinError.includes(
                     "ended"
                   ) ||
-                  joinError.includes(
-                    "no longer active"
-                  ) ? (
+                    joinError.includes(
+                      "no longer active"
+                    ) ? (
                     <span>
                       Don’t miss your next meeting!
                       Check your dashboard for

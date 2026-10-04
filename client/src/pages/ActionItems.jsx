@@ -103,7 +103,7 @@ function ActionItems() {
           console.error(
             `Failed to load action items for ${meeting.roomId}:`,
             itemError.response?.data ||
-              itemError.message
+            itemError.message
           );
         }
       }
@@ -125,7 +125,7 @@ function ActionItems() {
 
       setError(
         error.response?.data?.message ||
-          "Failed to load action items."
+        "Failed to load action items."
       );
     } finally {
       setLoading(false);
@@ -169,10 +169,10 @@ function ActionItems() {
           previous.map((item) =>
             item._id === actionItem._id
               ? {
-                  ...item,
-                  ...response.data.actionItem,
-                  status,
-                }
+                ...item,
+                ...response.data.actionItem,
+                status,
+              }
               : item
           )
         );
@@ -185,7 +185,7 @@ function ActionItems() {
 
       setError(
         error.response?.data?.message ||
-          "Failed to update action item."
+        "Failed to update action item."
       );
     }
   };
@@ -237,7 +237,7 @@ function ActionItems() {
 
       setError(
         error.response?.data?.message ||
-          "Failed to delete action item."
+        "Failed to delete action item."
       );
     } finally {
       setDeletingActionItem(false);
@@ -650,7 +650,7 @@ function ActionItems() {
                 <div className="action-table-header">
 
                   <div className="action-check-column">
-                    
+
                   </div>
 
                   <div>Task</div>
@@ -659,7 +659,7 @@ function ActionItems() {
                   <div>Priority</div>
                   <div>Due Date</div>
                   <div>Status</div>
-                   <div>Actions</div>
+                  <div>Actions</div>
 
 
                 </div>
@@ -679,19 +679,18 @@ function ActionItems() {
                       <div className="action-check-column">
 
                         <div
-                          className={`task-checkbox ${
-                            item.status ===
-                            "completed"
+                          className={`task-checkbox ${item.status ===
+                              "completed"
                               ? "checked"
                               : ""
-                          }`}
+                            }`}
                         >
                           {item.status ===
                             "completed" && (
-                            <CheckSquare
-                              size={17}
-                            />
-                          )}
+                              <CheckSquare
+                                size={17}
+                              />
+                            )}
                         </div>
 
                       </div>
@@ -761,10 +760,9 @@ function ActionItems() {
                       <div>
 
                         <span
-                          className={`priority-badge ${
-                            item.priority ||
+                          className={`priority-badge ${item.priority ||
                             "medium"
-                          }`}
+                            }`}
                         >
                           {item.priority ||
                             "medium"}
@@ -775,11 +773,10 @@ function ActionItems() {
                       {/* DUE DATE */}
 
                       <div
-                        className={`due-date ${
-                          isOverdue(item)
+                        className={`due-date ${isOverdue(item)
                             ? "overdue"
                             : ""
-                        }`}
+                          }`}
                       >
 
                         <Calendar
@@ -796,10 +793,10 @@ function ActionItems() {
                           {isOverdue(
                             item
                           ) && (
-                            <small>
-                              Overdue
-                            </small>
-                          )}
+                              <small>
+                                Overdue
+                              </small>
+                            )}
                         </div>
 
                       </div>
@@ -809,9 +806,8 @@ function ActionItems() {
                       <div>
 
                         <select
-                          className={`action-status-select ${
-                            item.status
-                          }`}
+                          className={`action-status-select ${item.status
+                            }`}
                           value={
                             item.status ||
                             "pending"
