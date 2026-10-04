@@ -855,7 +855,7 @@ function Dashboard() {
             <button
               onClick={() =>
                 navigate(
-                  "/meeting-details"
+                  "/dashboard/meetings"
                 )
               }
             >
