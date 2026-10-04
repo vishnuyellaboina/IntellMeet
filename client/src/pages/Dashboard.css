@@ -387,7 +387,6 @@
   justify-content: flex-end;
   gap: 6px;
   flex-shrink: 0;
-  display: none;
 }
 .meeting-status {
   padding: 4px 8px;
@@ -932,30 +931,7 @@ input::placeholder {
   opacity: 0.6;
   cursor: not-allowed;
 }
-.meeting-delete-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 34px;
-  padding: 0 11px;
-  border: 1px solid #ef4444;
-  border-radius: 7px;
-  background: rgba(239, 68, 68, 0.08);
-  color: #f87171;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
-}
-.meeting-delete-button:hover {
-  background: rgba(239, 68, 68, 0.16);
-  border-color: #f87171;
-  color: #ffffff;
-}
+
 /* =========================================================
    VIEWPORTS
    =========================================================*/
