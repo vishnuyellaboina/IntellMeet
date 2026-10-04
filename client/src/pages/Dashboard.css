@@ -387,6 +387,7 @@
   justify-content: flex-end;
   gap: 6px;
   flex-shrink: 0;
+  display: none;
 }
 .meeting-status {
   padding: 4px 8px;
