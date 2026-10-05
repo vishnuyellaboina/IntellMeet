@@ -1,8 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const sendEmail = require("../utils/sendEmail");
-
+const sendVerificationEmail = require("../utils/sendEmail");
 // Generate 6-digit OTP
 const generateOTP = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
@@ -363,7 +362,7 @@ const resendVerificationCode = async (req, res) => {
     await user.save();
 
     try {
-      await sendEmail(
+      await sendVerificationEmail(
         normalizedEmail,
         otp
       );
@@ -519,7 +518,7 @@ const forgotPassword = async (req, res) => {
     await user.save();
 
     try {
-      await sendEmail(
+      await sendVerificationEmail(
         normalizedEmail,
         otp
       );
@@ -601,7 +600,7 @@ const resendResetOTP = async (req, res) => {
     try {
       // Use the same working email function
       // that sends your registration OTP
-      await sendEmail(
+      await sendVerificationEmail(
         normalizedEmail,
         otp
       );
