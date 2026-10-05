@@ -49,24 +49,67 @@ const register = async (req, res) => {
       email: normalizedEmail,
     });
 
-    if (existingUser) {
-      return res.status(400).json({
-        message: "An account with this email already exists.",
+    // ==========================================
+    // EXISTING UNVERIFIED USER
+    // ==========================================
+    if (existingUser && !existingUser.emailVerified) {
+      const otp = generateOTP();
+
+      const otpExpires = new Date(
+        Date.now() + 10 * 60 * 1000
+      );
+
+      existingUser.name = name.trim();
+      existingUser.emailVerificationCode = otp;
+      existingUser.emailVerificationExpires = otpExpires;
+      existingUser.registrationCompleted = false;
+
+      await existingUser.save();
+
+      try {
+        await sendVerificationEmail(
+          normalizedEmail,
+          otp
+        );
+      } catch (emailError) {
+        console.error(
+          "Email sending error:",
+          emailError
+        );
+
+        return res.status(500).json({
+          message:
+            "Unable to send verification email. Please try again.",
+        });
+      }
+
+      return res.status(200).json({
+        success: true,
+        message:
+          "A new verification code has been sent to your email.",
+        email: normalizedEmail,
       });
     }
 
-    // Generate email verification OTP
+    // ==========================================
+    // EXISTING VERIFIED USER
+    // ==========================================
+    if (existingUser && existingUser.emailVerified) {
+      return res.status(400).json({
+        message:
+          "An account with this email already exists.",
+      });
+    }
+
+    // ==========================================
+    // NEW USER
+    // ==========================================
     const otp = generateOTP();
 
-    // OTP expires after 10 minutes
     const otpExpires = new Date(
       Date.now() + 10 * 60 * 1000
     );
 
-    /*
-      Create a temporary password because the actual
-      password will be created after email verification.
-    */
     const temporaryPassword = await bcrypt.hash(
       `TEMP_${Date.now()}_${Math.random()}`,
       10
@@ -86,7 +129,7 @@ const register = async (req, res) => {
     });
 
     try {
-      await sendEmail(
+      await sendVerificationEmail(
         normalizedEmail,
         otp
       );
