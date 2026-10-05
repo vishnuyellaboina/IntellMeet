@@ -583,3 +583,61 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+/* =========================================
+   PASSWORD VISIBILITY
+========================================= */
+
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.password-eye-button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #94a3b8;
+
+  cursor: pointer;
+}
+
+.password-eye-button:hover {
+  background: rgba(148, 163, 184, 0.12);
+  color: #e2e8f0;
+}
+
+.password-eye-button:focus {
+  outline: none;
+}
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+html.light-theme .password-eye-button {
+  color: #64748b;
+}
+
+html.light-theme .password-eye-button:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
@@ -25,6 +26,7 @@ function Login({ embedded = false, onSwitch }) {
 
   const [loading, setLoading] = useState(false);
   const [resending, setResending] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -523,16 +525,31 @@ try {
             Password
           </label>
 
-          <input
-            id="login-password"
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            value={formData.password}
-            onChange={handleChange}
-            autoComplete="current-password"
-            required
-          />
+          <div className="password-input-wrapper">
+  <input
+    id="login-password"
+    type={showPassword ? "text" : "password"}
+    name="password"
+    placeholder="Enter your password"
+    value={formData.password}
+    onChange={handleChange}
+    autoComplete="current-password"
+    required
+  />
+
+  <button
+    type="button"
+    className="password-eye-button"
+    onClick={() => setShowPassword(!showPassword)}
+    title={showPassword ? "Hide password" : "Show password"}
+  >
+    {showPassword ? (
+      <EyeOff size={18} />
+    ) : (
+      <Eye size={18} />
+    )}
+  </button>
+</div>
 
           <div className="forgot-password-row">
             <button

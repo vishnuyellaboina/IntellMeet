@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
@@ -28,6 +29,7 @@ function Register({ embedded = false, onSwitch }) {
 
   const [loading, setLoading] = useState(false);
   const [resending, setResending] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   // ==========================================
   // HANDLE INPUT
@@ -495,17 +497,32 @@ function Register({ embedded = false, onSwitch }) {
               Create Password
             </label>
 
-            <input
-              id="register-password"
-              type="password"
-              name="password"
-              placeholder="Minimum 6 characters"
-              value={formData.password}
-              onChange={handleChange}
-              autoComplete="new-password"
-              minLength={6}
-              required
-            />
+            <div className="password-input-wrapper">
+  <input
+    id="register-password"
+    type={showPassword ? "text" : "password"}
+    name="password"
+    placeholder="Minimum 6 characters"
+    value={formData.password}
+    onChange={handleChange}
+    autoComplete="new-password"
+    minLength={6}
+    required
+  />
+
+  <button
+    type="button"
+    className="password-eye-button"
+    onClick={() => setShowPassword(!showPassword)}
+    title={showPassword ? "Hide password" : "Show password"}
+  >
+    {showPassword ? (
+      <EyeOff size={18} />
+    ) : (
+      <Eye size={18} />
+    )}
+  </button>
+</div>
 
             <label htmlFor="register-confirm-password">
               Confirm Password
