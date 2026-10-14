@@ -93,56 +93,56 @@ function MeetingRoom() {
 
   const [showTranscriptionPanel, setShowTranscriptionPanel] =
     useState(false);
-const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-useEffect(() => {
-  const timer = setInterval(() => {
-    setCurrentTime(new Date());
-  }, 1000);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
 
-  return () => clearInterval(timer);
-}, []);
+    return () => clearInterval(timer);
+  }, []);
   // ==========================================
   // AI MEETING INSIGHTS
   // ==========================================
-const [aiInsights, setAiInsights] =
-  useState(null);
+  const [aiInsights, setAiInsights] =
+    useState(null);
 
-const [generatingInsights, setGeneratingInsights] =
-  useState(false);
+  const [generatingInsights, setGeneratingInsights] =
+    useState(false);
 
-const [aiError, setAiError] =
-  useState("");
+  const [aiError, setAiError] =
+    useState("");
 
-const [loadingSavedInsights, setLoadingSavedInsights] =
-  useState(false);
+  const [loadingSavedInsights, setLoadingSavedInsights] =
+    useState(false);
 
-const [savedAIInsights, setSavedAIInsights] =
-  useState(null);
+  const [savedAIInsights, setSavedAIInsights] =
+    useState(null);
 
   // MEETING DETAILS / HOST
-const [meetingDetails, setMeetingDetails] =
-  useState(null);
+  const [meetingDetails, setMeetingDetails] =
+    useState(null);
 
-const [meetingLoading, setMeetingLoading] =
-  useState(true);
+  const [meetingLoading, setMeetingLoading] =
+    useState(true);
 
-const [meetingExpired, setMeetingExpired] =
-  useState(false);
+  const [meetingExpired, setMeetingExpired] =
+    useState(false);
 
-const [meetingAccessError, setMeetingAccessError] =
-  useState("");
-// ACTION ITEMS
-const [actionItems, setActionItems] =
-  useState([]);
+  const [meetingAccessError, setMeetingAccessError] =
+    useState("");
+  // ACTION ITEMS
+  const [actionItems, setActionItems] =
+    useState([]);
 
-const [loadingActionItems, setLoadingActionItems] =
-  useState(false);
+  const [loadingActionItems, setLoadingActionItems] =
+    useState(false);
 
-const [actionItemError, setActionItemError] =
-  useState("");
-const [showActionItems, setShowActionItems] =
-  useState(false);
+  const [actionItemError, setActionItemError] =
+    useState("");
+  const [showActionItems, setShowActionItems] =
+    useState(false);
 
   // ==========================================
   // USER
@@ -155,20 +155,20 @@ const [showActionItems, setShowActionItems] =
   const senderName = user.name || "You";
 
   const hostId =
-  meetingDetails?.host?._id ||
-  meetingDetails?.host ||
-  null;
+    meetingDetails?.host?._id ||
+    meetingDetails?.host ||
+    null;
 
-const currentUserId = user?.id || user?._id;
+  const currentUserId = user?.id || user?._id;
 
-const isMeetingHost =
-  !!currentUserId &&
-  !!hostId &&
-  hostId.toString() === currentUserId.toString();
+  const isMeetingHost =
+    !!currentUserId &&
+    !!hostId &&
+    hostId.toString() === currentUserId.toString();
 
-const hostName =
-  meetingDetails?.host?.name ||
-  "Host";
+  const hostName =
+    meetingDetails?.host?.name ||
+    "Host";
 
   // ==========================================
   // START MEDIA
@@ -317,7 +317,18 @@ const hostName =
   // ==========================================
 
   const connectSocket = () => {
-    const socket = io(SOCKET_URL);
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      setError("Authentication required. Please log in again.");
+      return;
+    }
+
+    const socket = io(SOCKET_URL, {
+      auth: {
+        token,
+      },
+    });
 
     socketRef.current = socket;
 
@@ -420,7 +431,7 @@ const hostName =
             if (
               previousUser &&
               previousUser.socketId ===
-                participant.socketId
+              participant.socketId
             ) {
               return {
                 ...previousUser,
@@ -444,7 +455,7 @@ const hostName =
 
         setRemoteOnline(
           participant.status ===
-            "online"
+          "online"
         );
       }
     );
@@ -555,64 +566,64 @@ const hostName =
       }
     );
     // ========================================
-// LIVE TRANSCRIPT
-// ========================================
+    // LIVE TRANSCRIPT
+    // ========================================
 
-// ========================================
-// LIVE TRANSCRIPT
-// ========================================
+    // ========================================
+    // LIVE TRANSCRIPT
+    // ========================================
 
-socket.on(
-  "transcript-update",
-  (newTranscript) => {
-    console.log(
-      "Live transcript received:",
-      newTranscript
+    socket.on(
+      "transcript-update",
+      (newTranscript) => {
+        console.log(
+          "Live transcript received:",
+          newTranscript
+        );
+
+        setTranscripts((previous) => [
+          ...previous,
+          {
+            _id:
+              `live-${Date.now()}-${Math.random()}`,
+            speaker:
+              newTranscript.speaker,
+            text:
+              newTranscript.text,
+            timestamp:
+              newTranscript.timestamp ||
+              new Date().toISOString(),
+            isLive: true,
+          },
+        ]);
+      }
     );
 
-    setTranscripts((previous) => [
-      ...previous,
-      {
-        _id:
-          `live-${Date.now()}-${Math.random()}`,
-        speaker:
-          newTranscript.speaker,
-        text:
-          newTranscript.text,
-        timestamp:
-          newTranscript.timestamp ||
-          new Date().toISOString(),
-        isLive: true,
-      },
-    ]);
-  }
-);
+    // ========================================
+    // REAL-TIME ACTION ITEM UPDATE
+    // ========================================
 
-// ========================================
-// REAL-TIME ACTION ITEM UPDATE
-// ========================================
+    socket.on(
+      "action-item-updated",
+      (updatedItem) => {
+        console.log(
+          "Action item updated:",
+          updatedItem
+        );
 
-socket.on(
-  "action-item-updated",
-  (updatedItem) => {
-    console.log(
-      "Action item updated:",
-      updatedItem
+        setActionItems((previousItems) =>
+          previousItems.map((item) =>
+            item._id === updatedItem._id
+              ? updatedItem
+              : item
+          )
+        );
+      }
     );
 
-    setActionItems((previousItems) =>
-      previousItems.map((item) =>
-        item._id === updatedItem._id
-          ? updatedItem
-          : item
-      )
-    );
-  }
-);
-
-// ========================================
-// CHAT HISTORY
-// ========================================
+    // ========================================
+    // CHAT HISTORY
+    // ========================================
     // ========================================
     // CHAT HISTORY
     // ========================================
@@ -732,7 +743,7 @@ socket.on(
       console.error(
         "Failed to load transcripts:",
         error.response?.data ||
-          error.message
+        error.message
       );
     }
   };
@@ -742,168 +753,168 @@ socket.on(
   // ==========================================
 
   const saveTranscriptToDatabase = async (text) => {
-  try {
-    const token =
-      localStorage.getItem("token");
+    try {
+      const token =
+        localStorage.getItem("token");
 
-    if (
-      !token ||
-      !text ||
-      !text.trim()
-    ) {
-      return;
-    }
-
-    const cleanText = text.trim();
-
-    const response = await axios.post(
-      `${API_URL}/transcripts`,
-      {
-        meetingRoomId: roomId,
-        text: cleanText,
-        speaker: senderName,
-      },
-      {
-        headers: {
-          Authorization:
-            `Bearer ${token}`,
-        },
+      if (
+        !token ||
+        !text ||
+        !text.trim()
+      ) {
+        return;
       }
-    );
 
-    if (response.data.success) {
-      const savedTranscript =
-        response.data.transcript;
+      const cleanText = text.trim();
 
-      // Add to current user's transcript
-      setTranscripts(
-        (previous) => [
-          ...previous,
-          savedTranscript,
-        ]
+      const response = await axios.post(
+        `${API_URL}/transcripts`,
+        {
+          meetingRoomId: roomId,
+          text: cleanText,
+          speaker: senderName,
+        },
+        {
+          headers: {
+            Authorization:
+              `Bearer ${token}`,
+          },
+        }
       );
 
-      // Broadcast to other participants
-      if (socketRef.current) {
-        socketRef.current.emit(
-          "transcript-update",
-          {
-            roomId,
-            speaker: senderName,
-            text: cleanText,
-            timestamp:
-              savedTranscript.timestamp ||
-              new Date().toISOString(),
-          }
+      if (response.data.success) {
+        const savedTranscript =
+          response.data.transcript;
+
+        // Add to current user's transcript
+        setTranscripts(
+          (previous) => [
+            ...previous,
+            savedTranscript,
+          ]
+        );
+
+        // Broadcast to other participants
+        if (socketRef.current) {
+          socketRef.current.emit(
+            "transcript-update",
+            {
+              roomId,
+              speaker: senderName,
+              text: cleanText,
+              timestamp:
+                savedTranscript.timestamp ||
+                new Date().toISOString(),
+            }
+          );
+        }
+
+        console.log(
+          "Transcript saved and broadcast:",
+          savedTranscript
         );
       }
-
-      console.log(
-        "Transcript saved and broadcast:",
-        savedTranscript
+    } catch (error) {
+      console.error(
+        "Save transcript error:",
+        error.response?.data ||
+        error.message
       );
     }
-  } catch (error) {
-    console.error(
-      "Save transcript error:",
-      error.response?.data ||
-        error.message
-    );
-  }
-};
+  };
   // ==========================================
   // LOAD MEETING DETAILS / REAL HOST
   // ==========================================
 
-// ==========================================
-// LOAD MEETING DETAILS / REAL HOST
-// ==========================================
+  // ==========================================
+  // LOAD MEETING DETAILS / REAL HOST
+  // ==========================================
 
-const loadMeetingDetails = async () => {
-  try {
-    const token =
-      localStorage.getItem("token");
+  const loadMeetingDetails = async () => {
+    try {
+      const token =
+        localStorage.getItem("token");
 
-    if (!token || !roomId) {
+      if (!token || !roomId) {
+        setMeetingAccessError(
+          "Invalid meeting information."
+        );
+
+        setMeetingLoading(false);
+        return false;
+      }
+
+      const response = await axios.get(
+        `${API_URL}/meetings/${roomId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.data.success) {
+        const meeting =
+          response.data.meeting;
+
+        setMeetingDetails(meeting);
+        setMeetingLoading(false);
+
+        console.log(
+          "Meeting details loaded:",
+          meeting
+        );
+
+        return true;
+      }
+
       setMeetingAccessError(
-        "Invalid meeting information."
+        "Unable to access this meeting."
       );
 
       setMeetingLoading(false);
+
+      return false;
+
+    } catch (error) {
+      console.error(
+        "Load meeting details error:",
+        error.response?.data ||
+        error.message
+      );
+
+      const status =
+        error.response?.status;
+
+      const serverMessage =
+        error.response?.data?.message;
+
+      if (status === 410) {
+        setMeetingExpired(true);
+
+        setMeetingAccessError(
+          serverMessage ||
+          "This meeting has ended and the Meeting ID is no longer active."
+        );
+      } else if (status === 404) {
+        setMeetingExpired(true);
+
+        setMeetingAccessError(
+          serverMessage ||
+          "This Meeting ID is invalid or no longer exists."
+        );
+      } else {
+        setMeetingAccessError(
+          serverMessage ||
+          "Unable to access this meeting."
+        );
+      }
+
+      setMeetingLoading(false);
+
       return false;
     }
-
-    const response = await axios.get(
-      `${API_URL}/meetings/${roomId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    if (response.data.success) {
-      const meeting =
-        response.data.meeting;
-
-      setMeetingDetails(meeting);
-      setMeetingLoading(false);
-
-      console.log(
-        "Meeting details loaded:",
-        meeting
-      );
-
-      return true;
-    }
-
-    setMeetingAccessError(
-      "Unable to access this meeting."
-    );
-
-    setMeetingLoading(false);
-
-    return false;
-
-  } catch (error) {
-    console.error(
-      "Load meeting details error:",
-      error.response?.data ||
-        error.message
-    );
-
-    const status =
-      error.response?.status;
-
-    const serverMessage =
-      error.response?.data?.message;
-
-    if (status === 410) {
-      setMeetingExpired(true);
-
-      setMeetingAccessError(
-        serverMessage ||
-          "This meeting has ended and the Meeting ID is no longer active."
-      );
-    } else if (status === 404) {
-      setMeetingExpired(true);
-
-      setMeetingAccessError(
-        serverMessage ||
-          "This Meeting ID is invalid or no longer exists."
-      );
-    } else {
-      setMeetingAccessError(
-        serverMessage ||
-          "Unable to access this meeting."
-      );
-    }
-
-    setMeetingLoading(false);
-
-    return false;
-  }
-};
+  };
 
   useEffect(() => {
     loadMeetingDetails();
@@ -951,156 +962,156 @@ const loadMeetingDetails = async () => {
         }
       );
 
-if (response.data.success) {
-  const insights =
-    response.data.insights;
+      if (response.data.success) {
+        const insights =
+          response.data.insights;
 
-  setAiInsights(insights);
-  setSavedAIInsights(insights);
+        setAiInsights(insights);
+        setSavedAIInsights(insights);
 
-  // Reload action items created by AI
-  await loadActionItems();
+        // Reload action items created by AI
+        await loadActionItems();
 
-  console.log(
-    "AI insights generated successfully:",
-    insights
-  );
-} else {
+        console.log(
+          "AI insights generated successfully:",
+          insights
+        );
+      } else {
         setAiError(
           response.data.message ||
-            "Failed to generate AI insights."
+          "Failed to generate AI insights."
         );
       }
     } catch (error) {
       console.error(
         "Generate AI insights error:",
         error.response?.data ||
-          error.message
+        error.message
       );
 
       setAiError(
         error.response?.data?.message ||
-          "Failed to generate AI insights. Please try again."
+        "Failed to generate AI insights. Please try again."
       );
     } finally {
       setGeneratingInsights(false);
     }
   };
-const loadSavedAIInsights = async () => {
-  try {
-    const token =
-      localStorage.getItem("token");
+  const loadSavedAIInsights = async () => {
+    try {
+      const token =
+        localStorage.getItem("token");
 
-    if (!token || !roomId) {
-      return null;
-    }
-
-    setLoadingSavedInsights(true);
-
-    const response = await axios.get(
-      `${API_URL}/ai/meeting/${roomId}/saved`,
-      {
-        headers: {
-          Authorization:
-            `Bearer ${token}`,
-        },
+      if (!token || !roomId) {
+        return null;
       }
-    );
 
-if (response.data.success) {
-  const insights =
-    response.data.insights;
+      setLoadingSavedInsights(true);
 
-  setAiInsights(insights);
-  setSavedAIInsights(insights);
-
-  // Reload action items created by AI
-  await loadActionItems();
-
-  console.log(
-    "AI insights generated successfully:",
-    insights
-  );
-} else {
-  setAiError(
-    response.data.message ||
-      "Failed to generate AI insights."
-  );
-}
-
-    return null;
-  } catch (error) {
-    if (error.response?.status === 404) {
-      setSavedAIInsights(null);
-      setAiInsights(null);
-    } else {
-      console.error(
-        "Load saved AI insights error:",
-        error.response?.status,
-        error.response?.data ||
-          error.message
+      const response = await axios.get(
+        `${API_URL}/ai/meeting/${roomId}/saved`,
+        {
+          headers: {
+            Authorization:
+              `Bearer ${token}`,
+          },
+        }
       );
+
+      if (response.data.success) {
+        const insights =
+          response.data.insights;
+
+        setAiInsights(insights);
+        setSavedAIInsights(insights);
+
+        // Reload action items created by AI
+        await loadActionItems();
+
+        console.log(
+          "AI insights generated successfully:",
+          insights
+        );
+      } else {
+        setAiError(
+          response.data.message ||
+          "Failed to generate AI insights."
+        );
+      }
+
+      return null;
+    } catch (error) {
+      if (error.response?.status === 404) {
+        setSavedAIInsights(null);
+        setAiInsights(null);
+      } else {
+        console.error(
+          "Load saved AI insights error:",
+          error.response?.status,
+          error.response?.data ||
+          error.message
+        );
+      }
+
+      return null;
+    } finally {
+      setLoadingSavedInsights(false);
     }
+  };
 
-    return null;
-  } finally {
-    setLoadingSavedInsights(false);
-  }
-};
+  const loadActionItems = async () => {
+    try {
+      const token = localStorage.getItem("token");
 
-const loadActionItems = async () => {
-  try {
-    const token = localStorage.getItem("token");
+      if (!token || !roomId) {
+        return;
+      }
 
-    if (!token || !roomId) {
+      setLoadingActionItems(true);
+      setActionItemError("");
+
+      const response = await axios.get(
+        `${API_URL}/action-items/meeting/${roomId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.data.success) {
+        setActionItems(
+          response.data.actionItems || []
+        );
+
+        console.log(
+          "Action items loaded:",
+          response.data.actionItems
+        );
+      }
+    } catch (error) {
+      console.error(
+        "Load action items error:",
+        error.response?.data ||
+        error.message
+      );
+
+      setActionItemError(
+        error.response?.data?.message ||
+        "Failed to load action items."
+      );
+    } finally {
+      setLoadingActionItems(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!roomId) {
       return;
     }
 
-    setLoadingActionItems(true);
-    setActionItemError("");
-
-    const response = await axios.get(
-      `${API_URL}/action-items/meeting/${roomId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    if (response.data.success) {
-      setActionItems(
-        response.data.actionItems || []
-      );
-
-      console.log(
-        "Action items loaded:",
-        response.data.actionItems
-      );
-    }
-  } catch (error) {
-    console.error(
-      "Load action items error:",
-      error.response?.data ||
-        error.message
-    );
-
-    setActionItemError(
-      error.response?.data?.message ||
-        "Failed to load action items."
-    );
-  } finally {
-    setLoadingActionItems(false);
-  }
-};
-
-useEffect(() => {
-  if (!roomId) {
-    return;
-  }
-
-  loadActionItems();
-}, [roomId]);
+    loadActionItems();
+  }, [roomId]);
 
   // ==========================================
   // LIVE TRANSCRIPTION
@@ -1173,7 +1184,7 @@ useEffect(() => {
             (previous) => {
               const separator =
                 previous &&
-                !previous.endsWith(" ")
+                  !previous.endsWith(" ")
                   ? " "
                   : "";
 
@@ -1396,7 +1407,7 @@ useEffect(() => {
             (sender) =>
               sender.track &&
               sender.track.kind ===
-                "video"
+              "video"
           );
 
       if (sender) {
@@ -1454,7 +1465,7 @@ useEffect(() => {
               (sender) =>
                 sender.track &&
                 sender.track.kind ===
-                  "video"
+                "video"
             );
 
         if (sender) {
@@ -1590,7 +1601,7 @@ useEffect(() => {
             (sender) =>
               sender.track &&
               sender.track.kind ===
-                "video"
+              "video"
           );
 
       if (videoSender) {
@@ -1703,7 +1714,7 @@ useEffect(() => {
                 (sender) =>
                   sender.track &&
                   sender.track.kind ===
-                    "video"
+                  "video"
               );
 
           if (videoSender) {
@@ -1847,43 +1858,43 @@ useEffect(() => {
   // ==========================================
 
   useEffect(() => {
-  let mounted = true;
+    let mounted = true;
 
-  const initializeMeeting =
-    async () => {
+    const initializeMeeting =
+      async () => {
 
-      // First verify that the Meeting ID
-      // is still active.
-      const allowed =
-        await loadMeetingDetails();
+        // First verify that the Meeting ID
+        // is still active.
+        const allowed =
+          await loadMeetingDetails();
 
-      if (!allowed || !mounted) {
-        return;
-      }
+        if (!allowed || !mounted) {
+          return;
+        }
 
-      // Only start camera/microphone
-      // after meeting access is verified.
-      const stream =
-        await startMedia();
+        // Only start camera/microphone
+        // after meeting access is verified.
+        const stream =
+          await startMedia();
 
-      if (
-        stream &&
-        mounted
-      ) {
-        connectSocket();
-      }
+        if (
+          stream &&
+          mounted
+        ) {
+          connectSocket();
+        }
+      };
+
+    initializeMeeting();
+
+    return () => {
+      mounted = false;
+
+      stopMedia();
+      closePeerConnection();
+      disconnectSocket();
     };
-
-  initializeMeeting();
-
-  return () => {
-    mounted = false;
-
-    stopMedia();
-    closePeerConnection();
-    disconnectSocket();
-  };
-}, [roomId]);
+  }, [roomId]);
   // ==========================================
   // PAGE EXIT
   // ==========================================
@@ -1946,111 +1957,111 @@ useEffect(() => {
   return (
     <div className="meeting-room">
       {meetingLoading && (
-  <div className="meeting-access-screen">
-    <div className="meeting-access-card">
-      <div className="meeting-access-icon">
-        🔄
-      </div>
+        <div className="meeting-access-screen">
+          <div className="meeting-access-card">
+            <div className="meeting-access-icon">
+              🔄
+            </div>
 
-      <h2>Checking Meeting</h2>
+            <h2>Checking Meeting</h2>
 
-      <p>
-        Verifying your meeting access...
-      </p>
-    </div>
-  </div>
-)}
+            <p>
+              Verifying your meeting access...
+            </p>
+          </div>
+        </div>
+      )}
 
-{!meetingLoading && meetingExpired && (
-  <div className="meeting-access-screen">
-    <div className="meeting-access-card expired">
-      <div className="meeting-access-icon">
-        🔒
-      </div>
+      {!meetingLoading && meetingExpired && (
+        <div className="meeting-access-screen">
+          <div className="meeting-access-card expired">
+            <div className="meeting-access-icon">
+              🔒
+            </div>
 
-      <h2>Meeting Ended</h2>
+            <h2>Meeting Ended</h2>
 
-      <p>
-        {meetingAccessError ||
-          "This meeting has ended and is no longer available."}
-      </p>
+            <p>
+              {meetingAccessError ||
+                "This meeting has ended and is no longer available."}
+            </p>
 
-      <span className="meeting-access-subtext">
-        The Meeting ID has expired and cannot be
-        used to join this meeting.
-      </span>
+            <span className="meeting-access-subtext">
+              The Meeting ID has expired and cannot be
+              used to join this meeting.
+            </span>
 
-      <button
-        className="meeting-access-button"
-        onClick={() =>
-          navigate("/dashboard", {
-            replace: true,
-          })
-        }
-      >
-        Back to Dashboard
-      </button>
-    </div>
-  </div>
-)}
+            <button
+              className="meeting-access-button"
+              onClick={() =>
+                navigate("/dashboard", {
+                  replace: true,
+                })
+              }
+            >
+              Back to Dashboard
+            </button>
+          </div>
+        </div>
+      )}
       {/* HEADER */}
 
       <header className="meeting-room-header">
 
-  <button onClick={leaveMeeting}>
-    <ArrowLeft size={18} />
+        <button onClick={leaveMeeting}>
+          <ArrowLeft size={18} />
 
-  </button>
+        </button>
 
-  <div className="meeting-room-title">
-    <Video size={20} />
+        <div className="meeting-room-title">
+          <Video size={20} />
 
-    <span>
-      {hostName !== "Host"
-        ? `${hostName}'s Meeting`
-        : "IntellMeet"}
-    </span>
-  </div>
+          <span>
+            {hostName !== "Host"
+              ? `${hostName}'s Meeting`
+              : "IntellMeet"}
+          </span>
+        </div>
 
-  <div className="room-status">
+        <div className="room-status">
 
-    {/* Live clock */}
-    <div className="meeting-live-clock">
-      <span className="clock-time">
-        {currentTime.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}
-      </span>
+          {/* Live clock */}
+          <div className="meeting-live-clock">
+            <span className="clock-time">
+              {currentTime.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </span>
 
-      <span className="clock-date">
-        {currentTime.toLocaleDateString([], {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-        })}
-      </span>
-    </div>
-    {/* Connection status */}
-    <div className="connection-status">
-      <span
-        className={
-          connected
-            ? "status-dot connected"
-            : "status-dot"
-        }
-      />
+            <span className="clock-date">
+              {currentTime.toLocaleDateString([], {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}
+            </span>
+          </div>
+          {/* Connection status */}
+          <div className="connection-status">
+            <span
+              className={
+                connected
+                  ? "status-dot connected"
+                  : "status-dot"
+              }
+            />
 
-      <span>
-        {connected
-          ? "Connected"
-          : "Connecting..."}
-      </span>
-    </div>
+            <span>
+              {connected
+                ? "Connected"
+                : "Connecting..."}
+            </span>
+          </div>
 
-  </div>
+        </div>
 
-</header>
+      </header>
 
       {/* MAIN */}
 
@@ -2137,138 +2148,138 @@ useEffect(() => {
 
         {/* PARTICIPANTS PANEL */}
 
-{participantsOpen && (
-  <aside className="chat-panel">
+        {participantsOpen && (
+          <aside className="chat-panel">
 
-    <div className="chat-header">
-      <div>
-        <Users size={18} />
+            <div className="chat-header">
+              <div>
+                <Users size={18} />
 
-        <span>
-          Participants ({participantCount})
-        </span>
-      </div>
+                <span>
+                  Participants ({participantCount})
+                </span>
+              </div>
 
-      <button
-        className="chat-close"
-        onClick={() =>
-          setParticipantsOpen(false)
-        }
-      >
-        <X size={18} />
-      </button>
-    </div>
+              <button
+                className="chat-close"
+                onClick={() =>
+                  setParticipantsOpen(false)
+                }
+              >
+                <X size={18} />
+              </button>
+            </div>
 
-    <div className="chat-messages">
+            <div className="chat-messages">
 
-      {/* ================================
+              {/* ================================
           HOST - ALWAYS FIRST
       ================================= */}
 
-      {hostId && (
-        <div className="participant-item">
+              {hostId && (
+                <div className="participant-item">
 
-          <div className="participant-avatar">
-            {hostName
-              .charAt(0)
-              .toUpperCase()}
-          </div>
+                  <div className="participant-avatar">
+                    {hostName
+                      .charAt(0)
+                      .toUpperCase()}
+                  </div>
 
-          <div className="participant-info">
-            <strong>
-              {hostName}
-              {isMeetingHost ? " (You)" : ""}
-            </strong>
+                  <div className="participant-info">
+                    <strong>
+                      {hostName}
+                      {isMeetingHost ? " (You)" : ""}
+                    </strong>
 
-            <span>
-              Host
-            </span>
-          </div>
+                    <span>
+                      Host
+                    </span>
+                  </div>
 
-          <span
-            className={
-              isMeetingHost ||
-              (
-                remoteUser?.userName ===
-                  hostName &&
-                remoteOnline
-              )
-                ? "participant-online"
-                : "participant-offline"
-            }
-          />
+                  <span
+                    className={
+                      isMeetingHost ||
+                        (
+                          remoteUser?.userName ===
+                          hostName &&
+                          remoteOnline
+                        )
+                        ? "participant-online"
+                        : "participant-offline"
+                    }
+                  />
 
-        </div>
-      )}
+                </div>
+              )}
 
-      {/* ================================
+              {/* ================================
           CURRENT USER - PARTICIPANT
       ================================= */}
 
-      {!isMeetingHost && user && (
-        <div className="participant-item">
+              {!isMeetingHost && user && (
+                <div className="participant-item">
 
-          <div className="participant-avatar">
-            {senderName
-              .charAt(0)
-              .toUpperCase()}
-          </div>
+                  <div className="participant-avatar">
+                    {senderName
+                      .charAt(0)
+                      .toUpperCase()}
+                  </div>
 
-          <div className="participant-info">
-            <strong>
-              {senderName}
-            </strong>
+                  <div className="participant-info">
+                    <strong>
+                      {senderName}
+                    </strong>
 
-            <span>
-              You · Participant
-            </span>
-          </div>
+                    <span>
+                      You · Participant
+                    </span>
+                  </div>
 
-          <span className="participant-online" />
+                  <span className="participant-online" />
 
-        </div>
-      )}
+                </div>
+              )}
 
-      {/* ================================
+              {/* ================================
           REMOTE PARTICIPANT
       ================================= */}
 
-      {remoteUser &&
-        remoteUser.userName &&
-        remoteUser.userName !== hostName && (
-          <div className="participant-item">
+              {remoteUser &&
+                remoteUser.userName &&
+                remoteUser.userName !== hostName && (
+                  <div className="participant-item">
 
-            <div className="participant-avatar">
-              {remoteUser.userName
-                .charAt(0)
-                .toUpperCase()}
+                    <div className="participant-avatar">
+                      {remoteUser.userName
+                        .charAt(0)
+                        .toUpperCase()}
+                    </div>
+
+                    <div className="participant-info">
+                      <strong>
+                        {remoteUser.userName}
+                      </strong>
+
+                      <span>
+                        Participant
+                      </span>
+                    </div>
+
+                    <span
+                      className={
+                        remoteOnline
+                          ? "participant-online"
+                          : "participant-offline"
+                      }
+                    />
+
+                  </div>
+                )}
+
             </div>
 
-            <div className="participant-info">
-              <strong>
-                {remoteUser.userName}
-              </strong>
-
-              <span>
-                Participant
-              </span>
-            </div>
-
-            <span
-              className={
-                remoteOnline
-                  ? "participant-online"
-                  : "participant-offline"
-              }
-            />
-
-          </div>
+          </aside>
         )}
-
-    </div>
-
-  </aside>
-)}
 
         {/* CHAT PANEL */}
 
@@ -2325,7 +2336,7 @@ useEffect(() => {
                     }
                     className={
                       item.sender ===
-                      senderName
+                        senderName
                         ? "chat-message own"
                         : "chat-message"
                     }
@@ -2456,16 +2467,16 @@ useEffect(() => {
                           <small>
                             {item.timestamp
                               ? new Date(
-                                  item.timestamp
-                                ).toLocaleTimeString(
-                                  [],
-                                  {
-                                    hour:
-                                      "2-digit",
-                                    minute:
-                                      "2-digit",
-                                  }
-                                )
+                                item.timestamp
+                              ).toLocaleTimeString(
+                                [],
+                                {
+                                  hour:
+                                    "2-digit",
+                                  minute:
+                                    "2-digit",
+                                }
+                              )
                               : ""}
                           </small>
 
@@ -2565,16 +2576,16 @@ useEffect(() => {
               </div>
 
               <button
-                  type="button"
-                  className="ai-insights-close"
-                  onClick={() => {
-                    setAiInsights(null);
-                    setAiError("");
-                  }}
-                  title="Close AI insights"
-                >
-                  <X size={18} />
-                </button>
+                type="button"
+                className="ai-insights-close"
+                onClick={() => {
+                  setAiInsights(null);
+                  setAiError("");
+                }}
+                title="Close AI insights"
+              >
+                <X size={18} />
+              </button>
             </div>
 
             {generatingInsights && (
@@ -2688,123 +2699,123 @@ useEffect(() => {
 
           </aside>
         )}
-{/* ACTION ITEMS PANEL */}
+        {/* ACTION ITEMS PANEL */}
 
-{showActionItems && actionItems.length > 0 && (
-  <aside className="action-items-panel">
+        {showActionItems && actionItems.length > 0 && (
+          <aside className="action-items-panel">
 
-    <div className="action-items-header">
-      <div>
-        <Sparkles size={18} />
-        <span>Action Items</span>
-      </div>
-    </div>
-
-    {actionItemError && (
-      <div className="action-items-error">
-        {actionItemError}
-      </div>
-    )}
-
-    {loadingActionItems ? (
-      <div className="action-items-loading">
-        Loading action items...
-      </div>
-    ) : (
-      <div className="action-items-content">
-
-        {actionItems.map((item) => (
-          <div
-            className="action-item-card"
-            key={item._id}
-          >
-
-            <div className="action-item-task">
-              <strong>
-                {item.task}
-              </strong>
+            <div className="action-items-header">
+              <div>
+                <Sparkles size={18} />
+                <span>Action Items</span>
+              </div>
             </div>
 
-            <div className="action-item-meta">
+            {actionItemError && (
+              <div className="action-items-error">
+                {actionItemError}
+              </div>
+            )}
 
-              <span>
-                Assignee:{" "}
-                {item.assignee || "Unassigned"}
-              </span>
+            {loadingActionItems ? (
+              <div className="action-items-loading">
+                Loading action items...
+              </div>
+            ) : (
+              <div className="action-items-content">
 
-              <span>
-                Priority:{" "}
-                {item.priority || "medium"}
-              </span>
+                {actionItems.map((item) => (
+                  <div
+                    className="action-item-card"
+                    key={item._id}
+                  >
 
-            </div>
+                    <div className="action-item-task">
+                      <strong>
+                        {item.task}
+                      </strong>
+                    </div>
 
-            <select
-              value={item.status}
-              onChange={async (event) => {
-                try {
-                  const token =
-                    localStorage.getItem("token");
+                    <div className="action-item-meta">
 
-                  const response =
-                    await axios.put(
-                      `${API_URL}/action-items/${item._id}`,
-                      {
-                        status:
-                          event.target.value,
-                      },
-                      {
-                        headers: {
-                          Authorization:
-                            `Bearer ${token}`,
-                        },
-                      }
-                    );
+                      <span>
+                        Assignee:{" "}
+                        {item.assignee || "Unassigned"}
+                      </span>
 
-                  if (response.data.success) {
-                    setActionItems(
-                      (previousItems) =>
-                        previousItems.map(
-                          (actionItem) =>
-                            actionItem._id ===
-                            item._id
-                              ? response.data
-                                  .actionItem
-                              : actionItem
-                        )
-                    );
-                  }
-                } catch (error) {
-                  console.error(
-                    "Update action item error:",
-                    error.response?.data ||
-                      error.message
-                  );
-                }
-              }}
-              className="action-item-status"
-            >
-              <option value="pending">
-                Pending
-              </option>
+                      <span>
+                        Priority:{" "}
+                        {item.priority || "medium"}
+                      </span>
 
-              <option value="in-progress">
-                In Progress
-              </option>
+                    </div>
 
-              <option value="completed">
-                Completed
-              </option>
-            </select>
+                    <select
+                      value={item.status}
+                      onChange={async (event) => {
+                        try {
+                          const token =
+                            localStorage.getItem("token");
 
-          </div>
-        ))}
+                          const response =
+                            await axios.put(
+                              `${API_URL}/action-items/${item._id}`,
+                              {
+                                status:
+                                  event.target.value,
+                              },
+                              {
+                                headers: {
+                                  Authorization:
+                                    `Bearer ${token}`,
+                                },
+                              }
+                            );
 
-      </div>
-    )}
+                          if (response.data.success) {
+                            setActionItems(
+                              (previousItems) =>
+                                previousItems.map(
+                                  (actionItem) =>
+                                    actionItem._id ===
+                                      item._id
+                                      ? response.data
+                                        .actionItem
+                                      : actionItem
+                                )
+                            );
+                          }
+                        } catch (error) {
+                          console.error(
+                            "Update action item error:",
+                            error.response?.data ||
+                            error.message
+                          );
+                        }
+                      }}
+                      className="action-item-status"
+                    >
+                      <option value="pending">
+                        Pending
+                      </option>
 
-  </aside>
-)}
+                      <option value="in-progress">
+                        In Progress
+                      </option>
+
+                      <option value="completed">
+                        Completed
+                      </option>
+                    </select>
+
+                  </div>
+                ))}
+
+              </div>
+            )}
+
+          </aside>
+        )}
         {/* CONTROLS */}
 
         <div className="meeting-controls">
@@ -2910,7 +2921,7 @@ useEffect(() => {
                 : "Show transcription"
             }
           >
-  <AudioLines size={21} />
+            <AudioLines size={21} />
 
           </button>
 
@@ -2958,53 +2969,53 @@ useEffect(() => {
             <Users size={21} />
           </button>
 
-                 {/* AI INSIGHTS */}
+          {/* AI INSIGHTS */}
 
-<button
-  className={
-    generatingInsights
-      ? "control-button active"
-      : "control-button"
-  }
- onClick={async () => {
-  // HOST: always generate fresh AI insights
-  if (isMeetingHost) {
-    await generateAIInsights();
-    return;
-  }
+          <button
+            className={
+              generatingInsights
+                ? "control-button active"
+                : "control-button"
+            }
+            onClick={async () => {
+              // HOST: always generate fresh AI insights
+              if (isMeetingHost) {
+                await generateAIInsights();
+                return;
+              }
 
-  // PARTICIPANT: load the latest saved insights
-  const latestInsights =
-    await loadSavedAIInsights();
+              // PARTICIPANT: load the latest saved insights
+              const latestInsights =
+                await loadSavedAIInsights();
 
-  if (latestInsights) {
-    setAiInsights(latestInsights);
-    setAiError("");
-  } else {
-    setAiError(
-      "AI insights have not been generated by the host yet."
-    );
-  }
-}}
-  disabled={
-    generatingInsights ||
-    loadingSavedInsights
-  }
-  title={
-    generatingInsights
-      ? "Generating AI insights"
-      : loadingSavedInsights
-        ? "Loading AI insights"
-        : savedAIInsights
-          ? "View AI meeting insights"
-          : isMeetingHost
-            ? "Generate AI meeting insights"
-            : "View AI meeting insights"
-  }
->
-  <Sparkles size={21} />
-</button>
-          
+              if (latestInsights) {
+                setAiInsights(latestInsights);
+                setAiError("");
+              } else {
+                setAiError(
+                  "AI insights have not been generated by the host yet."
+                );
+              }
+            }}
+            disabled={
+              generatingInsights ||
+              loadingSavedInsights
+            }
+            title={
+              generatingInsights
+                ? "Generating AI insights"
+                : loadingSavedInsights
+                  ? "Loading AI insights"
+                  : savedAIInsights
+                    ? "View AI meeting insights"
+                    : isMeetingHost
+                      ? "Generate AI meeting insights"
+                      : "View AI meeting insights"
+            }
+          >
+            <Sparkles size={21} />
+          </button>
+
 
           {/* ACTION ITEMS */}
 

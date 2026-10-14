@@ -16,6 +16,10 @@ const workspaceRoutes = require("./routes/workspaceRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const path = require("path");
 
+// Socket.IO authentication
+const jwt = require("jsonwebtoken");
+const User = require("./models/user");
+
 connectDB();
 
 const app = express();
@@ -87,6 +91,53 @@ const io = new Server(server, {
     origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST"],
   },
+});
+
+// ========================================
+// SOCKET.IO JWT AUTHENTICATION
+// ========================================
+
+io.use(async (socket, next) => {
+  try {
+    const token = socket.handshake.auth?.token;
+
+    if (!token) {
+      return next(new Error("Authentication required"));
+    }
+
+    if (!process.env.JWT_SECRET) {
+      console.error("JWT_SECRET is not configured");
+      return next(new Error("Authentication unavailable"));
+    }
+
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET
+    );
+
+    if (!decoded.id) {
+      return next(new Error("Invalid authentication token"));
+    }
+
+    const user = await User.findById(decoded.id)
+      .select("_id name email");
+
+    if (!user) {
+      return next(new Error("Invalid authentication token"));
+    }
+
+    socket.data.userId = user._id.toString();
+
+    socket.data.user = {
+      id: user._id.toString(),
+      name: user.name,
+      email: user.email,
+    };
+
+    next();
+  } catch (error) {
+    next(new Error("Invalid or expired authentication token"));
+  }
 });
 // Make Socket.io available to controllers
 app.set("io", io);
