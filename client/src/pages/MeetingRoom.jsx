@@ -132,6 +132,14 @@ function MeetingRoom() {
 
   const [meetingAccessError, setMeetingAccessError] =
     useState("");
+  const [waitingForApproval, setWaitingForApproval] =
+    useState(false);
+
+  const [joinRequests, setJoinRequests] =
+    useState([]);
+
+  const [joinRequestMessage, setJoinRequestMessage] =
+    useState("");
   // ACTION ITEMS
   const [actionItems, setActionItems] =
     useState([]);
@@ -332,22 +340,69 @@ function MeetingRoom() {
 
     socketRef.current = socket;
 
-    socket.on("connect", () => {
-      console.log(
-        "Socket connected:",
-        socket.id
-      );
 
+    socket.on("connect", () => {
+      console.log("Socket connected:", socket.id);
       setConnected(true);
 
-      socket.emit("join-room", {
-        roomId,
-        userName: senderName,
-      });
+      // Ask the server to verify meeting access.
+      socket.emit("join-room", { roomId });
+    });
 
-      socket.emit(
-        "get-messages",
-        roomId
+
+    socket.on("waiting-for-approval", ({ message }) => {
+      setWaitingForApproval(true);
+      setJoinRequestMessage(
+        message || "Waiting for the host to approve your request."
+      );
+      setMeetingAccessError("");
+    });
+
+    socket.on("join-request", (request) => {
+      setJoinRequests((previous) => {
+        if (
+          previous.some(
+            (item) =>
+              item.requesterSocketId === request.requesterSocketId
+          )
+        ) {
+          return previous;
+        }
+
+        return [...previous, request];
+      });
+    });
+
+    socket.on("room-joined", () => {
+      setWaitingForApproval(false);
+      setJoinRequestMessage("");
+
+      // Load chat only after the server grants access.
+      socket.emit("get-messages", roomId);
+    });
+
+    socket.on("join-request-approved", ({ message }) => {
+      setWaitingForApproval(false);
+      setJoinRequestMessage(message || "Access approved.");
+    });
+
+    socket.on("request-rejected", ({ message }) => {
+      setWaitingForApproval(false);
+      setJoinRequestMessage(
+        message || "The host declined your join request."
+      );
+    });
+
+    socket.on("room-access-denied", ({ message }) => {
+      setWaitingForApproval(false);
+      setMeetingAccessError(
+        message || "You cannot access this meeting."
+      );
+    });
+
+    socket.on("approval-error", ({ message }) => {
+      setJoinRequestMessage(
+        message || "Unable to process the request."
       );
     });
 
@@ -358,6 +413,13 @@ function MeetingRoom() {
     socket.on(
       "room-users",
       async (users) => {
+        if (!streamRef.current) {
+          const stream = await startMedia();
+
+          if (!stream) {
+            return;
+          }
+        }
         console.log(
           "Existing users:",
           users
@@ -676,6 +738,36 @@ function MeetingRoom() {
     );
   };
 
+  const approveJoinRequest = (requesterSocketId) => {
+    if (!socketRef.current) return;
+
+    socketRef.current.emit("approve-join-request", {
+      roomId,
+      requesterSocketId,
+    });
+
+    setJoinRequests((previous) =>
+      previous.filter(
+        (item) => item.requesterSocketId !== requesterSocketId
+      )
+    );
+  };
+
+  const rejectJoinRequest = (requesterSocketId) => {
+    if (!socketRef.current) return;
+
+    socketRef.current.emit("reject-join-request", {
+      roomId,
+      requesterSocketId,
+    });
+
+    setJoinRequests((previous) =>
+      previous.filter(
+        (item) => item.requesterSocketId !== requesterSocketId
+      )
+    );
+  };
+
   // ==========================================
   // SEND MESSAGE
   // ==========================================
@@ -853,20 +945,25 @@ function MeetingRoom() {
         }
       );
 
+
       if (response.data.success) {
-        const meeting =
-          response.data.meeting;
+        const meeting = response.data.meeting;
 
         setMeetingDetails(meeting);
         setMeetingLoading(false);
 
-        console.log(
-          "Meeting details loaded:",
-          meeting
-        );
+        if (response.data.requiresApproval) {
+          setMeetingAccessError("");
+          setJoinRequestMessage(
+            "Requesting permission to join the meeting..."
+          );
+        }
+
+        console.log("Meeting details loaded:", meeting);
 
         return true;
       }
+
 
       setMeetingAccessError(
         "Unable to access this meeting."
@@ -1857,44 +1954,34 @@ function MeetingRoom() {
   // INITIALIZE MEETING
   // ==========================================
 
+
   useEffect(() => {
     let mounted = true;
 
-    const initializeMeeting =
-      async () => {
+    const initializeMeeting = async () => {
+      const allowed = await loadMeetingDetails();
 
-        // First verify that the Meeting ID
-        // is still active.
-        const allowed =
-          await loadMeetingDetails();
+      if (!allowed || !mounted) {
+        return;
+      }
 
-        if (!allowed || !mounted) {
-          return;
-        }
-
-        // Only start camera/microphone
-        // after meeting access is verified.
-        const stream =
-          await startMedia();
-
-        if (
-          stream &&
-          mounted
-        ) {
-          connectSocket();
-        }
-      };
+      // Connect first. The server decides whether
+      // the user can join or must wait for approval.
+      if (mounted) {
+        connectSocket();
+      }
+    };
 
     initializeMeeting();
 
     return () => {
       mounted = false;
-
       stopMedia();
       closePeerConnection();
       disconnectSocket();
     };
   }, [roomId]);
+
   // ==========================================
   // PAGE EXIT
   // ==========================================
@@ -1956,6 +2043,137 @@ function MeetingRoom() {
 
   return (
     <div className="meeting-room">
+      
+      {waitingForApproval && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            background: "#f5f7fb",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "24px",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "440px",
+              padding: "32px",
+              borderRadius: "18px",
+              background: "#ffffff",
+              boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ fontSize: "42px" }}>⏳</div>
+
+            <h2>Waiting for Host Approval</h2>
+
+            <p style={{ color: "#64748b", lineHeight: 1.6 }}>
+              {joinRequestMessage ||
+                "Your request has been sent. Please wait for the host."}
+            </p>
+
+            <button
+              type="button"
+              onClick={leaveMeeting}
+              style={{
+                marginTop: "16px",
+                padding: "11px 22px",
+                border: "none",
+                borderRadius: "9px",
+                background: "#e2e8f0",
+                color: "#1e293b",
+                cursor: "pointer",
+              }}
+            >
+              Cancel and Leave
+            </button>
+          </div>
+        </div>
+      )}
+      
+      {isMeetingHost && joinRequests.length > 0 && (
+        <div
+          style={{
+            position: "fixed",
+            top: "90px",
+            right: "20px",
+            zIndex: 9000,
+            width: "min(360px, calc(100vw - 40px))",
+            maxHeight: "70vh",
+            overflowY: "auto",
+            padding: "20px",
+            borderRadius: "14px",
+            background: "#ffffff",
+            color: "#1e293b",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+          }}
+        >
+          <h3 style={{ marginTop: 0 }}>
+            Join Requests ({joinRequests.length})
+          </h3>
+
+          {joinRequests.map((request) => (
+            <div
+              key={request.requesterSocketId}
+              style={{
+                padding: "14px 0",
+                borderTop: "1px solid #e2e8f0",
+              }}
+            >
+              <p style={{ marginTop: 0 }}>
+                <strong>
+                  {request.userName || "Participant"}
+                </strong>{" "}
+                wants to join your meeting.
+              </p>
+
+              <div style={{ display: "flex", gap: "10px" }}>
+                <button
+                  type="button"
+                  onClick={() =>
+                    approveJoinRequest(request.requesterSocketId)
+                  }
+                  style={{
+                    flex: 1,
+                    padding: "10px",
+                    border: "none",
+                    borderRadius: "8px",
+                    background: "#2563eb",
+                    color: "#ffffff",
+                    cursor: "pointer",
+                  }}
+                >
+                  Approve
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    rejectJoinRequest(request.requesterSocketId)
+                  }
+                  style={{
+                    flex: 1,
+                    padding: "10px",
+                    border: "none",
+                    borderRadius: "8px",
+                    background: "#fee2e2",
+                    color: "#991b1b",
+                    cursor: "pointer",
+                  }}
+                >
+                  Reject
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
       {meetingLoading && (
         <div className="meeting-access-screen">
           <div className="meeting-access-card">

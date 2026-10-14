@@ -142,15 +142,14 @@ const getMeetings = async (req, res) => {
 // ==========================================
 // GET SINGLE MEETING
 // ==========================================
+
 const getMeetingByRoomId = async (req, res) => {
   try {
     const { roomId } = req.params;
 
     const meeting = await Meeting.findOne({ roomId });
 
-    // ==========================================
     // INVALID MEETING ID
-    // ==========================================
     if (!meeting) {
       return res.status(404).json({
         success: false,
@@ -163,9 +162,7 @@ const getMeetingByRoomId = async (req, res) => {
 
     const now = new Date();
 
-    // ==========================================
     // COMPLETED MEETING - EXPIRED ROOM ID
-    // ==========================================
     if (
       meeting.status !== "cancelled" &&
       meeting.endTime &&
@@ -180,9 +177,7 @@ const getMeetingByRoomId = async (req, res) => {
       });
     }
 
-    // ==========================================
     // ALREADY MARKED COMPLETED
-    // ==========================================
     if (meeting.status === "completed") {
       return res.status(410).json({
         success: false,
@@ -192,10 +187,8 @@ const getMeetingByRoomId = async (req, res) => {
           "This meeting has already ended. The Meeting ID is no longer active.",
       });
     }
-    
-    // ==========================================
+
     // CANCELLED MEETING
-    // ==========================================
     if (meeting.status === "cancelled") {
       return res.status(410).json({
         success: false,
@@ -206,6 +199,7 @@ const getMeetingByRoomId = async (req, res) => {
       });
     }
 
+    // CHECK USER ACCESS
     const userId = req.user._id.toString();
 
     const isHost =
@@ -217,30 +211,41 @@ const getMeetingByRoomId = async (req, res) => {
           participant.toString() === userId
       );
 
-    // ==========================================
-    // ADD NEW PARTICIPANT
-    // ==========================================
+    // POPULATE HOST DETAILS
+    await meeting.populate({
+      path: "host",
+      select: "name email",
+    });
+
+    // NON-MEMBERS MUST REQUEST APPROVAL
     if (!isHost && !isParticipant) {
-      meeting.participants.push(req.user._id);
-      await meeting.save();
+      return res.status(200).json({
+        success: true,
+        requiresApproval: true,
+        meeting: {
+          _id: meeting._id,
+          title: meeting.title,
+          description: meeting.description,
+          roomId: meeting.roomId,
+          host: meeting.host,
+          startTime: meeting.startTime,
+          endTime: meeting.endTime,
+          status: meeting.status,
+          participants: [],
+        },
+      });
     }
 
-    // ==========================================
-    // POPULATE MEETING DATA
-    // ==========================================
-    await meeting.populate([
-      {
-        path: "host",
-        select: "name email",
-      },
-      {
-        path: "participants",
-        select: "name email",
-      },
-    ]);
+    // EXISTING HOST AND PARTICIPANTS
+    // RECEIVE FULL MEETING DETAILS
+    await meeting.populate({
+      path: "participants",
+      select: "name email",
+    });
 
     return res.status(200).json({
       success: true,
+      requiresApproval: false,
       meeting,
     });
   } catch (error) {
@@ -252,6 +257,7 @@ const getMeetingByRoomId = async (req, res) => {
     });
   }
 };
+
 // ==========================================
 // GET HISTORICAL MEETING DETAILS
 // ==========================================
