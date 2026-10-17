@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Landing from "./pages/Landing";
 
@@ -31,6 +31,8 @@ function App() {
 
           <Route path="settings" element={<Settings />} />
 
+          <Route path="workspace" element={<Workspace />} />
+
           <Route path="meetings" element={<MeetingHistory />} />
 
           <Route
@@ -46,11 +48,6 @@ function App() {
   path="profile"
   element={<Profile />}
 />
-          <Route
-            path="workspace"
-            element={<Workspace />}
-          />
-
           <Route
             path="notifications"
             element={<Notifications />}

@@ -4,41 +4,41 @@
 /* ==========================================
    DASHBOARD HOME
 \==========================================*/
-.dashboard-home-content {
+.dashboard-home .dashboard-home-content {
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  
+  padding: 10px 0px 10px 15px;
   color: #f8fafc;
 }
 /* =========================================HEADER==========================================*/
-.dashboard-header {
+.dashboard-home .dashboard-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   margin-bottom: 10px;
 }
-.dashboard-header > div:first-child {
+.dashboard-home .dashboard-header > div:first-child {
   min-width: 0;
 }
-.welcome-text {
+.dashboard-home .welcome-text {
   margin: 0 0 4px;
   color: #64748b;
   font-size: 12px;
 }
-.dashboard-header h1 {
+.dashboard-home .dashboard-header h1 {
   margin: 0;
   color: #f8fafc;
   font-size: 27px;
   line-height: 1.25;
 }
-.header-description {
+.dashboard-home .header-description {
   margin: 6px 0 0;
   color: #64748b;
   font-size: 13px;
 }
-.dashboard-header-actions {
+.dashboard-home .dashboard-header-actions {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -47,13 +47,13 @@
 /* ==========================================
    PROFILE
 \==========================================*/
-.profile {
+.dashboard-home .profile {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
 }
-.dashboard-profile-avatar {
+.dashboard-home .dashboard-profile-avatar {
   width: 38px;
   min-width: 38px;
   height: 38px;
@@ -66,16 +66,16 @@
   font-size: 14px;
   font-weight: 700;
 }
-.profile-info {
+.dashboard-home .profile-info {
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
-.profile-info strong {
+.dashboard-home .profile-info strong {
   color: #f8fafc;
   font-size: 12px;
 }
-.profile-info span {
+.dashboard-home .profile-info span {
   max-width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -83,7 +83,7 @@
   color: #64748b;
   font-size: 10px;
 }
-.notification-bell {
+.dashboard-home .notification-bell {
   position: relative;
   width: 38px;
   height: 38px;
@@ -96,11 +96,11 @@
   color: #94a3b8;
   cursor: pointer;
 }
-.notification-bell:hover {
+.dashboard-home .notification-bell:hover {
   border-color: #334155;
   color: #60a5fa;
 }
-.notification-badge {
+.dashboard-home .notification-badge {
   position: absolute;
   top: -4px;
   right: -4px;
@@ -119,15 +119,15 @@
 /* ==========================================
    QUICK ACTIONS
 \==========================================*/
-.quick-actions {
+.dashboard-home .quick-actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 10px;
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
-.create-meeting,
-.join-meeting {
+.dashboard-home .create-meeting,
+.dashboard-home .join-meeting {
   min-width: 0;
   display: flex;
   align-items: center;
@@ -141,21 +141,21 @@
     border-color 0.2s ease,
     transform 0.2s ease;
 }
-.create-meeting {
+.dashboard-home .create-meeting {
   background: #111d38;
   color: #60a5fa;
 }
-.join-meeting {
+.dashboard-home .join-meeting {
   background: #0d1422;
   color: #94a3b8;
 }
-.create-meeting:hover,
-.join-meeting:hover {
+.dashboard-home .create-meeting:hover,
+.dashboard-home .join-meeting:hover {
   border-color: #334155;
   transform: translateY(-1px);
 }
-.create-meeting > div,
-.join-meeting > div {
+.dashboard-home .create-meeting > div,
+.dashboard-home .join-meeting > div {
   width: 42px;
   min-width: 42px;
   height: 42px;
@@ -164,24 +164,24 @@
   justify-content: center;
   border-radius: 10px;
 }
-.create-meeting > div {
+.dashboard-home .create-meeting > div {
   background: #172554;
 }
-.join-meeting > div {
+.dashboard-home .join-meeting > div {
   background: #172033;
 }
-.create-meeting span,
-.join-meeting span {
+.dashboard-home .create-meeting span,
+.dashboard-home .join-meeting span {
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
-.create-meeting strong,
-.join-meeting strong {
+.dashboard-home .create-meeting strong,
+.dashboard-home .join-meeting strong {
   font-size: 13px;
 }
-.create-meeting small,
-.join-meeting small {
+.dashboard-home .create-meeting small,
+.dashboard-home .join-meeting small {
   margin-top: 3px;
   color: #64748b;
   font-size: 11px;
@@ -189,21 +189,21 @@
 /* ==========================================
    ALERTS
 \==========================================*/
-.dashboard-error,
-.dashboard-success {
+.dashboard-home .dashboard-error,
+.dashboard-home .dashboard-success {
   width: 100%;
   box-sizing: border-box;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
   padding: 11px 14px;
   border-radius: 9px;
   font-size: 12px;
 }
-.dashboard-error {
+.dashboard-home .dashboard-error {
   border: 1px solid #4c1d1d;
   background: #241214;
   color: #f87171;
 }
-.dashboard-success {
+.dashboard-home .dashboard-success {
   border: 1px solid #14532d;
   background: #0b2417;
   color: #4ade80;
@@ -211,14 +211,14 @@
 /* ==========================================
    STATISTICS
 \==========================================*/
-.stats-grid {
+.dashboard-home .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 10px;
 }
-.stat-card {
+.dashboard-home .stat-card {
   min-width: 0;
   display: flex;
   align-items: center;
@@ -228,7 +228,7 @@
   border-radius: 12px;
   background: #0d1422;
 }
-.stat-icon {
+.dashboard-home .stat-icon {
   width: 38px;
   min-width: 38px;
   height: 38px;
@@ -239,48 +239,48 @@
   background: #111d38;
   color: #60a5fa;
 }
-.stat-card p {
+.dashboard-home .stat-card p {
   margin: 0 0 2px;
   color: #64748b;
   font-size: 10px;
 }
-.stat-card h3 {
+.dashboard-home .stat-card h3 {
   margin: 0;
   color: #f8fafc;
   font-size: 19px;
 }
-.stat-card span {
+.dashboard-home .stat-card span {
   color: #475569;
   font-size: 9px;
 }
 /* ==========================================
    RECENT MEETINGS
 \==========================================*/
-.meetings-section {
+.dashboard-home .meetings-section {
   width: 100%;
   min-width: 0;
 }
-.section-title {
+.dashboard-home .section-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
   margin-bottom: 15px;
 }
-.section-title > div {
+.dashboard-home .section-title > div {
   min-width: 0;
 }
-.section-title h2 {
+.dashboard-home .section-title h2 {
   margin: 0;
   color: #f8fafc;
   font-size: 18px;
 }
-.section-title p {
+.dashboard-home .section-title p {
   margin: 4px 0 0;
   color: #64748b;
   font-size: 11px;
 }
-.section-title button {
+.dashboard-home .section-title button {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -294,13 +294,13 @@
 /* ==========================================
    MEETING LIST
 \==========================================*/
-.meetings-list {
+.dashboard-home .meetings-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 10px;
   width: 100%;
 }
-.meeting-card {
+.dashboard-home .meeting-card {
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
@@ -316,12 +316,12 @@
     background 0.2s ease,
     transform 0.2s ease;
 }
-.meeting-card:hover {
+.dashboard-home .meeting-card:hover {
   border-color: #334155;
   background: #0f1726;
   transform: translateY(-1px);
 }
-.meeting-card-icon {
+.dashboard-home .meeting-card-icon {
   width: 40px;
   min-width: 40px;
   height: 40px;
@@ -333,12 +333,12 @@
   background: #111d38;
   color: #60a5fa;
 }
-.meeting-card-info {
+.dashboard-home .meeting-card-info {
   flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
 }
-.meeting-card-info h3 {
+.dashboard-home .meeting-card-info h3 {
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -347,7 +347,7 @@
   font-size: 13px;
   font-weight: 600;
 }
-.meeting-card-info p {
+.dashboard-home .meeting-card-info p {
   margin: 3px 0 6px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -355,21 +355,21 @@
   color: #64748b;
   font-size: 11px;
 }
-.meeting-card-info > span {
+.dashboard-home .meeting-card-info > span {
   display: flex;
   align-items: center;
   gap: 5px;
   color: #94a3b8;
   font-size: 10px;
 }
-.meeting-card-info > span svg {
+.dashboard-home .meeting-card-info > span svg {
   flex-shrink: 0;
   color: #64748b;
 }
-.meeting-end-time {
+.dashboard-home .meeting-end-time {
   margin-top: 3px;
 }
-.meeting-room-id {
+.dashboard-home .meeting-room-id {
   display: block;
   margin-top: 5px;
   overflow: hidden;
@@ -381,14 +381,14 @@
 /* ==========================================
    MEETING ACTIONS
 \==========================================*/
-.meeting-card-actions {
+.dashboard-home .meeting-card-actions {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 6px;
   flex-shrink: 0;
 }
-.meeting-status {
+.dashboard-home .meeting-status {
   padding: 4px 8px;
   border: 1px solid #263449;
   border-radius: 6px;
@@ -398,28 +398,28 @@
   font-weight: 600;
   text-transform: capitalize;
 }
-.meeting-status.scheduled {
+.dashboard-home .meeting-status.scheduled {
   border-color: #1e3a8a;
   background: #111d38;
   color: #60a5fa;
 }
-.meeting-status.live {
+.dashboard-home .meeting-status.live {
   border-color: #14532d;
   background: #0b2417;
   color: #4ade80;
 }
-.meeting-status.completed {
+.dashboard-home .meeting-status.completed {
   border-color: #334155;
   background: #111827;
   color: #94a3b8;
 }
-.meeting-status.cancelled {
+.dashboard-home .meeting-status.cancelled {
   border-color: #4c1d1d;
   background: #241214;
   color: #f87171;
 }
-.meeting-join-button,
-.meeting-cancel-button {
+.dashboard-home .meeting-join-button,
+.dashboard-home .meeting-cancel-button {
   height: 29px;
   padding: 0 11px;
   border-radius: 6px;
@@ -427,20 +427,20 @@
   font-weight: 600;
   cursor: pointer;
 }
-.meeting-join-button {
+.dashboard-home .meeting-join-button {
   border: none;
   background: #2563eb;
   color: white;
 }
-.meeting-join-button:hover {
+.dashboard-home .meeting-join-button:hover {
   background: #1d4ed8;
 }
-.meeting-cancel-button {
+.dashboard-home .meeting-cancel-button {
   border: 1px solid #334155;
   background: transparent;
   color: #94a3b8;
 }
-.meeting-cancel-button:hover {
+.dashboard-home .meeting-cancel-button:hover {
   border-color: #7f1d1d;
   background: #241214;
   color: #f87171;
@@ -448,7 +448,7 @@
 /* ==========================================
    EMPTY MEETINGS
 \==========================================*/
-.empty-meetings {
+.dashboard-home .empty-meetings {
   width: 100%;
   box-sizing: border-box;
   padding: 35px 20px;
@@ -457,7 +457,7 @@
   background: #0c1320;
   text-align: center;
 }
-.empty-icon {
+.dashboard-home .empty-icon {
   width: 46px;
   height: 46px;
   display: flex;
@@ -468,19 +468,19 @@
   background: #111d38;
   color: #60a5fa;
 }
-.empty-meetings h3 {
+.dashboard-home .empty-meetings h3 {
   margin: 0 0 5px;
   color: #f8fafc;
   font-size: 14px;
 }
-.empty-meetings p {
+.dashboard-home .empty-meetings p {
   max-width: 400px;
   margin: 0 auto 14px;
   color: #64748b;
   font-size: 11px;
   line-height: 1.5;
 }
-.empty-meetings button {
+.dashboard-home .empty-meetings button {
   height: 32px;
   padding: 0 13px;
   display: inline-flex;
@@ -497,7 +497,7 @@
 /* ==========================================
    JOIN MEETING - FINAL
 \==========================================*/
-.join-modal-overlay {
+.dashboard-home .join-modal-overlay {
   position: fixed !important;
   inset: 0 !important;
   z-index: 9999 !important;
@@ -508,7 +508,7 @@
   background: rgba(0, 0, 0, 0.72) !important;
   backdrop-filter: blur(7px);
 }
-.join-meeting-modal {
+.dashboard-home .join-meeting-modal {
   position: relative;
   width: 100%;
   max-width: 500px;
@@ -535,12 +535,12 @@
 /* ==========================================
    HEADER
 \==========================================*/
-.join-modal-title {
+.dashboard-home .join-modal-title {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.join-modal-icon {
+.dashboard-home .join-modal-icon {
   width: 42px;
   height: 42px;
   flex: 0 0 42px;
@@ -552,20 +552,20 @@
   background: #10243a;
   color: #60a5fa;
 }
-.join-meeting-modal .modal-header {
+.dashboard-home .join-meeting-modal .modal-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
   margin-bottom: 22px;
 }
-.join-meeting-modal .modal-header h2 {
+.dashboard-home .join-meeting-modal .modal-header h2 {
   margin: 0;
   color: #f8fafc;
   font-size: 22px;
   font-weight: 700;
 }
-.join-meeting-modal .modal-header p {
+.dashboard-home .join-meeting-modal .modal-header p {
   margin: 6px 0 0;
   color: #8fa5bb;
   font-size: 13px;
@@ -573,7 +573,7 @@
 /* ==========================================
    CLOSE BUTTON
 \==========================================*/
-.join-meeting-modal .modal-close {
+.dashboard-home .join-meeting-modal .modal-close {
   width: 34px !important;
   height: 34px !important;
   min-width: 34px !important;
@@ -591,7 +591,7 @@
   -webkit-appearance: none !important;
   cursor: pointer;
 }
-.join-meeting-modal .modal-close:hover {
+.dashboard-home .join-meeting-modal .modal-close:hover {
   background: #172236 !important;
   border-color: #3b82f6 !important;
   color: #ffffff !important;
@@ -599,12 +599,12 @@
 /* ==========================================
    FORM
 \==========================================*/
-.join-meeting-form {
+.dashboard-home .join-meeting-form {
   display: flex;
   flex-direction: column;
   gap: 9px;
 }
-.join-meeting-form label {
+.dashboard-home .join-meeting-form label {
   color: #cbd5e1;
   font-size: 13px;
   font-weight: 600;
@@ -612,7 +612,7 @@
 /* ==========================================
    MEETING ID INPUT
 \==========================================*/
-.join-meeting-modal .meeting-id-input-wrap {
+.dashboard-home .join-meeting-modal .meeting-id-input-wrap {
   width: 100% !important;
   min-height: 52px !important;
   box-sizing: border-box;
@@ -630,7 +630,7 @@
     box-shadow 0.2s ease;
 }
 /* Video icon section*/
-.join-meeting-modal .meeting-id-input-wrap > svg {
+.dashboard-home .join-meeting-modal .meeting-id-input-wrap > svg {
   width: 46px !important;
   height: 52px !important;
   flex: 0 0 46px;
@@ -641,7 +641,7 @@
   color: #64748b !important;
 }
 /* Input*/
-.join-meeting-modal .meeting-id-input-wrap input {
+.dashboard-home .join-meeting-modal .meeting-id-input-wrap input {
   flex: 1 !important;
   min-width: 0 !important;
   width: auto !important;
@@ -661,16 +661,16 @@
   -webkit-appearance: none !important;
 }
 /* Chrome autofill fix*/
-.join-meeting-modal
+.dashboard-home .join-meeting-modal
 .meeting-id-input-wrap
 input:-webkit-autofill,
-.join-meeting-modal
+.dashboard-home .join-meeting-modal
 .meeting-id-input-wrap
 input:-webkit-autofill:hover,
-.join-meeting-modal
+.dashboard-home .join-meeting-modal
 .meeting-id-input-wrap
 input:-webkit-autofill:focus,
-.join-meeting-modal
+.dashboard-home .join-meeting-modal
 .meeting-id-input-wrap
 input:-webkit-autofill:active {
   -webkit-text-fill-color: #f8fafc !important;
@@ -682,14 +682,14 @@ input:-webkit-autofill:active {
   caret-color: #ffffff;
 }
 /* Placeholder*/
-.join-meeting-modal
+.dashboard-home .join-meeting-modal
 .meeting-id-input-wrap
 input::placeholder {
   color: #5f7388 !important;
   opacity: 1;
 }
 /* Focus*/
-.join-meeting-modal
+.dashboard-home .join-meeting-modal
 .meeting-id-input-wrap:focus-within {
   border-color: #3b82f6 !important;
   box-shadow:
@@ -698,14 +698,14 @@ input::placeholder {
 /* ==========================================
    ACTION BUTTONS
 \==========================================*/
-.join-modal-actions {
+.dashboard-home .join-modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 18px;
 }
-.cancel-button,
-.submit-meeting-button {
+.dashboard-home .cancel-button,
+.dashboard-home .submit-meeting-button {
   min-height: 42px;
   padding: 0 18px;
   border-radius: 9px;
@@ -714,33 +714,33 @@ input::placeholder {
   font-weight: 600;
   cursor: pointer;
 }
-.cancel-button {
+.dashboard-home .cancel-button {
   border: 1px solid #334155 !important;
   background: #111827 !important;
   color: #cbd5e1 !important;
 }
-.cancel-button:hover {
+.dashboard-home .cancel-button:hover {
   background: #172236 !important;
   border-color: #475569 !important;
   color: #ffffff !important;
 }
-.submit-meeting-button {
+.dashboard-home .submit-meeting-button {
   border: 1px solid #2563eb !important;
   background: #2563eb !important;
   color: #ffffff !important;
 }
-.submit-meeting-button:hover {
+.dashboard-home .submit-meeting-button:hover {
   background: #1d4ed8 !important;
 }
-.submit-meeting-button:disabled,
-.cancel-button:disabled {
+.dashboard-home .submit-meeting-button:disabled,
+.dashboard-home .cancel-button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 /* ==========================================
    ERROR MESSAGE
 \==========================================*/
-.join-error-box {
+.dashboard-home .join-error-box {
   display: flex;
   align-items: flex-start;
   gap: 11px;
@@ -752,7 +752,7 @@ input::placeholder {
   background: rgba(69, 26, 26, 0.72);
   color: #fecaca;
 }
-.join-error-icon {
+.dashboard-home .join-error-icon {
   width: 22px;
   height: 22px;
   flex: 0 0 22px;
@@ -765,19 +765,19 @@ input::placeholder {
   font-size: 13px;
   font-weight: 700;
 }
-.join-error-box strong {
+.dashboard-home .join-error-box strong {
   display: block;
   margin-bottom: 4px;
   color: #fca5a5;
   font-size: 14px;
 }
-.join-error-box p {
+.dashboard-home .join-error-box p {
   margin: 0;
   color: #fecaca;
   font-size: 13px;
   line-height: 1.5;
 }
-.join-error-box span {
+.dashboard-home .join-error-box span {
   display: block;
   margin-top: 7px;
   color: #cbd5e1;
@@ -787,7 +787,7 @@ input::placeholder {
 /* ==========================================
    CREATE MEETING MODAL
 \==========================================*/
-.modal-overlay {
+.dashboard-home .modal-overlay {
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -798,7 +798,7 @@ input::placeholder {
   background: rgba(0, 0, 0, 0.72);
   backdrop-filter: blur(6px);
 }
-.meeting-modal {
+.dashboard-home .meeting-modal {
   width: 100%;
   max-width: 560px;
   padding: 26px;
@@ -808,25 +808,25 @@ input::placeholder {
   color: #f8fafc;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
 }
-.modal-header {
+.dashboard-home .modal-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
   margin-bottom: 24px;
 }
-.modal-header h2 {
+.dashboard-home .modal-header h2 {
   margin: 0;
   color: #f8fafc;
   font-size: 22px;
   font-weight: 700;
 }
-.modal-header p {
+.dashboard-home .modal-header p {
   margin: 6px 0 0;
   color: #94a3b8;
   font-size: 14px;
 }
-.modal-close {
+.dashboard-home .modal-close {
   width: 34px;
   height: 34px;
   display: flex;
@@ -839,22 +839,22 @@ input::placeholder {
   color: #94a3b8;
   cursor: pointer;
 }
-.modal-close:hover {
+.dashboard-home .modal-close:hover {
   background: #1e293b;
   color: #f8fafc;
 }
-.meeting-form {
+.dashboard-home .meeting-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.meeting-form label {
+.dashboard-home .meeting-form label {
   color: #cbd5e1;
   font-size: 13px;
   font-weight: 600;
 }
-.meeting-form input,
-.meeting-form textarea {
+.dashboard-home .meeting-form input,
+.dashboard-home .meeting-form textarea {
   width: 100%;
   box-sizing: border-box;
   padding: 11px 13px;
@@ -865,19 +865,19 @@ input::placeholder {
   color: #f8fafc;
   font-size: 14px;
 }
-.meeting-form input:focus,
-.meeting-form textarea:focus {
+.dashboard-home .meeting-form input:focus,
+.dashboard-home .meeting-form textarea:focus {
   border-color: #2563eb;
 }
-.meeting-form textarea {
+.dashboard-home .meeting-form textarea {
   min-height: 90px;
   resize: vertical;
 }
-.meeting-form input::placeholder,
-.meeting-form textarea::placeholder {
+.dashboard-home .meeting-form input::placeholder,
+.dashboard-home .meeting-form textarea::placeholder {
   color: #64748b;
 }
-.modal-error {
+.dashboard-home .modal-error {
   margin-bottom: 16px;
   padding: 11px 13px;
   border: 1px solid rgba(239, 68, 68, 0.3);
@@ -886,7 +886,7 @@ input::placeholder {
   color: #fca5a5;
   font-size: 13px;
 }
-.modal-success {
+.dashboard-home .modal-success {
   margin-bottom: 16px;
   padding: 11px 13px;
   border: 1px solid rgba(34, 197, 94, 0.3);
@@ -895,14 +895,14 @@ input::placeholder {
   color: #86efac;
   font-size: 13px;
 }
-.meeting-form-buttons {
+.dashboard-home .meeting-form-buttons {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 14px;
 }
-.cancel-button,
-.submit-meeting-button {
+.dashboard-home .cancel-button,
+.dashboard-home .submit-meeting-button {
   height: 42px;
   padding: 0 18px;
   border-radius: 8px;
@@ -910,28 +910,28 @@ input::placeholder {
   font-weight: 600;
   cursor: pointer;
 }
-.cancel-button {
+.dashboard-home .cancel-button {
   border: 1px solid #334155;
   background: #111827;
   color: #cbd5e1;
 }
-.cancel-button:hover {
+.dashboard-home .cancel-button:hover {
   background: #1e293b;
 }
-.submit-meeting-button {
+.dashboard-home .submit-meeting-button {
   border: 1px solid #2563eb;
   background: #2563eb;
   color: #ffffff;
 }
-.submit-meeting-button:hover {
+.dashboard-home .submit-meeting-button:hover {
   background: #1d4ed8;
 }
-.submit-meeting-button:disabled,
-.cancel-button:disabled {
+.dashboard-home .submit-meeting-button:disabled,
+.dashboard-home .cancel-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
-.meeting-delete-button {
+.dashboard-home .meeting-delete-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -951,7 +951,7 @@ input::placeholder {
     color 0.2s ease;
     display: none;
 }
-.meeting-delete-button:hover {
+.dashboard-home .meeting-delete-button:hover {
   background: rgba(239, 68, 68, 0.16);
   border-color: #f87171;
   color: #ffffff;
@@ -981,96 +981,96 @@ input::placeholder {
 /* =========================================================
    DASHBOARD HOME
    =========================================================*/
-html.light-theme .dashboard-home-content {
+html.light-theme .dashboard-home .dashboard-home-content {
   color: #172033;
 }
 /* =========================================================
    HEADER
    =========================================================*/
-html.light-theme .welcome-text {
+html.light-theme .dashboard-home .welcome-text {
   color: #64748b;
 }
-html.light-theme .dashboard-header h1 {
+html.light-theme .dashboard-home .dashboard-header h1 {
   color: #172033;
 }
-html.light-theme .header-description {
+html.light-theme .dashboard-home .header-description {
   color: #64748b;
 }
 /* =========================================================
    PROFILE
    =========================================================*/
-html.light-theme .dashboard-profile-avatar {
+html.light-theme .dashboard-home .dashboard-profile-avatar {
   background: #eff6ff;
   color: #2563eb;
 }
-html.light-theme .profile-info strong {
+html.light-theme .dashboard-home .profile-info strong {
   color: #172033;
 }
-html.light-theme .profile-info span {
+html.light-theme .dashboard-home .profile-info span {
   color: #64748b;
 }
 /* =========================================================
    NOTIFICATION
    =========================================================*/
-html.light-theme .notification-bell {
+html.light-theme .dashboard-home .notification-bell {
   background: #ffffff;
   border-color: #e1e5eb;
   color: #64748b;
 }
-html.light-theme .notification-bell:hover {
+html.light-theme .dashboard-home .notification-bell:hover {
   background: #f8fafc;
   border-color: #3b82f6;
   color: #2563eb;
 }
-html.light-theme .notification-badge {
+html.light-theme .dashboard-home .notification-badge {
   background: #2563eb;
   color: #ffffff;
 }
 /* =========================================================
    QUICK ACTIONS
    =========================================================*/
-html.light-theme .create-meeting,
-html.light-theme .join-meeting {
+html.light-theme .dashboard-home .create-meeting,
+html.light-theme .dashboard-home .join-meeting {
   border-color: #e1e5eb;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.035);
 }
-html.light-theme .create-meeting {
+html.light-theme .dashboard-home .create-meeting {
   background: #ffffff;
   color: #2563eb;
 }
-html.light-theme .join-meeting {
+html.light-theme .dashboard-home .join-meeting {
   background: #ffffff;
   color: #2563eb;
 }
-html.light-theme .create-meeting:hover,
-html.light-theme .join-meeting:hover {
+html.light-theme .dashboard-home .create-meeting:hover,
+html.light-theme .dashboard-home .join-meeting:hover {
   border-color: #bfdbfe;
   background: #ffffff;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
 }
-html.light-theme .create-meeting > div {
+html.light-theme .dashboard-home .create-meeting > div {
   background: #eff6ff;
 }
-html.light-theme .join-meeting > div {
+html.light-theme .dashboard-home .join-meeting > div {
   background: #f1f5f9;
 }
-html.light-theme .create-meeting strong,
-html.light-theme .join-meeting strong {
+html.light-theme .dashboard-home .create-meeting strong,
+html.light-theme .dashboard-home .join-meeting strong {
   color: #172033;
 }
-html.light-theme .create-meeting small,
-html.light-theme .join-meeting small {
+html.light-theme .dashboard-home .create-meeting small,
+html.light-theme .dashboard-home .join-meeting small {
   color: #64748b;
 }
 /* =========================================================
    ALERTS
    =========================================================*/
-html.light-theme .dashboard-error {
+html.light-theme .dashboard-home .dashboard-error {
   border-color: #fecaca;
   background: #fef2f2;
   color: #dc2626;
 }
-html.light-theme .dashboard-success {
+html.light-theme .dashboard-home .dashboard-success {
   border-color: #bbf7d0;
   background: #f0fdf4;
   color: #16a34a;
@@ -1078,100 +1078,100 @@ html.light-theme .dashboard-success {
 /* =========================================================
    STATISTICS
    =========================================================*/
-html.light-theme .stat-card {
+html.light-theme .dashboard-home .stat-card {
   background: #ffffff;
   border-color: #e1e5eb;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.035);
 }
-html.light-theme .stat-card:hover {
+html.light-theme .dashboard-home .stat-card:hover {
   border-color: #dbe4ef;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
-html.light-theme .stat-icon {
+html.light-theme .dashboard-home .stat-icon {
   background: #eff6ff;
   color: #2563eb;
 }
-html.light-theme .stat-card p {
+html.light-theme .dashboard-home .stat-card p {
   color: #64748b;
 }
-html.light-theme .stat-card h3 {
+html.light-theme .dashboard-home .stat-card h3 {
   color: #172033;
 }
-html.light-theme .stat-card span {
+html.light-theme .dashboard-home .stat-card span {
   color: #94a3b8;
 }
 /* =========================================================
    RECENT MEETINGS - SECTION HEADER
    =========================================================*/
-html.light-theme .section-title h2 {
+html.light-theme .dashboard-home .section-title h2 {
   color: #172033;
 }
-html.light-theme .section-title p {
+html.light-theme .dashboard-home .section-title p {
   color: #64748b;
 }
-html.light-theme .section-title button {
+html.light-theme .dashboard-home .section-title button {
   color: #2563eb;
 }
-html.light-theme .section-title button:hover {
+html.light-theme .dashboard-home .section-title button:hover {
   color: #1d4ed8;
 }
 /* =========================================================
    MEETING CARD
    =========================================================*/
-html.light-theme .meeting-card {
+html.light-theme .dashboard-home .meeting-card {
   background: #ffffff;
   border-color: #e1e5eb;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.035);
 }
-html.light-theme .meeting-card:hover {
+html.light-theme .dashboard-home .meeting-card:hover {
   background: #ffffff;
   border-color: #bfdbfe;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
-html.light-theme .meeting-card-icon {
+html.light-theme .dashboard-home .meeting-card-icon {
   background: #eff6ff;
   border-color: #dbeafe;
   color: #2563eb;
 }
-html.light-theme .meeting-card-info h3 {
+html.light-theme .dashboard-home .meeting-card-info h3 {
   color: #172033;
 }
-html.light-theme .meeting-card-info p {
+html.light-theme .dashboard-home .meeting-card-info p {
   color: #64748b;
 }
-html.light-theme .meeting-card-info > span {
+html.light-theme .dashboard-home .meeting-card-info > span {
   color: #475569;
 }
-html.light-theme .meeting-card-info > span svg {
+html.light-theme .dashboard-home .meeting-card-info > span svg {
   color: #94a3b8;
 }
-html.light-theme .meeting-room-id {
+html.light-theme .dashboard-home .meeting-room-id {
   color: #94a3b8;
 }
 /* =========================================================
    MEETING STATUS
    =========================================================*/
-html.light-theme .meeting-status {
+html.light-theme .dashboard-home .meeting-status {
   background: #f8fafc;
   border-color: #e2e8f0;
   color: #64748b;
 }
-html.light-theme .meeting-status.scheduled {
+html.light-theme .dashboard-home .meeting-status.scheduled {
   background: #eff6ff;
   border-color: #bfdbfe;
   color: #2563eb;
 }
-html.light-theme .meeting-status.live {
+html.light-theme .dashboard-home .meeting-status.live {
   background: #f0fdf4;
   border-color: #bbf7d0;
   color: #16a34a;
 }
-html.light-theme .meeting-status.completed {
+html.light-theme .dashboard-home .meeting-status.completed {
   background: #f8fafc;
   border-color: #25dfa7;
   color: #25dfa7;
 }
-html.light-theme .meeting-status.cancelled {
+html.light-theme .dashboard-home .meeting-status.cancelled {
   background: #fef2f2;
   border-color: #fecaca;
   color: #dc2626;
@@ -1179,19 +1179,19 @@ html.light-theme .meeting-status.cancelled {
 /* =========================================================
    MEETING BUTTONS
    =========================================================*/
-html.light-theme .meeting-join-button {
+html.light-theme .dashboard-home .meeting-join-button {
   background: #2563eb;
   color: #ffffff;
 }
-html.light-theme .meeting-join-button:hover {
+html.light-theme .dashboard-home .meeting-join-button:hover {
   background: #1d4ed8;
 }
-html.light-theme .meeting-cancel-button {
+html.light-theme .dashboard-home .meeting-cancel-button {
   border-color: #d1d5db;
   background: #ffffff;
   color: #64748b;
 }
-html.light-theme .meeting-cancel-button:hover {
+html.light-theme .dashboard-home .meeting-cancel-button:hover {
   border-color: #fca5a5;
   background: #fef2f2;
   color: #dc2626;
@@ -1199,39 +1199,39 @@ html.light-theme .meeting-cancel-button:hover {
 /* =========================================================
    EMPTY MEETINGS
    =========================================================*/
-html.light-theme .empty-meetings {
+html.light-theme .dashboard-home .empty-meetings {
   background: #ffffff;
   border-color: #dbe3ec;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
 }
-html.light-theme .empty-icon {
+html.light-theme .dashboard-home .empty-icon {
   background: #eff6ff;
   color: #2563eb;
 }
-html.light-theme .empty-meetings h3 {
+html.light-theme .dashboard-home .empty-meetings h3 {
   color: #172033;
 }
-html.light-theme .empty-meetings p {
+html.light-theme .dashboard-home .empty-meetings p {
   color: #64748b;
 }
-html.light-theme .empty-meetings button {
+html.light-theme .dashboard-home .empty-meetings button {
   background: #2563eb;
   color: #ffffff;
 }
-html.light-theme .empty-meetings button:hover {
+html.light-theme .dashboard-home .empty-meetings button:hover {
   background: #1d4ed8;
 }
 /* =========================================================
    JOIN MEETING MODAL - OVERLAY
    =========================================================*/
-html.light-theme .join-modal-overlay {
+html.light-theme .dashboard-home .join-modal-overlay {
   background: rgba(15, 23, 42, 0.35) !important;
   backdrop-filter: blur(7px);
 }
 /* =========================================================
    JOIN MEETING MODAL
    =========================================================*/
-html.light-theme .join-meeting-modal {
+html.light-theme .dashboard-home .join-meeting-modal {
   background: #ffffff;
   border-color: #e1e5eb;
   color: #172033;
@@ -1240,26 +1240,26 @@ html.light-theme .join-meeting-modal {
 /* =========================================================
    JOIN MODAL HEADER
    =========================================================*/
-html.light-theme .join-modal-icon {
+html.light-theme .dashboard-home .join-modal-icon {
   background: #eff6ff;
   border-color: #dbeafe;
   color: #2563eb;
 }
-html.light-theme .join-meeting-modal .modal-header h2 {
+html.light-theme .dashboard-home .join-meeting-modal .modal-header h2 {
   color: #172033;
 }
-html.light-theme .join-meeting-modal .modal-header p {
+html.light-theme .dashboard-home .join-meeting-modal .modal-header p {
   color: #64748b;
 }
 /* =========================================================
    MODAL CLOSE
    =========================================================*/
-html.light-theme .join-meeting-modal .modal-close {
+html.light-theme .dashboard-home .join-meeting-modal .modal-close {
   background: #f8fafc !important;
   border-color: #e2e8f0 !important;
   color: #64748b !important;
 }
-html.light-theme .join-meeting-modal .modal-close:hover {
+html.light-theme .dashboard-home .join-meeting-modal .modal-close:hover {
   background: #eff6ff !important;
   border-color: #93c5fd !important;
   color: #2563eb !important;
@@ -1267,31 +1267,31 @@ html.light-theme .join-meeting-modal .modal-close:hover {
 /* =========================================================
    JOIN FORM
    =========================================================*/
-html.light-theme .join-meeting-form label {
+html.light-theme .dashboard-home .join-meeting-form label {
   color: #334155;
 }
 /* =========================================================
    MEETING ID INPUT
    =========================================================*/
-html.light-theme .join-meeting-modal .meeting-id-input-wrap {
+html.light-theme .dashboard-home .join-meeting-modal .meeting-id-input-wrap {
   background: #ffffff !important;
   border-color: #dbe2ea !important;
   color: #64748b;
 }
-html.light-theme .join-meeting-modal .meeting-id-input-wrap > svg {
+html.light-theme .dashboard-home .join-meeting-modal .meeting-id-input-wrap > svg {
   background: #f8fafc !important;
   border-right-color: #e2e8f0;
   color: #64748b !important;
 }
-html.light-theme .join-meeting-modal .meeting-id-input-wrap input {
+html.light-theme .dashboard-home .join-meeting-modal .meeting-id-input-wrap input {
   background: #ffffff !important;
   color: #172033 !important;
 }
-html.light-theme .join-meeting-modal
+html.light-theme .dashboard-home .join-meeting-modal
 .meeting-id-input-wrap input::placeholder {
   color: #94a3b8 !important;
 }
-html.light-theme .join-meeting-modal
+html.light-theme .dashboard-home .join-meeting-modal
 .meeting-id-input-wrap:focus-within {
   border-color: #3b82f6 !important;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.10) !important;
@@ -1299,16 +1299,16 @@ html.light-theme .join-meeting-modal
 /* =========================================================
    JOIN INPUT AUTOFILL
    =========================================================*/
-html.light-theme .join-meeting-modal
+html.light-theme .dashboard-home .join-meeting-modal
 .meeting-id-input-wrap
 input:-webkit-autofill,
-html.light-theme .join-meeting-modal
+html.light-theme .dashboard-home .join-meeting-modal
 .meeting-id-input-wrap
 input:-webkit-autofill:hover,
-html.light-theme .join-meeting-modal
+html.light-theme .dashboard-home .join-meeting-modal
 .meeting-id-input-wrap
 input:-webkit-autofill:focus,
-html.light-theme .join-meeting-modal
+html.light-theme .dashboard-home .join-meeting-modal
 .meeting-id-input-wrap
 input:-webkit-autofill:active {
   -webkit-text-fill-color: #172033 !important;
@@ -1320,56 +1320,56 @@ input:-webkit-autofill:active {
 /* =========================================================
    JOIN ERROR
    =========================================================*/
-html.light-theme .join-error-box {
+html.light-theme .dashboard-home .join-error-box {
   border-color: #fecaca;
   background: #fef2f2;
   color: #991b1b;
 }
-html.light-theme .join-error-icon {
+html.light-theme .dashboard-home .join-error-icon {
   background: #fee2e2;
   color: #dc2626;
 }
-html.light-theme .join-error-box strong {
+html.light-theme .dashboard-home .join-error-box strong {
   color: #b91c1c;
 }
-html.light-theme .join-error-box p {
+html.light-theme .dashboard-home .join-error-box p {
   color: #991b1b;
 }
-html.light-theme .join-error-box span {
+html.light-theme .dashboard-home .join-error-box span {
   color: #64748b;
 }
 /* =========================================================
    MODAL BUTTONS
    =========================================================*/
-html.light-theme .cancel-button {
+html.light-theme .dashboard-home .cancel-button {
   border-color: #d1d5db !important;
   background: #ffffff !important;
   color: #475569 !important;
 }
-html.light-theme .cancel-button:hover {
+html.light-theme .dashboard-home .cancel-button:hover {
   background: #f8fafc !important;
   border-color: #94a3b8 !important;
   color: #172033 !important;
 }
-html.light-theme .submit-meeting-button {
+html.light-theme .dashboard-home .submit-meeting-button {
   border-color: #2563eb !important;
   background: #2563eb !important;
   color: #ffffff !important;
 }
-html.light-theme .submit-meeting-button:hover {
+html.light-theme .dashboard-home .submit-meeting-button:hover {
   background: #1d4ed8 !important;
 }
 /* =========================================================
    CREATE MEETING MODAL OVERLAY
    =========================================================*/
-html.light-theme .modal-overlay {
+html.light-theme .dashboard-home .modal-overlay {
   background: rgba(15, 23, 42, 0.35);
   backdrop-filter: blur(6px);
 }
 /* =========================================================
    CREATE MEETING MODAL
    =========================================================*/
-html.light-theme .meeting-modal {
+html.light-theme .dashboard-home .meeting-modal {
   background: #ffffff;
   border-color: #e1e5eb;
   color: #172033;
@@ -1378,18 +1378,18 @@ html.light-theme .meeting-modal {
 /* =========================================================
    CREATE MODAL HEADER
    =========================================================*/
-html.light-theme .modal-header h2 {
+html.light-theme .dashboard-home .modal-header h2 {
   color: #172033;
 }
-html.light-theme .modal-header p {
+html.light-theme .dashboard-home .modal-header p {
   color: #64748b;
 }
-html.light-theme .modal-close {
+html.light-theme .dashboard-home .modal-close {
   background: #f8fafc;
   border-color: #e2e8f0;
   color: #64748b;
 }
-html.light-theme .modal-close:hover {
+html.light-theme .dashboard-home .modal-close:hover {
   background: #eff6ff;
   border-color: #93c5fd;
   color: #2563eb;
@@ -1397,33 +1397,33 @@ html.light-theme .modal-close:hover {
 /* =========================================================
    CREATE MEETING FORM
    =========================================================*/
-html.light-theme .meeting-form label {
+html.light-theme .dashboard-home .meeting-form label {
   color: #334155;
 }
-html.light-theme .meeting-form input,
-html.light-theme .meeting-form textarea {
+html.light-theme .dashboard-home .meeting-form input,
+html.light-theme .dashboard-home .meeting-form textarea {
   background: #ffffff;
   border-color: #dbe2ea;
   color: #172033;
 }
-html.light-theme .meeting-form input:focus,
-html.light-theme .meeting-form textarea:focus {
+html.light-theme .dashboard-home .meeting-form input:focus,
+html.light-theme .dashboard-home .meeting-form textarea:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
 }
-html.light-theme .meeting-form input::placeholder,
-html.light-theme .meeting-form textarea::placeholder {
+html.light-theme .dashboard-home .meeting-form input::placeholder,
+html.light-theme .dashboard-home .meeting-form textarea::placeholder {
   color: #94a3b8;
 }
 /* =========================================================
    CREATE MODAL ALERTS
    =========================================================*/
-html.light-theme .modal-error {
+html.light-theme .dashboard-home .modal-error {
   border-color: #fecaca;
   background: #fef2f2;
   color: #dc2626;
 }
-html.light-theme .modal-success {
+html.light-theme .dashboard-home .modal-success {
   border-color: #bbf7d0;
   background: #f0fdf4;
   color: #16a34a;
@@ -1431,26 +1431,26 @@ html.light-theme .modal-success {
 /* =========================================================
    CREATE MODAL ACTIONS
    =========================================================*/
-html.light-theme .meeting-form-buttons .cancel-button {
+html.light-theme .dashboard-home .meeting-form-buttons .cancel-button {
   border-color: #d1d5db;
   background: #ffffff;
   color: #475569;
 }
-html.light-theme .meeting-form-buttons .cancel-button:hover {
+html.light-theme .dashboard-home .meeting-form-buttons .cancel-button:hover {
   background: #f8fafc;
 }
-html.light-theme .meeting-form-buttons .submit-meeting-button {
+html.light-theme .dashboard-home .meeting-form-buttons .submit-meeting-button {
   background: #2563eb;
   color: #ffffff;
 }
-html.light-theme .meeting-form-buttons .submit-meeting-button:hover {
+html.light-theme .dashboard-home .meeting-form-buttons .submit-meeting-button:hover {
   background: #1d4ed8;
 }
 /* =========================================================
    DISABLED STATES
    =========================================================*/
-html.light-theme .submit-meeting-button:disabled,
-html.light-theme .cancel-button:disabled {
+html.light-theme .dashboard-home .submit-meeting-button:disabled,
+html.light-theme .dashboard-home .cancel-button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
@@ -1463,54 +1463,55 @@ html.light-theme .cancel-button:disabled {
 /* =========================================================
    CONSOLIDATED MOBILE VIEWPORT — 600px
    ========================================================= */
-@media (max-width: 1100px) {
-  .dashboard-home-content {
-    padding: 10px;
+@media (max-width: 1024px) {
+  .dashboard-home .dashboard-home-content {
+    padding: 10px 0px 10px 15px;
+
   }
-  .stats-grid {
+  .dashboard-home .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (max-width: 800px) {
-  .dashboard-home-content {
-    padding: 10px;
+  .dashboard-home .dashboard-home-content {
+    padding: 10px 0px 10px 15px;
   }
-  .quick-actions {
+  .dashboard-home .quick-actions {
     grid-template-columns: 1fr;
   }
-  .meeting-card {
+  .dashboard-home .meeting-card {
     align-items: flex-start;
   }
-  .meeting-card-actions {
+  .dashboard-home .meeting-card-actions {
     flex-wrap: wrap;
   }
 }
 @media (max-width: 600px) {
-  .dashboard-home-content {
-      padding: 10px 0px;
+  .dashboard-home .dashboard-home-content {
+    padding: 10px 0px 10px 0px;
     }
-    .dashboard-header {
+    .dashboard-home .dashboard-header {
       align-items: flex-start;
     }
-    .dashboard-header-actions {
+    .dashboard-home .dashboard-header-actions {
       gap: 10px;
     }
-    .profile-info {
+    .dashboard-home .profile-info {
       display: none;
     }
-    .stats-grid {
+    .dashboard-home .stats-grid {
       grid-template-columns: 1fr;
     }
-    .section-title {
+    .dashboard-home .section-title {
       align-items: flex-start;
     }
-    .meeting-card {
+    .dashboard-home .meeting-card {
       flex-wrap: wrap;
     }
-    .meeting-card-info {
+    .dashboard-home .meeting-card-info {
       width: calc(100% - 54px);
     }
-    .meeting-card-actions {
+    .dashboard-home .meeting-card-actions {
       width: 100%;
       justify-content: flex-start;
       padding-left: 53px;
@@ -1522,57 +1523,57 @@ html.light-theme .cancel-button:disabled {
     /* ==========================================
        HEADER
     ==========================================*/
-    .dashboard-header {
+    .dashboard-home .dashboard-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
       margin-bottom: 18px;
     }
-    .dashboard-header h1 {
+    .dashboard-home .dashboard-header h1 {
       margin: 0;
       font-size: 22px;
       line-height: 1.2;
     }
-    .header-description {
+    .dashboard-home .header-description {
       margin-top: 5px;
       font-size: 11px;
       line-height: 1.4;
     }
-    .dashboard-header-actions {
+    .dashboard-home .dashboard-header-actions {
       gap: 7px;
       flex-shrink: 0;
     }
     /* ==========================================
        QUICK ACTIONS
     ==========================================*/
-    .quick-actions {
+    .dashboard-home .quick-actions {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-bottom: 10px;
     }
-    .create-meeting,
-    .join-meeting {
+    .dashboard-home .create-meeting,
+.dashboard-home .join-meeting {
       min-width: 0;
       padding: 12px;
       gap: 9px;
       border-radius: 12px;
     }
-    .create-meeting > div,
-    .join-meeting > div {
+    .dashboard-home .create-meeting > div,
+.dashboard-home .join-meeting > div {
       width: 36px;
       min-width: 36px;
       height: 36px;
     }
-    .create-meeting strong,
-    .join-meeting strong {
+    .dashboard-home .create-meeting strong,
+.dashboard-home .join-meeting strong {
       display: block;
       font-size: 12px;
       line-height: 1.2;
     }
-    .create-meeting small,
-    .join-meeting small {
+    .dashboard-home .create-meeting small,
+.dashboard-home .join-meeting small {
       display: block;
       margin-top: 3px;
       font-size: 9px;
@@ -1581,50 +1582,50 @@ html.light-theme .cancel-button:disabled {
     /* ==========================================
        STAT CARDS
     ==========================================*/
-    .stats-grid {
+    .dashboard-home .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 9px;
       margin-bottom: 10px;
     }
-    .stat-card {
+    .dashboard-home .stat-card {
       min-width: 0;
       padding: 11px;
       gap: 9px;
       border-radius: 11px;
     }
-    .stat-icon {
+    .dashboard-home .stat-icon {
       width: 34px;
       min-width: 34px;
       height: 34px;
     }
-    .stat-card h3 {
+    .dashboard-home .stat-card h3 {
       margin: 0;
       font-size: 17px;
       line-height: 1.1;
     }
-    .stat-card p {
+    .dashboard-home .stat-card p {
       margin-top: 3px;
       font-size: 9px;
     }
     /* ==========================================
        RECENT MEETINGS HEADER
     ==========================================*/
-    .section-title {
+    .dashboard-home .section-title {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: px;
       margin-bottom: 10px;
     }
-    .section-title h2 {
+    .dashboard-home .section-title h2 {
       margin: 0px;
       font-size: 17px;
     }
     /* ==========================================
        MEETING LIST
     ==========================================*/
-    .meetings-list {
+    .dashboard-home .meetings-list {
       display: grid;
       grid-template-columns: 1fr;
       gap: 9px;
@@ -1632,7 +1633,7 @@ html.light-theme .cancel-button:disabled {
     /* ==========================================
        MEETING CARD
     ==========================================*/
-    .meeting-card {
+    .dashboard-home .meeting-card {
       width: 100%;
       min-width: 0;
       display: flex;
@@ -1642,27 +1643,27 @@ html.light-theme .cancel-button:disabled {
       box-sizing: border-box;
       border-radius: 11px;
     }
-    .meeting-card-info {
+    .dashboard-home .meeting-card-info {
       width: auto;
       min-width: 0;
       flex: 1;
     }
-    .meeting-card-info h3 {
+    .dashboard-home .meeting-card-info h3 {
       font-size: 13px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .meeting-card-info p {
+    .dashboard-home .meeting-card-info p {
       font-size: 10px;
     }
-    .meeting-card-info span {
+    .dashboard-home .meeting-card-info span {
       font-size: 9px;
     }
     /* ==========================================
        MEETING CARD ACTIONS
     ==========================================*/
-    .meeting-card-actions {
+    .dashboard-home .meeting-card-actions {
       width: auto;
       display: flex;
       flex-wrap: wrap;
@@ -1671,7 +1672,7 @@ html.light-theme .cancel-button:disabled {
       gap: 5px;
       padding-left: 0;
     }
-    .meeting-card-actions button {
+    .dashboard-home .meeting-card-actions button {
       min-height: 34px;
       padding: 7px 9px;
       font-size: 10px;
@@ -1680,10 +1681,10 @@ html.light-theme .cancel-button:disabled {
        CREATE / JOIN MODAL
        MOBILE ONLY
     ==========================================*/
-    .modal-overlay {
+    .dashboard-home .modal-overlay {
       padding: 12px;
     }
-    .meeting-modal {
+    .dashboard-home .meeting-modal {
       width: 100%;
       max-width: 430px;
       max-height: 90vh;
@@ -1692,17 +1693,17 @@ html.light-theme .cancel-button:disabled {
       overflow-y: auto;
       border-radius: 16px;
     }
-    .modal-header {
+    .dashboard-home .modal-header {
       gap: 10px;
       margin-bottom: 15px;
     }
-    .modal-header h2 {
+    .dashboard-home .modal-header h2 {
       font-size: 19px;
     }
-    .modal-header p {
+    .dashboard-home .modal-header p {
       font-size: 11px;
     }
-    .modal-close {
+    .dashboard-home .modal-close {
       width: 32px;
       height: 32px;
       min-width: 32px;
@@ -1710,39 +1711,39 @@ html.light-theme .cancel-button:disabled {
     /* ==========================================
        FORM
     ==========================================*/
-    .meeting-form {
+    .dashboard-home .meeting-form {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-    .meeting-form label {
+    .dashboard-home .meeting-form label {
       font-size: 11px;
     }
-    .meeting-form input,
-    .meeting-form textarea,
-    .meeting-form select {
+    .dashboard-home .meeting-form input,
+.dashboard-home .meeting-form textarea,
+.dashboard-home .meeting-form select {
       width: 100%;
       min-height: 40px;
       box-sizing: border-box;
       font-size: 13px;
     }
-    .meeting-form textarea {
+    .dashboard-home .meeting-form textarea {
       min-height: 75px;
       resize: vertical;
     }
     /* ==========================================
        FORM BUTTONS
     ==========================================*/
-    .meeting-form-buttons,
-    .modal-actions {
+    .dashboard-home .meeting-form-buttons,
+.dashboard-home .modal-actions {
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
       margin-top: 8px;
     }
-    .meeting-form-buttons button,
-    .modal-actions button {
+    .dashboard-home .meeting-form-buttons button,
+.dashboard-home .modal-actions button {
       width: 100%;
       min-height: 42px;
       font-size: 12px;
@@ -1750,13 +1751,13 @@ html.light-theme .cancel-button:disabled {
     /* ==========================================
        MOBILE SPACING
     ==========================================*/
-  html.light-theme .meeting-modal {
+  html.light-theme .dashboard-home .meeting-modal {
         box-shadow:
           0 20px 50px rgba(15, 23, 42, 0.15);
       }
-      html.light-theme .meeting-form input,
-      html.light-theme .meeting-form textarea,
-      html.light-theme .meeting-form select {
+      html.light-theme .dashboard-home .meeting-form input,
+html.light-theme .dashboard-home .meeting-form textarea,
+html.light-theme .dashboard-home .meeting-form select {
         background: #ffffff;
         color: #172033;
       }

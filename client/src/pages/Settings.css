@@ -5,7 +5,7 @@
 .settings-page {
   min-height: 100vh;
   color: #e8eef8;
-  ;
+  padding: 5px 0px 10px 15px;
 }
 
 .settings-page.light-theme {
@@ -16,7 +16,7 @@
 .settings-main {
   width: 100%;
   margin: 0;
-  padding: 5px;
+
 }
 
 .settings-header {
@@ -24,7 +24,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 22px;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .settings-eyebrow {
@@ -35,14 +35,12 @@
 }
 
 .settings-header h1 {
-  margin: 6px 0 0;
   color: #f7faff;
   font-size: 31px;
   line-height: 1.1;
 }
 
 .settings-header p {
-  margin: 7px 0 0;
   color: #8297b2;
   font-size: 13px;
 }
@@ -97,7 +95,7 @@
 .settings-layout {
   display: grid;
   grid-template-columns: 292px minmax(0, 1fr);
-  gap: 20px;
+  gap: 10px;
   align-items: start;
 }
 
@@ -202,7 +200,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 }
 
 .settings-profile-banner {
@@ -495,7 +493,7 @@
 .settings-password-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 10px;
 }
 
 .settings-password-hint {
@@ -896,93 +894,11 @@
   border-color: #e4eaf2;
 }
 
-@media (max-width: 980px) {
-  .settings-main {
-    padding: 25px 20px 40px;
-  }
 
-  .settings-layout {
-    grid-template-columns: 230px minmax(0, 1fr);
-  }
 
-  .settings-nav small {
-    display: none;
-  }
-}
 
-@media (max-width: 740px) {
-  .settings-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 
-  .settings-header-user {
-    width: 100%;
-  }
 
-  .settings-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .settings-sidebar {
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4px;
-  }
-
-  .settings-sidebar-label,
-  .settings-back {
-    grid-column: 1 / -1;
-  }
-
-  .settings-password-grid,
-  .theme-grid,
-  .help-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .settings-profile-banner {
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 480px) {
-  .settings-main {
-    padding: 20px 12px 30px;
-  }
-
-  .settings-header h1 {
-    font-size: 27px;
-  }
-
-  .settings-sidebar {
-    grid-template-columns: 1fr;
-  }
-
-  .settings-profile-banner,
-  .settings-card {
-    padding: 17px;
-  }
-
-  .settings-remove-photo {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .settings-footer,
-  .data-actions {
-    flex-direction: column;
-  }
-
-  .settings-primary,
-  .settings-outline,
-  .settings-danger,
-  .settings-danger-outline {
-    width: 100%;
-  }
-}
 .account-actions {
   display: flex;
   align-items: center;
@@ -1701,7 +1617,62 @@ html.light-theme.compact-mode .settings-card {
    RESPONSIVE
    ========================================================= */
 
-@media (max-width: 740px) {
+
+/* =========================================================
+   CONSOLIDATED RESPONSIVE BREAKPOINTS
+   Desktop: default styles | Laptop: 1024px | Tablet: 800px | Mobile: 600px
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .settings-main {
+    padding: 0;
+  }
+
+  .settings-layout {
+    grid-template-columns: 230px minmax(0, 1fr);
+  }
+
+  .settings-nav small {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .settings-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .settings-header-user {
+    width: 100%;
+  }
+
+  .settings-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .settings-sidebar-label,
+  .settings-back {
+    grid-column: 1 / -1;
+  }
+
+  .settings-password-grid,
+  .theme-grid,
+  .help-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-profile-banner {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
 
   html.light-theme .settings-sidebar,
   .settings-page.light-theme .settings-sidebar {
@@ -1722,11 +1693,42 @@ html.light-theme.compact-mode .settings-card {
         #ffffff
       );
   }
-
 }
 
+@media (max-width: 600px) {
+  .settings-page {
+    padding: 0;
+  }
 
-@media (max-width: 480px) {
+  .settings-header h1 {
+    font-size: 27px;
+  }
+
+  .settings-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-profile-banner,
+  .settings-card {
+    padding: 17px;
+  }
+
+  .settings-remove-photo {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .settings-footer,
+  .data-actions {
+    flex-direction: column;
+  }
+
+  .settings-primary,
+  .settings-outline,
+  .settings-danger,
+  .settings-danger-outline {
+    width: 100%;
+  }
 
   html.light-theme .settings-card,
   html.light-theme .settings-profile-banner,
@@ -1735,8 +1737,6 @@ html.light-theme.compact-mode .settings-card {
     background: #ffffff;
   }
 
-}
-@media (max-width: 600px) {
   .account-actions {
     flex-direction: row;
     align-items: center;

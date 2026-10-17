@@ -109,7 +109,7 @@ function Settings() {
   return (
     <div className={`settings-page ${settings.appearance.theme === "light" ? "light-theme" : ""} ${settings.appearance.compactMode ? "compact-mode" : ""}`}>
       <div className="settings-main">
-        <header className="settings-header"><div><span className="settings-eyebrow">ACCOUNT</span><h1>Settings</h1><p>Manage your account, preferences, and application settings.</p></div></header>
+        <header className="settings-header"><div><span className="settings-eyebrow"></span><h1>Settings</h1><p>Manage your account, preferences, and application settings.</p></div></header>
         <div className="settings-layout">
           <aside className="settings-sidebar">
             <div className="settings-sidebar-label">SETTINGS</div>

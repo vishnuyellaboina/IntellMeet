@@ -6,7 +6,7 @@
   min-height: 100vh;
   color: #f8fafc;
   box-sizing: border-box;
-  padding-left: 10px;
+  padding:10px 0px 10px 15px;
 }
 
 
@@ -14,60 +14,50 @@
    HEADER
 ========================================== */
 
-.meeting-details-header {
+.meeting-details-page .meeting-details-header {
   max-width: 1450px;
-  margin: 0 auto 22px;
+  margin: 0 auto 10px;
 
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 25px;
+  gap: 10px;
 }
 
-.details-header-left {
+.meeting-details-page .details-header-left {
   display: flex;
   align-items: flex-start;
   gap: 5px;
   min-width: 0;
 }
 
-.details-back-button {
-  height: 44px;
-
-
-  
-
-  background: #0c1627;
-  color: #f8fafc;
-
+.meeting-details-page .details-back-button {
   display: flex;
   align-items: center;
   justify-content: center;
-
-
   cursor: pointer;
   flex-shrink: 0;
-
   font-size: 14px;
   font-weight: 600;
-
+  background: transparent;
   transition:
     background 0.2s ease,
     border-color 0.2s ease;
+  color: #ffffff;
 }
 
-.details-back-button:hover {
+.meeting-details-page .details-back-button:hover {
   background: #111f34;
   border-color: #31598e;
 }
 
 
 
-.meeting-title-block {
+.meeting-details-page .meeting-title-block {
   min-width: 0;
 }
 
-.meeting-title-block h1 {
+.meeting-details-page .meeting-title-block h1 {
   margin: 0;
 
   font-size: 30px;
@@ -77,14 +67,14 @@
   color: #f8fafc;
 }
 
-.meeting-title-block p {
-  margin: 0px 0 10px;
+.meeting-details-page .meeting-title-block p {
+
 
   color: #94a3b8;
   font-size: 14px;
 }
 
-.meeting-id-row {
+.meeting-details-page .meeting-id-row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -94,13 +84,13 @@
   font-size: 12px;
 }
 
-.meeting-id-row strong {
+.meeting-details-page .meeting-id-row strong {
   color: #cbd5e1;
   font-weight: 600;
   letter-spacing: 0.3px;
 }
 
-.mini-copy-button {
+.meeting-details-page .mini-copy-button {
   width: 26px;
   height: 26px;
 
@@ -117,12 +107,12 @@
   cursor: pointer;
 }
 
-.mini-copy-button:hover {
+.meeting-details-page .mini-copy-button:hover {
   color: #60a5fa;
   border-color: #315b91;
 }
 
-.meeting-status-badge {
+.meeting-details-page .meeting-status-badge {
   margin-left: 8px;
 
   display: inline-flex;
@@ -138,38 +128,38 @@
   border: 1px solid transparent;
 }
 
-.meeting-status-badge.completed {
+.meeting-details-page .meeting-status-badge.completed {
   background: rgba(16, 185, 129, 0.1);
   border-color: rgba(16, 185, 129, 0.35);
   color: #34d399;
 }
 
-.meeting-status-badge.live {
+.meeting-details-page .meeting-status-badge.live {
   background: rgba(59, 130, 246, 0.1);
   border-color: rgba(59, 130, 246, 0.35);
   color: #60a5fa;
 }
 
-.meeting-status-badge.scheduled {
+.meeting-details-page .meeting-status-badge.scheduled {
   background: rgba(139, 92, 246, 0.1);
   border-color: rgba(139, 92, 246, 0.35);
   color: #a78bfa;
 }
 
-.meeting-status-badge.cancelled {
+.meeting-details-page .meeting-status-badge.cancelled {
   background: rgba(239, 68, 68, 0.1);
   border-color: rgba(239, 68, 68, 0.35);
   color: #f87171;
 }
 
-.details-header-actions {
+.meeting-details-page .details-header-actions {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.copy-id-button,
-.details-more-button {
+.meeting-details-page .copy-id-button,
+.meeting-details-page .details-more-button {
   height: 44px;
 
   border: 1px solid #243450;
@@ -191,16 +181,16 @@
   transition: 0.2s ease;
 }
 
-.copy-id-button {
+.meeting-details-page .copy-id-button {
   padding: 0 16px;
 }
 
-.details-more-button {
+.meeting-details-page .details-more-button {
   width: 44px;
 }
 
-.copy-id-button:hover,
-.details-more-button:hover {
+.meeting-details-page .copy-id-button:hover,
+.meeting-details-page .details-more-button:hover {
   background: #101e32;
   border-color: #3566a1;
 }
@@ -210,9 +200,9 @@
    MEETING INFO
 ========================================== */
 
-.meeting-info-card {
+.meeting-details-page .meeting-info-card {
   max-width: 1450px;
-  margin: 0 auto 22px;
+  margin: 0 auto 10px;
 
   padding: 18px 22px;
 
@@ -232,7 +222,7 @@
   overflow: hidden;
 }
 
-.meeting-info-item {
+.meeting-details-page .meeting-info-item {
   display: flex;
   align-items: center;
   gap: 13px;
@@ -242,15 +232,15 @@
   border-right: 1px solid #1e2b3d;
 }
 
-.meeting-info-item:first-child {
+.meeting-details-page .meeting-info-item:first-child {
   padding-left: 2px;
 }
 
-.meeting-info-item:last-child {
+.meeting-details-page .meeting-info-item:last-child {
   border-right: none;
 }
 
-.meeting-info-icon {
+.meeting-details-page .meeting-info-icon {
   width: 44px;
   height: 44px;
 
@@ -263,44 +253,44 @@
   justify-content: center;
 }
 
-.meeting-info-icon.blue {
+.meeting-details-page .meeting-info-icon.blue {
   background: rgba(37, 99, 235, 0.16);
   color: #3b82f6;
 }
 
-.meeting-info-icon.purple {
+.meeting-details-page .meeting-info-icon.purple {
   background: rgba(139, 92, 246, 0.16);
   color: #a78bfa;
 }
 
-.meeting-info-icon.violet {
+.meeting-details-page .meeting-info-icon.violet {
   background: rgba(124, 58, 237, 0.16);
   color: #8b5cf6;
 }
 
-.meeting-info-icon.cyan {
+.meeting-details-page .meeting-info-icon.cyan {
   background: rgba(6, 182, 212, 0.14);
   color: #22d3ee;
 }
 
-.meeting-info-item > div:last-child {
+.meeting-details-page .meeting-info-item > div:last-child {
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
 
-.meeting-info-item span {
+.meeting-details-page .meeting-info-item span {
   color: #7f91a9;
   font-size: 12px;
 }
 
-.meeting-info-item strong {
+.meeting-details-page .meeting-info-item strong {
   color: #f8fafc;
   font-size: 15px;
   font-weight: 650;
 }
 
-.meeting-info-item small {
+.meeting-details-page .meeting-info-item small {
   color: #64748b;
   font-size: 11px;
 }
@@ -310,7 +300,7 @@
    GENERIC SECTION
 ========================================== */
 
-.details-section {
+.meeting-details-page .details-section {
   max-width: 1450px;
   margin: 0 auto 20px;
 
@@ -326,7 +316,7 @@
 
   overflow: hidden;
 }
-.section-header {
+.meeting-details-page .section-header {
   min-height: 72px;
   padding: 16px 22px;
   border-bottom: 1px solid #1b2a3d;
@@ -337,7 +327,7 @@
   gap: 15px;
 }
 
-.details-section .section-heading {
+.meeting-details-page .details-section .section-heading {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -349,12 +339,12 @@
   flex-direction: row;
 }
 
-.section-heading > div:last-child {
+.meeting-details-page .section-heading > div:last-child {
   display: block;
   min-width: 0;
 }
 
-.section-heading h2 {
+.meeting-details-page .section-heading h2 {
   margin: 0;
   font-size: 18px;
   line-height: 1.2;
@@ -363,14 +353,14 @@
   text-align: left;
 }
 
-.section-heading p {
+.meeting-details-page .section-heading p {
   margin: 4px 0 0;
   color: #71839b;
   font-size: 12px;
   line-height: 1.4;
   text-align: left;
 }
-.section-icon {
+.meeting-details-page .section-icon {
   width: 38px;
   height: 38px;
 
@@ -381,32 +371,32 @@
   justify-content: center;
 }
 
-.ai-icon {
+.meeting-details-page .ai-icon {
   background: rgba(139, 92, 246, 0.12);
   color: #a78bfa;
 }
 
-.action-icon {
+.meeting-details-page .action-icon {
   background: rgba(59, 130, 246, 0.12);
   color: #60a5fa;
 }
 
-.participant-icon {
+.meeting-details-page .participant-icon {
   background: rgba(37, 99, 235, 0.12);
   color: #60a5fa;
 }
 
-.transcript-icon {
+.meeting-details-page .transcript-icon {
   background: rgba(6, 182, 212, 0.11);
   color: #22d3ee;
 }
 
-.details-icon {
+.meeting-details-page .details-icon {
   background: rgba(100, 116, 139, 0.13);
   color: #94a3b8;
 }
 
-.outline-section-button {
+.meeting-details-page .outline-section-button {
   height: 36px;
 
   padding: 0 12px;
@@ -430,7 +420,7 @@
   transition: 0.2s ease;
 }
 
-.outline-section-button:hover {
+.meeting-details-page .outline-section-button:hover {
   background: #10243d;
   border-color: #3977b8;
 }
@@ -440,27 +430,27 @@
    AI SUMMARY
 ========================================== */
 
-.ai-summary-section {
+.meeting-details-page .ai-summary-section {
   border-color: #26345b;
 }
 
-.summary-grid {
+.meeting-details-page .summary-grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr 0.8fr;
 }
 
-.summary-column {
+.meeting-details-page .summary-column {
   min-height: 160px;
   padding: 22px 24px;
 
   border-right: 1px solid #1c2b3e;
 }
 
-.summary-column:last-child {
+.meeting-details-page .summary-column:last-child {
   border-right: none;
 }
 
-.summary-column-heading {
+.meeting-details-page .summary-column-heading {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -468,14 +458,14 @@
   margin-bottom: 14px;
 }
 
-.summary-column-heading h3 {
+.meeting-details-page .summary-column-heading h3 {
   margin: 0;
 
   font-size: 14px;
   color: #f1f5f9;
 }
 
-.summary-icon {
+.meeting-details-page .summary-icon {
   width: 32px;
   height: 32px;
 
@@ -486,22 +476,22 @@
   justify-content: center;
 }
 
-.summary-icon.blue {
+.meeting-details-page .summary-icon.blue {
   background: rgba(37, 99, 235, 0.13);
   color: #60a5fa;
 }
 
-.summary-icon.purple {
+.meeting-details-page .summary-icon.purple {
   background: rgba(139, 92, 246, 0.13);
   color: #a78bfa;
 }
 
-.summary-icon.green {
+.meeting-details-page .summary-icon.green {
   background: rgba(16, 185, 129, 0.12);
   color: #34d399;
 }
 
-.summary-column p {
+.meeting-details-page .summary-column p {
   margin: 0;
 
   color: #9eacc0;
@@ -509,25 +499,25 @@
   line-height: 1.75;
 }
 
-.summary-column ul {
+.meeting-details-page .summary-column ul {
   margin: 0;
   padding-left: 18px;
 
   color: #aebdd0;
 }
 
-.summary-column li {
+.meeting-details-page .summary-column li {
   margin-bottom: 8px;
 
   font-size: 13px;
   line-height: 1.55;
 }
 
-.summary-column li:last-child {
+.meeting-details-page .summary-column li:last-child {
   margin-bottom: 0;
 }
 
-.ai-error {
+.meeting-details-page .ai-error {
   margin: 15px 22px 0;
 
   padding: 10px 12px;
@@ -546,17 +536,17 @@
    MAIN TWO COLUMN GRID
 ========================================== */
 
-.details-main-grid {
+.meeting-details-page .details-main-grid {
   max-width: 1450px;
   margin: 0 auto;
 
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(300px, 0.95fr);
 
-  gap: 20px;
+  gap: 10px;
 }
 
-.details-main-grid .details-section {
+.meeting-details-page .details-main-grid .details-section {
   width: 100%;
   margin-bottom: 0;
 }
@@ -566,12 +556,12 @@
    ACTION ITEMS
 ========================================== */
 
-.action-table {
+.meeting-details-page .action-table {
   width: 100%;
 }
 
-.action-table-header,
-.action-table-row {
+.meeting-details-page .action-table-header,
+.meeting-details-page .action-table-row {
   display: grid;
   grid-template-columns:
     minmax(230px, 2fr)
@@ -583,7 +573,7 @@
   gap: 12px;
 }
 
-.action-table-header {
+.meeting-details-page .action-table-header {
   min-height: 38px;
 
   padding: 0 22px;
@@ -600,7 +590,7 @@
   font-weight: 600;
 }
 
-.action-table-row {
+.meeting-details-page .action-table-row {
   min-height: 62px;
 
   padding: 8px 22px;
@@ -610,15 +600,15 @@
   transition: background 0.2s ease;
 }
 
-.action-table-row:last-child {
+.meeting-details-page .action-table-row:last-child {
   border-bottom: none;
 }
 
-.action-table-row:hover {
+.meeting-details-page .action-table-row:hover {
   background: rgba(22, 42, 67, 0.32);
 }
 
-.action-task {
+.meeting-details-page .action-task {
   min-width: 0;
 
   display: flex;
@@ -626,7 +616,7 @@
   gap: 9px;
 }
 
-.action-task strong {
+.meeting-details-page .action-task strong {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -636,14 +626,14 @@
   font-weight: 550;
 }
 
-.action-checkbox {
+.meeting-details-page .action-checkbox {
   color: #607a99;
 
   display: flex;
   flex-shrink: 0;
 }
 
-.action-assignee {
+.meeting-details-page .action-assignee {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -652,7 +642,7 @@
   font-size: 12px;
 }
 
-.assignee-avatar {
+.meeting-details-page .assignee-avatar {
   width: 27px;
   height: 27px;
 
@@ -673,8 +663,8 @@
   font-weight: 700;
 }
 
-.priority-badge,
-.action-status {
+.meeting-details-page .priority-badge,
+.meeting-details-page .action-status {
   width: fit-content;
 
   padding: 5px 9px;
@@ -687,38 +677,38 @@
   text-transform: capitalize;
 }
 
-.priority-badge.high {
+.meeting-details-page .priority-badge.high {
   background: rgba(239, 68, 68, 0.09);
   border: 1px solid rgba(239, 68, 68, 0.3);
   color: #f87171;
 }
 
-.priority-badge.medium {
+.meeting-details-page .priority-badge.medium {
   background: rgba(245, 158, 11, 0.09);
   border: 1px solid rgba(245, 158, 11, 0.3);
   color: #fbbf24;
 }
 
-.priority-badge.low {
+.meeting-details-page .priority-badge.low {
   background: rgba(59, 130, 246, 0.09);
   border: 1px solid rgba(59, 130, 246, 0.3);
   color: #60a5fa;
 }
 
-.action-status {
+.meeting-details-page .action-status {
   background: rgba(59, 130, 246, 0.09);
   border: 1px solid rgba(59, 130, 246, 0.25);
   color: #60a5fa;
 }
 
-.action-status.completed,
-.action-status.done {
+.meeting-details-page .action-status.completed,
+.meeting-details-page .action-status.done {
   background: rgba(16, 185, 129, 0.09);
   border-color: rgba(16, 185, 129, 0.28);
   color: #34d399;
 }
 
-.action-status.pending {
+.meeting-details-page .action-status.pending {
   background: rgba(245, 158, 11, 0.09);
   border-color: rgba(245, 158, 11, 0.28);
   color: #fbbf24;
@@ -729,8 +719,8 @@
    PARTICIPANTS
 ========================================== */
 
-.participant-count,
-.transcript-count {
+.meeting-details-page .participant-count,
+.meeting-details-page .transcript-count {
   min-width: 28px;
   height: 28px;
 
@@ -748,11 +738,11 @@
   font-weight: 700;
 }
 
-.participants-list {
+.meeting-details-page .participants-list {
   padding: 8px 20px 14px;
 }
 
-.participant-row {
+.meeting-details-page .participant-row {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -762,11 +752,11 @@
   border-bottom: 1px solid #17263a;
 }
 
-.participant-row:last-child {
+.meeting-details-page .participant-row:last-child {
   border-bottom: none;
 }
 
-.participant-avatar {
+.meeting-details-page .participant-avatar {
   width: 38px;
   height: 38px;
 
@@ -789,7 +779,7 @@
   font-weight: 700;
 }
 
-.participant-info {
+.meeting-details-page .participant-info {
   min-width: 0;
 
   display: flex;
@@ -799,12 +789,12 @@
   flex: 1;
 }
 
-.participant-info strong {
+.meeting-details-page .participant-info strong {
   color: #dbe5f1;
   font-size: 13px;
 }
 
-.participant-info span {
+.meeting-details-page .participant-info span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -813,7 +803,7 @@
   font-size: 11px;
 }
 
-.host-badge {
+.meeting-details-page .host-badge {
   padding: 4px 8px;
 
   border-radius: 999px;
@@ -827,7 +817,7 @@
   font-weight: 600;
 }
 
-.participant-empty {
+.meeting-details-page .participant-empty {
   min-height: 150px;
 
   display: flex;
@@ -846,12 +836,12 @@
    TRANSCRIPT
 ========================================== */
 
-.transcript-section {
+.meeting-details-page .transcript-section {
   max-width: 1450px;
   margin: 20px auto;
 }
 
-.transcript-history {
+.meeting-details-page .transcript-history {
   max-height: 480px;
 
   padding: 5px 22px 18px;
@@ -859,20 +849,20 @@
   overflow-y: auto;
 }
 
-.transcript-history::-webkit-scrollbar {
+.meeting-details-page .transcript-history::-webkit-scrollbar {
   width: 5px;
 }
 
-.transcript-history::-webkit-scrollbar-track {
+.meeting-details-page .transcript-history::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.transcript-history::-webkit-scrollbar-thumb {
+.meeting-details-page .transcript-history::-webkit-scrollbar-thumb {
   background: #263a53;
   border-radius: 10px;
 }
 
-.transcript-history-item {
+.meeting-details-page .transcript-history-item {
   display: flex;
   gap: 12px;
 
@@ -881,11 +871,11 @@
   border-bottom: 1px solid #17263a;
 }
 
-.transcript-history-item:last-child {
+.meeting-details-page .transcript-history-item:last-child {
   border-bottom: none;
 }
 
-.transcript-avatar {
+.meeting-details-page .transcript-avatar {
   width: 34px;
   height: 34px;
 
@@ -905,12 +895,12 @@
   font-weight: 700;
 }
 
-.transcript-content {
+.meeting-details-page .transcript-content {
   flex: 1;
   min-width: 0;
 }
 
-.transcript-meta {
+.meeting-details-page .transcript-meta {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -918,17 +908,17 @@
   margin-bottom: 5px;
 }
 
-.transcript-meta strong {
+.meeting-details-page .transcript-meta strong {
   color: #dbe5f1;
   font-size: 12px;
 }
 
-.transcript-meta small {
+.meeting-details-page .transcript-meta small {
   color: #566b84;
   font-size: 10px;
 }
 
-.transcript-content p {
+.meeting-details-page .transcript-content p {
   margin: 0;
 
   color: #9eacc0;
@@ -942,12 +932,12 @@
    MEETING META
 ========================================== */
 
-.meeting-meta-section {
+.meeting-details-page .meeting-meta-section {
   max-width: 1450px;
   margin: 20px auto;
 }
 
-.meeting-meta-grid {
+.meeting-details-page .meeting-meta-grid {
   padding: 20px 22px;
 
   display: grid;
@@ -955,36 +945,36 @@
   gap: 18px 35px;
 }
 
-.meeting-meta-grid > div {
+.meeting-details-page .meeting-meta-grid > div {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.meeting-meta-grid span {
+.meeting-details-page .meeting-meta-grid span {
   color: #64748b;
   font-size: 11px;
 }
 
-.meeting-meta-grid strong {
+.meeting-details-page .meeting-meta-grid strong {
   color: #dbe5f1;
   font-size: 13px;
   font-weight: 550;
 }
 
-.meta-status.completed {
+.meeting-details-page .meta-status.completed {
   color: #34d399 !important;
 }
 
-.meta-status.live {
+.meeting-details-page .meta-status.live {
   color: #60a5fa !important;
 }
 
-.meta-status.scheduled {
+.meeting-details-page .meta-status.scheduled {
   color: #a78bfa !important;
 }
 
-.meta-status.cancelled {
+.meeting-details-page .meta-status.cancelled {
   color: #f87171 !important;
 }
 
@@ -993,7 +983,7 @@
    EMPTY / LOADING / ERROR
 ========================================== */
 
-.details-empty {
+.meeting-details-page .details-empty {
   min-height: 140px;
 
   padding: 30px;
@@ -1011,12 +1001,12 @@
   font-size: 12px;
 }
 
-.compact-empty {
+.meeting-details-page .compact-empty {
   min-height: 130px;
 }
 
-.details-message,
-.details-error {
+.meeting-details-page .details-message,
+.meeting-details-page .details-error {
   max-width: 500px;
 
   margin: 100px auto;
@@ -1036,33 +1026,33 @@
   text-align: center;
 }
 
-.details-message {
+.meeting-details-page .details-message {
   color: #94a3b8;
 }
 
-.details-message span {
+.meeting-details-page .details-message span {
   font-size: 14px;
 }
 
-.details-error {
+.meeting-details-page .details-error {
   color: #f87171;
 }
 
-.details-error h2 {
+.meeting-details-page .details-error h2 {
   margin: 0;
 
   color: #f8fafc;
   font-size: 20px;
 }
 
-.details-error p {
+.meeting-details-page .details-error p {
   margin: 0 0 8px;
 
   color: #94a3b8;
   font-size: 13px;
 }
 
-.primary-details-button {
+.meeting-details-page .primary-details-button {
   height: 40px;
 
   padding: 0 15px;
@@ -1083,7 +1073,7 @@
   font-weight: 600;
 }
 
-.loading-spinner {
+.meeting-details-page .loading-spinner {
   width: 24px;
   height: 24px;
 
@@ -1106,7 +1096,7 @@
    AI REFRESH
 ========================================== */
 
-.ai-refresh-row {
+.meeting-details-page .ai-refresh-row {
   max-width: 1450px;
 
   margin: 5px auto 0;
@@ -1115,7 +1105,7 @@
   justify-content: flex-end;
 }
 
-.refresh-ai-button {
+.meeting-details-page .refresh-ai-button {
   height: 36px;
 
   padding: 0 12px;
@@ -1136,18 +1126,18 @@
   font-weight: 600;
 }
 
-.refresh-ai-button:hover:not(:disabled) {
+.meeting-details-page .refresh-ai-button:hover:not(:disabled) {
   background: #102138;
   border-color: #35618f;
   color: #a9ccf4;
 }
 
-.refresh-ai-button:disabled {
+.meeting-details-page .refresh-ai-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.spinning {
+.meeting-details-page .spinning {
   animation: detailsSpin 0.8s linear infinite;
 }
 /* =========================================================
@@ -1170,17 +1160,17 @@ html.light-theme .meeting-details-page {
    HEADER
    ========================================================= */
 
-html.light-theme .meeting-details-header {
+html.light-theme .meeting-details-page .meeting-details-header {
   color: #172033;
 }
 
-html.light-theme .details-back-button {
+html.light-theme .meeting-details-page .details-back-button {
   background: #ffffff;
   border-color: #dfe5ec;
   color: #334155;
 }
 
-html.light-theme .details-back-button:hover {
+html.light-theme .meeting-details-page .details-back-button:hover {
   background: #f8fafc;
   border-color: #bfdbfe;
   color: #2563eb;
@@ -1191,24 +1181,24 @@ html.light-theme .details-back-button:hover {
    MEETING TITLE
    ========================================================= */
 
-html.light-theme .meeting-title-block h1,
-html.light-theme .meeting-title-row h1 {
+html.light-theme .meeting-details-page .meeting-title-block h1,
+html.light-theme .meeting-details-page .meeting-title-row h1 {
   color: #172033;
 }
 
-html.light-theme .meeting-title-block p {
+html.light-theme .meeting-details-page .meeting-title-block p {
   color: #64748b;
 }
 
-html.light-theme .meeting-id-row {
+html.light-theme .meeting-details-page .meeting-id-row {
   color: #64748b;
 }
 
-html.light-theme .meeting-id-row > span:first-child {
+html.light-theme .meeting-details-page .meeting-id-row > span:first-child {
   color: #64748b;
 }
 
-html.light-theme .meeting-id-row strong {
+html.light-theme .meeting-details-page .meeting-id-row strong {
   color: #334155;
 }
 
@@ -1217,13 +1207,13 @@ html.light-theme .meeting-id-row strong {
    MINI COPY BUTTON
    ========================================================= */
 
-html.light-theme .mini-copy-button {
+html.light-theme .meeting-details-page .mini-copy-button {
   background: #ffffff;
   border-color: #dfe5ec;
   color: #64748b;
 }
 
-html.light-theme .mini-copy-button:hover {
+html.light-theme .meeting-details-page .mini-copy-button:hover {
   background: #f8fafc;
   border-color: #bfdbfe;
   color: #2563eb;
@@ -1234,25 +1224,25 @@ html.light-theme .mini-copy-button:hover {
    MEETING STATUS BADGES
    ========================================================= */
 
-html.light-theme .meeting-status-badge.completed {
+html.light-theme .meeting-details-page .meeting-status-badge.completed {
   background: #d1fae5;
   border-color: #6ee7b7;
   color: #047857;
 }
 
-html.light-theme .meeting-status-badge.live {
+html.light-theme .meeting-details-page .meeting-status-badge.live {
   background: #dbeafe;
   border-color: #93c5fd;
   color: #1d4ed8;
 }
 
-html.light-theme .meeting-status-badge.scheduled {
+html.light-theme .meeting-details-page .meeting-status-badge.scheduled {
   background: #e0e7ff;
   border-color: #a5b4fc;
   color: #4338ca;
 }
 
-html.light-theme .meeting-status-badge.cancelled {
+html.light-theme .meeting-details-page .meeting-status-badge.cancelled {
   background: #fee2e2;
   border-color: #fca5a5;
   color: #dc2626;
@@ -1263,15 +1253,15 @@ html.light-theme .meeting-status-badge.cancelled {
    HEADER ACTION BUTTONS
    ========================================================= */
 
-html.light-theme .copy-id-button,
-html.light-theme .details-more-button {
+html.light-theme .meeting-details-page .copy-id-button,
+html.light-theme .meeting-details-page .details-more-button {
   background: #ffffff;
   border-color: #dfe5ec;
   color: #334155;
 }
 
-html.light-theme .copy-id-button:hover,
-html.light-theme .details-more-button:hover {
+html.light-theme .meeting-details-page .copy-id-button:hover,
+html.light-theme .meeting-details-page .details-more-button:hover {
   background: #f8fafc;
   border-color: #bfdbfe;
   color: #2563eb;
@@ -1282,25 +1272,25 @@ html.light-theme .details-more-button:hover {
    MEETING INFO CARD
    ========================================================= */
 
-html.light-theme .meeting-info-card {
+html.light-theme .meeting-details-page .meeting-info-card {
   background: #ffffff;
   border-color: #e1e5eb;
   box-shadow: 0 3px 12px rgba(15, 23, 42, 0.035);
 }
 
-html.light-theme .meeting-info-item {
+html.light-theme .meeting-details-page .meeting-info-item {
   border-right-color: #e5e7eb;
 }
 
-html.light-theme .meeting-info-item span {
+html.light-theme .meeting-details-page .meeting-info-item span {
   color: #64748b;
 }
 
-html.light-theme .meeting-info-item strong {
+html.light-theme .meeting-details-page .meeting-info-item strong {
   color: #172033;
 }
 
-html.light-theme .meeting-info-item small {
+html.light-theme .meeting-details-page .meeting-info-item small {
   color: #94a3b8;
 }
 
@@ -1309,22 +1299,22 @@ html.light-theme .meeting-info-item small {
    MEETING INFO ICONS
    ========================================================= */
 
-html.light-theme .meeting-info-icon.blue {
+html.light-theme .meeting-details-page .meeting-info-icon.blue {
   background: #dbeafe;
   color: #2563eb;
 }
 
-html.light-theme .meeting-info-icon.purple {
+html.light-theme .meeting-details-page .meeting-info-icon.purple {
   background: #ede9fe;
   color: #7c3aed;
 }
 
-html.light-theme .meeting-info-icon.violet {
+html.light-theme .meeting-details-page .meeting-info-icon.violet {
   background: #e0e7ff;
   color: #4f46e5;
 }
 
-html.light-theme .meeting-info-icon.cyan {
+html.light-theme .meeting-details-page .meeting-info-icon.cyan {
   background: #cffafe;
   color: #0891b2;
 }
@@ -1334,7 +1324,7 @@ html.light-theme .meeting-info-icon.cyan {
    GENERIC SECTION
    ========================================================= */
 
-html.light-theme .details-section {
+html.light-theme .meeting-details-page .details-section {
   background: #ffffff;
   border-color: #e1e5eb;
   box-shadow: 0 3px 12px rgba(15, 23, 42, 0.035);
@@ -1345,15 +1335,15 @@ html.light-theme .details-section {
    SECTION HEADER
    ========================================================= */
 
-html.light-theme .section-header {
+html.light-theme .meeting-details-page .section-header {
   border-bottom-color: #e5e7eb;
 }
 
-html.light-theme .section-heading h2 {
+html.light-theme .meeting-details-page .section-heading h2 {
   color: #334155;
 }
 
-html.light-theme .section-heading p {
+html.light-theme .meeting-details-page .section-heading p {
   color: #64748b;
 }
 
@@ -1362,27 +1352,27 @@ html.light-theme .section-heading p {
    SECTION ICONS
    ========================================================= */
 
-html.light-theme .ai-icon {
+html.light-theme .meeting-details-page .ai-icon {
   background: #ede9fe;
   color: #7c3aed;
 }
 
-html.light-theme .action-icon {
+html.light-theme .meeting-details-page .action-icon {
   background: #dbeafe;
   color: #2563eb;
 }
 
-html.light-theme .participant-icon {
+html.light-theme .meeting-details-page .participant-icon {
   background: #dbeafe;
   color: #2563eb;
 }
 
-html.light-theme .transcript-icon {
+html.light-theme .meeting-details-page .transcript-icon {
   background: #cffafe;
   color: #0891b2;
 }
 
-html.light-theme .details-icon {
+html.light-theme .meeting-details-page .details-icon {
   background: #f1f5f9;
   color: #64748b;
 }
@@ -1392,13 +1382,13 @@ html.light-theme .details-icon {
    OUTLINE SECTION BUTTON
    ========================================================= */
 
-html.light-theme .outline-section-button {
+html.light-theme .meeting-details-page .outline-section-button {
   background: #ffffff;
   border-color: #bfdbfe;
   color: #2563eb;
 }
 
-html.light-theme .outline-section-button:hover {
+html.light-theme .meeting-details-page .outline-section-button:hover {
   background: #eff6ff;
   border-color: #93c5fd;
 }
@@ -1408,15 +1398,15 @@ html.light-theme .outline-section-button:hover {
    AI SUMMARY
    ========================================================= */
 
-html.light-theme .ai-summary-section {
+html.light-theme .meeting-details-page .ai-summary-section {
   border-color: #ddd6fe;
 }
 
-html.light-theme .summary-column {
+html.light-theme .meeting-details-page .summary-column {
   border-right-color: #e5e7eb;
 }
 
-html.light-theme .summary-column-heading h3 {
+html.light-theme .meeting-details-page .summary-column-heading h3 {
   color: #334155;
 }
 
@@ -1425,17 +1415,17 @@ html.light-theme .summary-column-heading h3 {
    SUMMARY ICONS
    ========================================================= */
 
-html.light-theme .summary-icon.blue {
+html.light-theme .meeting-details-page .summary-icon.blue {
   background: #dbeafe;
   color: #2563eb;
 }
 
-html.light-theme .summary-icon.purple {
+html.light-theme .meeting-details-page .summary-icon.purple {
   background: #ede9fe;
   color: #7c3aed;
 }
 
-html.light-theme .summary-icon.green {
+html.light-theme .meeting-details-page .summary-icon.green {
   background: #d1fae5;
   color: #047857;
 }
@@ -1445,15 +1435,15 @@ html.light-theme .summary-icon.green {
    SUMMARY CONTENT
    ========================================================= */
 
-html.light-theme .summary-column p {
+html.light-theme .meeting-details-page .summary-column p {
   color: #475569;
 }
 
-html.light-theme .summary-column ul {
+html.light-theme .meeting-details-page .summary-column ul {
   color: #475569;
 }
 
-html.light-theme .summary-column li {
+html.light-theme .meeting-details-page .summary-column li {
   color: #475569;
 }
 
@@ -1462,7 +1452,7 @@ html.light-theme .summary-column li {
    AI ERROR
    ========================================================= */
 
-html.light-theme .ai-error {
+html.light-theme .meeting-details-page .ai-error {
   background: #fef2f2;
   border-color: #fecaca;
   color: #dc2626;
@@ -1473,29 +1463,29 @@ html.light-theme .ai-error {
    ACTION ITEMS
    ========================================================= */
 
-html.light-theme .action-table-header {
+html.light-theme .meeting-details-page .action-table-header {
   background: #f8fafc;
   border-bottom-color: #e5e7eb;
   color: #64748b;
 }
 
-html.light-theme .action-table-row {
+html.light-theme .meeting-details-page .action-table-row {
   border-bottom-color: #edf0f4;
 }
 
-html.light-theme .action-table-row:hover {
+html.light-theme .meeting-details-page .action-table-row:hover {
   background: #f8fafc;
 }
 
-html.light-theme .action-task strong {
+html.light-theme .meeting-details-page .action-task strong {
   color: #334155;
 }
 
-html.light-theme .action-checkbox {
+html.light-theme .meeting-details-page .action-checkbox {
   color: #94a3b8;
 }
 
-html.light-theme .action-assignee {
+html.light-theme .meeting-details-page .action-assignee {
   color: #475569;
 }
 
@@ -1504,7 +1494,7 @@ html.light-theme .action-assignee {
    ASSIGNEE AVATAR
    ========================================================= */
 
-html.light-theme .assignee-avatar {
+html.light-theme .meeting-details-page .assignee-avatar {
   background: linear-gradient(
     135deg,
     #3b82f6,
@@ -1518,19 +1508,19 @@ html.light-theme .assignee-avatar {
    PRIORITY BADGES
    ========================================================= */
 
-html.light-theme .priority-badge.high {
+html.light-theme .meeting-details-page .priority-badge.high {
   background: #fef2f2;
   border-color: #fecaca;
   color: #dc2626;
 }
 
-html.light-theme .priority-badge.medium {
+html.light-theme .meeting-details-page .priority-badge.medium {
   background: #fffbeb;
   border-color: #fde68a;
   color: #b45309;
 }
 
-html.light-theme .priority-badge.low {
+html.light-theme .meeting-details-page .priority-badge.low {
   background: #eff6ff;
   border-color: #bfdbfe;
   color: #2563eb;
@@ -1541,20 +1531,20 @@ html.light-theme .priority-badge.low {
    ACTION STATUS
    ========================================================= */
 
-html.light-theme .action-status {
+html.light-theme .meeting-details-page .action-status {
   background: #eff6ff;
   border-color: #bfdbfe;
   color: #2563eb;
 }
 
-html.light-theme .action-status.completed,
-html.light-theme .action-status.done {
+html.light-theme .meeting-details-page .action-status.completed,
+html.light-theme .meeting-details-page .action-status.done {
   background: #d1fae5;
   border-color: #6ee7b7;
   color: #047857;
 }
 
-html.light-theme .action-status.pending {
+html.light-theme .meeting-details-page .action-status.pending {
   background: #fffbeb;
   border-color: #fde68a;
   color: #b45309;
@@ -1565,17 +1555,17 @@ html.light-theme .action-status.pending {
    PARTICIPANTS
    ========================================================= */
 
-html.light-theme .participant-count,
-html.light-theme .transcript-count {
+html.light-theme .meeting-details-page .participant-count,
+html.light-theme .meeting-details-page .transcript-count {
   background: #eff6ff;
   color: #2563eb;
 }
 
-html.light-theme .participant-row {
+html.light-theme .meeting-details-page .participant-row {
   border-bottom-color: #edf0f4;
 }
 
-html.light-theme .participant-row:hover {
+html.light-theme .meeting-details-page .participant-row:hover {
   background: #f8fafc;
 }
 
@@ -1585,7 +1575,7 @@ html.light-theme .participant-row:hover {
    All participant avatars use one style
    ========================================================= */
 
-html.light-theme .participant-avatar {
+html.light-theme .meeting-details-page .participant-avatar {
   background: #eff6ff;
   color: #2563eb;
   box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.08);
@@ -1596,11 +1586,11 @@ html.light-theme .participant-avatar {
    PARTICIPANT INFO
    ========================================================= */
 
-html.light-theme .participant-info strong {
+html.light-theme .meeting-details-page .participant-info strong {
   color: #334155;
 }
 
-html.light-theme .participant-info span {
+html.light-theme .meeting-details-page .participant-info span {
   color: #64748b;
 }
 
@@ -1609,7 +1599,7 @@ html.light-theme .participant-info span {
    HOST BADGE
    ========================================================= */
 
-html.light-theme .host-badge {
+html.light-theme .meeting-details-page .host-badge {
   background: #ede9fe;
   border-color: #c4b5fd;
   color: #6d28d9;
@@ -1620,7 +1610,7 @@ html.light-theme .host-badge {
    PARTICIPANT EMPTY
    ========================================================= */
 
-html.light-theme .participant-empty {
+html.light-theme .meeting-details-page .participant-empty {
   color: #64748b;
 }
 
@@ -1629,15 +1619,15 @@ html.light-theme .participant-empty {
    TRANSCRIPT
    ========================================================= */
 
-html.light-theme .transcript-history {
+html.light-theme .meeting-details-page .transcript-history {
   background: #ffffff;
 }
 
-html.light-theme .transcript-history::-webkit-scrollbar-thumb {
+html.light-theme .meeting-details-page .transcript-history::-webkit-scrollbar-thumb {
   background: #cbd5e1;
 }
 
-html.light-theme .transcript-history-item {
+html.light-theme .meeting-details-page .transcript-history-item {
   border-bottom-color: #edf0f4;
 }
 
@@ -1646,7 +1636,7 @@ html.light-theme .transcript-history-item {
    TRANSCRIPT AVATAR
    ========================================================= */
 
-html.light-theme .transcript-avatar {
+html.light-theme .meeting-details-page .transcript-avatar {
   background: #eff6ff;
   color: #2563eb;
 }
@@ -1656,15 +1646,15 @@ html.light-theme .transcript-avatar {
    TRANSCRIPT CONTENT
    ========================================================= */
 
-html.light-theme .transcript-meta strong {
+html.light-theme .meeting-details-page .transcript-meta strong {
   color: #334155;
 }
 
-html.light-theme .transcript-meta small {
+html.light-theme .meeting-details-page .transcript-meta small {
   color: #94a3b8;
 }
 
-html.light-theme .transcript-content p {
+html.light-theme .meeting-details-page .transcript-content p {
   color: #475569;
 }
 
@@ -1673,11 +1663,11 @@ html.light-theme .transcript-content p {
    MEETING META
    ========================================================= */
 
-html.light-theme .meeting-meta-grid span {
+html.light-theme .meeting-details-page .meeting-meta-grid span {
   color: #64748b;
 }
 
-html.light-theme .meeting-meta-grid strong {
+html.light-theme .meeting-details-page .meeting-meta-grid strong {
   color: #334155;
 }
 
@@ -1686,19 +1676,19 @@ html.light-theme .meeting-meta-grid strong {
    META STATUS
    ========================================================= */
 
-html.light-theme .meta-status.completed {
+html.light-theme .meeting-details-page .meta-status.completed {
   color: #047857 !important;
 }
 
-html.light-theme .meta-status.live {
+html.light-theme .meeting-details-page .meta-status.live {
   color: #2563eb !important;
 }
 
-html.light-theme .meta-status.scheduled {
+html.light-theme .meeting-details-page .meta-status.scheduled {
   color: #6d28d9 !important;
 }
 
-html.light-theme .meta-status.cancelled {
+html.light-theme .meeting-details-page .meta-status.cancelled {
   color: #dc2626 !important;
 }
 
@@ -1707,7 +1697,7 @@ html.light-theme .meta-status.cancelled {
    EMPTY STATE
    ========================================================= */
 
-html.light-theme .details-empty {
+html.light-theme .meeting-details-page .details-empty {
   color: #64748b;
 }
 
@@ -1716,30 +1706,30 @@ html.light-theme .details-empty {
    LOADING / ERROR
    ========================================================= */
 
-html.light-theme .details-message,
-html.light-theme .details-error {
+html.light-theme .meeting-details-page .details-message,
+html.light-theme .meeting-details-page .details-error {
   background: #ffffff;
   border-color: #e1e5eb;
   box-shadow: 0 3px 12px rgba(15, 23, 42, 0.035);
 }
 
-html.light-theme .details-message {
+html.light-theme .meeting-details-page .details-message {
   color: #64748b;
 }
 
-html.light-theme .details-message span {
+html.light-theme .meeting-details-page .details-message span {
   color: #64748b;
 }
 
-html.light-theme .details-error {
+html.light-theme .meeting-details-page .details-error {
   color: #dc2626;
 }
 
-html.light-theme .details-error h2 {
+html.light-theme .meeting-details-page .details-error h2 {
   color: #172033;
 }
 
-html.light-theme .details-error p {
+html.light-theme .meeting-details-page .details-error p {
   color: #64748b;
 }
 
@@ -1748,13 +1738,13 @@ html.light-theme .details-error p {
    PRIMARY DETAILS BUTTON
    ========================================================= */
 
-html.light-theme .primary-details-button {
+html.light-theme .meeting-details-page .primary-details-button {
   background: #2563eb;
   border-color: #2563eb;
   color: #ffffff;
 }
 
-html.light-theme .primary-details-button:hover {
+html.light-theme .meeting-details-page .primary-details-button:hover {
   background: #1d4ed8;
   border-color: #1d4ed8;
 }
@@ -1764,7 +1754,7 @@ html.light-theme .primary-details-button:hover {
    LOADING SPINNER
    ========================================================= */
 
-html.light-theme .loading-spinner {
+html.light-theme .meeting-details-page .loading-spinner {
   border-color: #dbeafe;
   border-top-color: #2563eb;
 }
@@ -1774,13 +1764,13 @@ html.light-theme .loading-spinner {
    AI REFRESH
    ========================================================= */
 
-html.light-theme .refresh-ai-button {
+html.light-theme .meeting-details-page .refresh-ai-button {
   background: #ffffff;
   border-color: #dbe2ea;
   color: #475569;
 }
 
-html.light-theme .refresh-ai-button:hover:not(:disabled) {
+html.light-theme .meeting-details-page .refresh-ai-button:hover:not(:disabled) {
   background: #f8fafc;
   border-color: #bfdbfe;
   color: #2563eb;
@@ -1795,52 +1785,66 @@ html.light-theme .refresh-ai-button:hover:not(:disabled) {
    TABLET
 ========================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
 
   .meeting-details-page {
-    padding: 24px;
+    padding: 10px;
   }
 
-  .meeting-info-card {
+  .meeting-details-page .meeting-info-card {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .meeting-info-item {
+  .meeting-details-page .meeting-info-item {
     padding: 12px 18px;
   }
 
-  .meeting-info-item:nth-child(2) {
+  .meeting-details-page .meeting-info-item:nth-child(2) {
     border-right: none;
   }
 
-  .meeting-info-item:nth-child(1),
-  .meeting-info-item:nth-child(2) {
+  .meeting-details-page .meeting-info-item:nth-child(1),
+.meeting-details-page .meeting-info-item:nth-child(2) {
     border-bottom: 1px solid #1e2b3d;
   }
 
-  .summary-grid {
+  .meeting-details-page .summary-grid {
     grid-template-columns: 1fr;
   }
 
-  .summary-column {
+  .meeting-details-page .summary-column {
     border-right: none;
     border-bottom: 1px solid #1c2b3e;
   }
 
-  .summary-column:last-child {
+  .meeting-details-page .summary-column:last-child {
     border-bottom: none;
   }
 
-  .details-main-grid {
+  .meeting-details-page .details-main-grid {
     grid-template-columns: 1fr;
   }
 
-  .meeting-meta-grid {
+  .meeting-details-page .meeting-meta-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .meeting-title-row {
+  .meeting-details-page .meeting-title-row {
     gap: 18px;
+  }
+
+
+  /* Light-theme responsive overrides */
+  html.light-theme .meeting-details-page {
+    background: #f5f7fb;
+  }
+
+  html.light-theme .meeting-details-page .meeting-info-item {
+    border-bottom-color: #e5e7eb;
+  }
+
+  html.light-theme .meeting-details-page .summary-column {
+    border-bottom-color: #e5e7eb;
   }
 }
 
@@ -1849,98 +1853,133 @@ html.light-theme .refresh-ai-button:hover:not(:disabled) {
    MOBILE
 ========================================== */
 
-@media (max-width: 760px) {
+@media (max-width: 800px) {
 
   .meeting-details-page {
     padding: 18px 14px 35px;
   }
 
-  .meeting-details-header {
+  .meeting-details-page .meeting-details-header {
     flex-direction: column;
     align-items: stretch;
     gap: 16px;
   }
 
-  .details-header-left {
+  .meeting-details-page .details-header-left {
     width: 100%;
     gap: 10px;
   }
 
-  .details-header-actions {
+  .meeting-details-page .details-header-actions {
     width: 100%;
   }
 
-  .copy-id-button {
+  .meeting-details-page .copy-id-button {
     flex: 1;
   }
 
-  .meeting-title-row {
+  .meeting-details-page .meeting-title-row {
     width: 100%;
     gap: 12px;
   }
 
-  .meeting-title-block {
+  .meeting-details-page .meeting-title-block {
     min-width: 0;
     flex: 1;
   }
 
-  .meeting-title-block h1,
-  .meeting-title-row h1 {
+  .meeting-details-page .meeting-title-block h1,
+.meeting-details-page .meeting-title-row h1 {
     font-size: 24px;
     line-height: 1.2;
   }
 
-  .meeting-info-card {
+  .meeting-details-page .meeting-info-card {
     grid-template-columns: 1fr;
   }
 
-  .meeting-info-item {
+  .meeting-details-page .meeting-info-item {
     border-right: none !important;
     border-bottom: 1px solid #1e2b3d;
   }
 
-  .meeting-info-item:last-child {
+  .meeting-details-page .meeting-info-item:last-child {
     border-bottom: none;
   }
 
-  .section-header {
+  .meeting-details-page .section-header {
     align-items: flex-start;
     gap: 12px;
   }
 
-  .section-heading {
+  .meeting-details-page .section-heading {
     min-width: 0;
   }
 
-  .section-heading h2 {
+  .meeting-details-page .section-heading h2 {
     font-size: 16px;
   }
 
-  .section-heading p {
+  .meeting-details-page .section-heading p {
     font-size: 11px;
   }
 
-  .outline-section-button {
+  .meeting-details-page .outline-section-button {
     flex-shrink: 0;
   }
 
-  .action-table {
+  .meeting-details-page .action-table {
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  .action-table-header,
-  .action-table-row {
+  .meeting-details-page .action-table-header,
+.meeting-details-page .action-table-row {
     min-width: 650px;
   }
 
-  .meeting-meta-grid {
+  .meeting-details-page .meeting-meta-grid {
     grid-template-columns: 1fr;
   }
 
-  .transcript-history {
+  .meeting-details-page .transcript-history {
     max-height: 420px;
+  }
+
+
+  /* Light-theme responsive overrides */
+  html.light-theme .meeting-details-page {
+    background: #f5f7fb;
+  }
+
+  html.light-theme .meeting-details-page .meeting-info-item {
+    border-bottom-color: #e5e7eb;
+  }
+
+  html.light-theme .meeting-details-page .section-header {
+    border-bottom-color: #e5e7eb;
+  }
+
+  html.light-theme .meeting-details-page .action-table-header {
+    background: #f8fafc;
+    border-bottom-color: #e5e7eb;
+  }
+
+  html.light-theme .meeting-details-page .action-table-row {
+    border-bottom-color: #edf0f4;
+  }
+
+  html.light-theme .meeting-details-page .action-table-row:hover {
+    background: #f8fafc;
+  }
+
+  html.light-theme .meeting-details-page .participant-row {
+    border-bottom-color: #edf0f4;
+  }
+
+  html.light-theme .meeting-details-page .transcript-history-item {
+    border-bottom-color: #edf0f4;
   }
 }
 
@@ -1949,280 +1988,184 @@ html.light-theme .refresh-ai-button:hover:not(:disabled) {
    SMALL MOBILE
 ========================================== */
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
 
   .meeting-details-page {
-    padding: 15px 10px 28px;
+    padding: 5px 0 10px 0;
   }
 
-  .meeting-details-header {
+  .meeting-details-page .meeting-details-header {
     margin-bottom: 16px;
     gap: 13px;
   }
 
-  .details-header-left {
+  .meeting-details-page .details-header-left {
     gap: 9px;
   }
 
-  .details-header-divider {
+  .meeting-details-page .details-header-divider {
     display: none;
   }
 
-  .details-back-button span {
+  .meeting-details-page .details-back-button span {
     display: none;
   }
 
-  .details-back-button {
+  .meeting-details-page .details-back-button {
     width: 42px;
     min-width: 42px;
     padding: 0;
   }
 
-  .meeting-title-row {
+  .meeting-details-page .meeting-title-row {
     gap: 8px;
   }
 
-  .meeting-title-block h1,
-  .meeting-title-row h1 {
+  .meeting-details-page .meeting-title-block h1,
+.meeting-details-page .meeting-title-row h1 {
     font-size: 21px;
     line-height: 1.2;
   }
 
-  .meeting-title-block p,
-  .meeting-title-block > p {
+  .meeting-details-page .meeting-title-block p,
+.meeting-details-page .meeting-title-block > p {
     margin-top: 5px;
     font-size: 12px;
   }
 
-  .meeting-id-row {
+  .meeting-details-page .meeting-id-row {
     gap: 5px;
     font-size: 10px;
   }
 
-  .meeting-id-row > span:first-child,
-  .meeting-id-row strong {
+  .meeting-details-page .meeting-id-row > span:first-child,
+.meeting-details-page .meeting-id-row strong {
     font-size: 10px;
   }
 
-  .mini-copy-button {
+  .meeting-details-page .mini-copy-button {
     width: 28px;
     height: 28px;
   }
 
-  .meeting-status-badge {
+  .meeting-details-page .meeting-status-badge {
     margin-left: 3px;
     padding: 5px 8px;
     font-size: 10px;
   }
 
-  .details-header-actions {
+  .meeting-details-page .details-header-actions {
     gap: 8px;
   }
 
-  .copy-id-button {
+  .meeting-details-page .copy-id-button {
     height: 42px;
     padding: 0 12px;
     font-size: 11px;
   }
 
-  .details-more-button {
+  .meeting-details-page .details-more-button {
     width: 42px;
     height: 42px;
   }
 
-  .meeting-info-card {
+  .meeting-details-page .meeting-info-card {
     padding: 10px 14px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
 
-  .meeting-info-item {
+  .meeting-details-page .meeting-info-item {
     padding: 12px 4px;
   }
 
-  .meeting-info-icon {
+  .meeting-details-page .meeting-info-icon {
     width: 38px;
     height: 38px;
   }
 
-  .meeting-info-item strong {
+  .meeting-details-page .meeting-info-item strong {
     font-size: 13px;
   }
 
-  .meeting-info-item span {
+  .meeting-details-page .meeting-info-item span {
     font-size: 11px;
   }
 
-  .section-header {
+  .meeting-details-page .section-header {
     min-height: 62px;
     padding: 14px 15px;
   }
 
-  .section-heading {
+  .meeting-details-page .section-heading {
     gap: 8px;
   }
 
-  .section-icon {
+  .meeting-details-page .section-icon {
     width: 34px;
     height: 34px;
   }
 
-  .section-heading h2 {
+  .meeting-details-page .section-heading h2 {
     font-size: 15px;
   }
 
-  .section-heading p {
+  .meeting-details-page .section-heading p {
     font-size: 10px;
   }
 
-  .summary-column {
+  .meeting-details-page .summary-column {
     padding: 18px 15px;
   }
 
-  .summary-column-heading h3 {
+  .meeting-details-page .summary-column-heading h3 {
     font-size: 13px;
   }
 
-  .summary-column p,
-  .summary-column li {
+  .meeting-details-page .summary-column p,
+.meeting-details-page .summary-column li {
     font-size: 12px;
   }
 
-  .action-table-header,
-  .action-table-row {
+  .meeting-details-page .action-table-header,
+.meeting-details-page .action-table-row {
     min-width: 650px;
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  .participants-list {
+  .meeting-details-page .participants-list {
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  .transcript-history {
+  .meeting-details-page .transcript-history {
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  .meeting-meta-grid {
+  .meeting-details-page .meeting-meta-grid {
     padding: 18px 15px;
     gap: 14px;
   }
 
-  .details-message,
-  .details-error {
+  .meeting-details-page .details-message,
+.meeting-details-page .details-error {
     margin: 60px auto;
     padding: 35px 20px;
   }
-}
 
 
-/* ==========================================
-   EXTRA SMALL MOBILE
-========================================== */
-
-@media (max-width: 360px) {
-
-  .meeting-details-page {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  .meeting-title-block h1,
-  .meeting-title-row h1 {
-    font-size: 19px;
-  }
-
-  .meeting-title-block p,
-  .meeting-title-block > p {
-    font-size: 11px;
-  }
-
-  .meeting-status-badge {
-    padding: 4px 6px;
-    font-size: 9px;
-  }
-
-  .copy-id-button {
-    padding: 0 9px;
-  }
-
-  .section-header {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-}
-
-
-/* ==========================================
-   LIGHT THEME - RESPONSIVE
-========================================== */
-
-@media (max-width: 1100px) {
-
-  html.light-theme .meeting-details-page {
-    background: #f5f7fb;
-  }
-
-  html.light-theme .meeting-info-item {
-    border-bottom-color: #e5e7eb;
-  }
-
-  html.light-theme .summary-column {
-    border-bottom-color: #e5e7eb;
-  }
-}
-
-
-@media (max-width: 760px) {
-
-  html.light-theme .meeting-details-page {
-    background: #f5f7fb;
-  }
-
-  html.light-theme .meeting-info-item {
-    border-bottom-color: #e5e7eb;
-  }
-
-  html.light-theme .section-header {
-    border-bottom-color: #e5e7eb;
-  }
-
-  html.light-theme .action-table-header {
-    background: #f8fafc;
-    border-bottom-color: #e5e7eb;
-  }
-
-  html.light-theme .action-table-row {
-    border-bottom-color: #edf0f4;
-  }
-
-  html.light-theme .action-table-row:hover {
-    background: #f8fafc;
-  }
-
-  html.light-theme .participant-row {
-    border-bottom-color: #edf0f4;
-  }
-
-  html.light-theme .transcript-history-item {
-    border-bottom-color: #edf0f4;
-  }
-}
-
-
-@media (max-width: 520px) {
-
-  html.light-theme .section-header {
+  /* Light-theme responsive overrides */
+  html.light-theme .meeting-details-page .section-header {
     background: #ffffff;
   }
 
-  html.light-theme .summary-column {
+  html.light-theme .meeting-details-page .summary-column {
     border-bottom-color: #e5e7eb;
   }
 
-  html.light-theme .action-table-header,
-  html.light-theme .action-table-row {
+  html.light-theme .meeting-details-page .action-table-header,
+  html.light-theme .meeting-details-page .action-table-row {
     background: #ffffff;
   }
 }

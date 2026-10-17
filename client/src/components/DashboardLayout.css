@@ -8,12 +8,12 @@
 
   display: flex;
   flex-direction: column;
-
+  padding: 10px;
   overflow: hidden;
 
   background: #0c1524;
   color: #f8fafc;
-  padding: 10px;
+
 
   
   
@@ -24,7 +24,7 @@
    TOP NAVBAR
 ========================================== */
 
-.dashboard-topbar {
+.dashboard-layout .dashboard-topbar {
   width: 100%;
   height: 72px;
   min-height: 72px;
@@ -51,7 +51,7 @@
 
 /* BRAND */
 
-.dashboard-brand {
+.dashboard-layout .dashboard-brand {
   display: flex;
   align-items: center;
 
@@ -65,7 +65,7 @@
   font-weight: 700;
 }
 
-.dashboard-brand-icon {
+.dashboard-layout .dashboard-brand-icon {
   width: 38px;
   height: 38px;
 
@@ -82,7 +82,7 @@
 
 /* SEARCH */
 
-.dashboard-search {
+.dashboard-layout .dashboard-search {
   width: 470px;
   height: 48px;
 
@@ -103,14 +103,14 @@
   color: #71869b;
 }
 
-.dashboard-search:focus-within {
+.dashboard-layout .dashboard-search:focus-within {
   border-color: #3b82f6;
 
   box-shadow:
     0 0 0 3px rgba(59, 130, 246, 0.10);
 }
 
-.dashboard-search input {
+.dashboard-layout .dashboard-search input {
   width: 100%;
   min-width: 0;
 
@@ -125,14 +125,14 @@
   font-size: 13px;
 }
 
-.dashboard-search input::placeholder {
+.dashboard-layout .dashboard-search input::placeholder {
   color: #64748b;
 }
 
 
 /* RIGHT SIDE */
 
-.dashboard-topbar-right {
+.dashboard-layout .dashboard-topbar-right {
   margin-left: auto;
 
   display: flex;
@@ -144,7 +144,7 @@
 
 /* NOTIFICATION */
 
-.dashboard-notification {
+.dashboard-layout .dashboard-notification {
   position: relative;
 
   width: 46px;
@@ -166,13 +166,13 @@
   cursor: pointer;
 }
 
-.dashboard-notification:hover {
+.dashboard-layout .dashboard-notification:hover {
   background: #111d2d;
   border-color: #3b82f6;
   color: #ffffff;
 }
 
-.dashboard-notification-badge {
+.dashboard-layout .dashboard-notification-badge {
   position: absolute;
 
   top: -5px;
@@ -201,7 +201,7 @@
 
 /* PROFILE */
 
-.dashboard-profile {
+.dashboard-layout .dashboard-profile {
   height: 48px;
 
   display: flex;
@@ -221,12 +221,12 @@
   cursor: pointer;
 }
 
-.dashboard-profile:hover {
+.dashboard-layout .dashboard-profile:hover {
   background: #0d1725;
   border-color: #1e293b;
 }
 
-.dashboard-profile-avatar {
+.dashboard-layout .dashboard-profile-avatar {
   width: 38px;
   height: 38px;
 
@@ -246,7 +246,7 @@
   font-weight: 700;
 }
 
-.dashboard-profile-info {
+.dashboard-layout .dashboard-profile-info {
   min-width: 0;
 
   display: flex;
@@ -255,7 +255,7 @@
   align-items: flex-start;
 }
 
-.dashboard-profile-info strong {
+.dashboard-layout .dashboard-profile-info strong {
   max-width: 130px;
 
   overflow: hidden;
@@ -267,7 +267,7 @@
   font-size: 13px;
 }
 
-.dashboard-profile-info span {
+.dashboard-layout .dashboard-profile-info span {
   max-width: 150px;
 
   margin-top: 2px;
@@ -287,7 +287,7 @@
    SIDEBAR + CONTENT
 ========================================== */
 
-.dashboard-body {
+.dashboard-layout .dashboard-body {
   width: 100%;
 
   flex: 1;
@@ -308,7 +308,7 @@
    DIRECTLY UNDER NAVBAR
 ========================================== */
 
-.dashboard-sidebar {
+.dashboard-layout .dashboard-sidebar {
   width: 232px;
   min-width: 232px;
   margin-top: 10px;
@@ -337,7 +337,7 @@
 
 /* SIDEBAR NAV */
 
-.dashboard-sidebar-nav {
+.dashboard-layout .dashboard-sidebar-nav {
   display: flex;
   flex-direction: column;
 
@@ -347,7 +347,7 @@
 
 /* NAV ITEM */
 
-.dashboard-nav-item {
+.dashboard-layout .dashboard-nav-item {
   width: 100%;
   min-height: 44px;
 
@@ -374,12 +374,12 @@
     color 0.18s ease;
 }
 
-.dashboard-nav-item:hover {
+.dashboard-layout .dashboard-nav-item:hover {
   background: #111827;
   color: #e2e8f0;
 }
 
-.dashboard-nav-item.active {
+.dashboard-layout .dashboard-nav-item.active {
   background: #172d6b;
   color: #60a5fa;
 }
@@ -387,7 +387,7 @@
 
 /* LOGOUT */
 
-.dashboard-logout {
+.dashboard-layout .dashboard-logout {
   width: 100%;
   min-height: 44px;
 
@@ -418,7 +418,7 @@
   cursor: pointer;
 }
 
-.dashboard-logout:hover {
+.dashboard-layout .dashboard-logout:hover {
   background: #3b1c24;
   color: #fca5a5;
 }
@@ -428,7 +428,7 @@
    PAGE CONTENT
 ========================================== */
 
-.dashboard-app {
+.dashboard-layout .dashboard-app {
   flex: 1;
 
   min-width: 0;
@@ -441,14 +441,10 @@
   overflow: hidden;
 }
 
-.dashboard-page-content {
+.dashboard-layout .dashboard-page-content {
   width: 100%;
   height: 100%;
- 
   box-sizing: border-box;
-
-  padding:  10px;
-
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -458,76 +454,76 @@
    RESPONSIVE
 ========================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
 
-  .dashboard-brand {
+  .dashboard-layout .dashboard-brand {
     min-width: 0;
     width: auto;
   }
 
-  .dashboard-brand-divider {
+  .dashboard-layout .dashboard-brand-divider {
     margin-right: 18px;
   }
 
-  .dashboard-search {
+  .dashboard-layout .dashboard-search {
     width: 300px;
   }
 
-  .dashboard-profile-info {
+  .dashboard-layout .dashboard-profile-info {
     display: none;
   }
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
-  .dashboard-topbar {
+  .dashboard-layout .dashboard-topbar {
     height: 64px;
     min-height: 64px;
 
     padding: 0 15px;
   }
 
-  .dashboard-brand span {
+  .dashboard-layout .dashboard-brand span {
     width: 220px;
   }
 
-  .dashboard-brand {
+  .dashboard-layout .dashboard-brand {
     min-width: auto;
   }
 
-  .dashboard-brand-divider {
+  .dashboard-layout .dashboard-brand-divider {
     margin-right: 15px;
   }
 
-  .dashboard-search {
+  .dashboard-layout .dashboard-search {
     flex: 1;
     width: auto;
   }
 
-  .dashboard-topbar-right {
+  .dashboard-layout .dashboard-topbar-right {
     gap: 8px;
   }
 
-  .dashboard-sidebar {
+  .dashboard-layout .dashboard-sidebar {
     width: 68px;
     min-width: 68px;
 
     padding: 12px 8px;
   }
 
-  .dashboard-nav-item span,
-  .dashboard-logout span {
+  .dashboard-layout .dashboard-nav-item span,
+  .dashboard-layout .dashboard-logout span {
     display: none;
   }
 
-  .dashboard-nav-item,
-  .dashboard-logout {
+  .dashboard-layout .dashboard-nav-item,
+  .dashboard-layout .dashboard-logout {
     justify-content: center;
     padding: 0;
   }
 
-  .dashboard-page-content {
+  .dashboard-layout .dashboard-page-content {
     padding: 5px 0px;
   }
 }
@@ -547,7 +543,7 @@ html.light-theme .dashboard-layout {
    TOP NAVBAR
    ========================================================= */
 
-html.light-theme .dashboard-topbar {
+html.light-theme .dashboard-layout .dashboard-topbar {
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
@@ -558,16 +554,16 @@ html.light-theme .dashboard-topbar {
    BRAND
    ========================================================= */
 
-html.light-theme .dashboard-brand {
+html.light-theme .dashboard-layout .dashboard-brand {
   color: #172033;
 }
 
-html.light-theme .dashboard-brand-icon {
+html.light-theme .dashboard-layout .dashboard-brand-icon {
   background: #2563eb;
   color: #ffffff;
 }
 
-html.light-theme .dashboard-brand-divider {
+html.light-theme .dashboard-layout .dashboard-brand-divider {
   background: #e5e7eb;
 }
 
@@ -576,24 +572,24 @@ html.light-theme .dashboard-brand-divider {
    SEARCH
    ========================================================= */
 
-html.light-theme .dashboard-search {
+html.light-theme .dashboard-layout .dashboard-search {
   background: #f8fafc;
   border-color: #dfe4ea;
   color: #64748b;
 }
 
-html.light-theme .dashboard-search:focus-within {
+html.light-theme .dashboard-layout .dashboard-search:focus-within {
   border-color: #3b82f6;
   background: #ffffff;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.10);
 }
 
-html.light-theme .dashboard-search input {
+html.light-theme .dashboard-layout .dashboard-search input {
   background: transparent;
   color: #172033;
 }
 
-html.light-theme .dashboard-search input::placeholder {
+html.light-theme .dashboard-layout .dashboard-search input::placeholder {
   color: #94a3b8;
 }
 
@@ -602,7 +598,7 @@ html.light-theme .dashboard-search input::placeholder {
    TOPBAR RIGHT SIDE
    ========================================================= */
 
-html.light-theme .dashboard-topbar-right {
+html.light-theme .dashboard-layout .dashboard-topbar-right {
   color: #172033;
 }
 
@@ -611,19 +607,19 @@ html.light-theme .dashboard-topbar-right {
    NOTIFICATION
    ========================================================= */
 
-html.light-theme .dashboard-notification {
+html.light-theme .dashboard-layout .dashboard-notification {
   background: #ffffff;
   border-color: #e1e5eb;
   color: #64748b;
 }
 
-html.light-theme .dashboard-notification:hover {
+html.light-theme .dashboard-layout .dashboard-notification:hover {
   background: #f8fafc;
   border-color: #3b82f6;
   color: #2563eb;
 }
 
-html.light-theme .dashboard-notification-badge {
+html.light-theme .dashboard-layout .dashboard-notification-badge {
   border-color: #ffffff;
   background: #ef4444;
   color: #ffffff;
@@ -634,25 +630,25 @@ html.light-theme .dashboard-notification-badge {
    PROFILE
    ========================================================= */
 
-html.light-theme .dashboard-profile {
+html.light-theme .dashboard-layout .dashboard-profile {
   color: #172033;
 }
 
-html.light-theme .dashboard-profile:hover {
+html.light-theme .dashboard-layout .dashboard-profile:hover {
   background: #f8fafc;
   border-color: #e5e7eb;
 }
 
-html.light-theme .dashboard-profile-avatar {
+html.light-theme .dashboard-layout .dashboard-profile-avatar {
   background: #eff6ff;
   color: #2563eb;
 }
 
-html.light-theme .dashboard-profile-info strong {
+html.light-theme .dashboard-layout .dashboard-profile-info strong {
   color: #172033;
 }
 
-html.light-theme .dashboard-profile-info span {
+html.light-theme .dashboard-layout .dashboard-profile-info span {
   color: #64748b;
 }
 
@@ -661,7 +657,7 @@ html.light-theme .dashboard-profile-info span {
    MAIN BODY
    ========================================================= */
 
-html.light-theme .dashboard-body {
+html.light-theme .dashboard-layout .dashboard-body {
   background: #f5f7fb;
 }
 
@@ -670,7 +666,7 @@ html.light-theme .dashboard-body {
    SIDEBAR
    ========================================================= */
 
-html.light-theme .dashboard-sidebar {
+html.light-theme .dashboard-layout .dashboard-sidebar {
   background: #ffffff;
   border-right: 1px solid #e5e7eb;
   box-shadow: 2px 0 10px rgba(15, 23, 42, 0.025);
@@ -681,16 +677,16 @@ html.light-theme .dashboard-sidebar {
    SIDEBAR NAVIGATION
    ========================================================= */
 
-html.light-theme .dashboard-nav-item {
+html.light-theme .dashboard-layout .dashboard-nav-item {
   color: #64748b;
 }
 
-html.light-theme .dashboard-nav-item:hover {
+html.light-theme .dashboard-layout .dashboard-nav-item:hover {
   background: #f1f5f9;
   color: #1e293b;
 }
 
-html.light-theme .dashboard-nav-item.active {
+html.light-theme .dashboard-layout .dashboard-nav-item.active {
   background: #eff6ff;
   color: #2563eb;
 }
@@ -700,11 +696,11 @@ html.light-theme .dashboard-nav-item.active {
    LOGOUT
    ========================================================= */
 
-html.light-theme .dashboard-logout {
+html.light-theme .dashboard-layout .dashboard-logout {
   color: #64748b;
 }
 
-html.light-theme .dashboard-logout:hover {
+html.light-theme .dashboard-layout .dashboard-logout:hover {
   background: #fef2f2;
   color: #dc2626;
 }
@@ -714,11 +710,11 @@ html.light-theme .dashboard-logout:hover {
    PAGE CONTENT
    ========================================================= */
 
-html.light-theme .dashboard-app {
+html.light-theme .dashboard-layout .dashboard-app {
   background: #f5f7fb;
 }
 
-html.light-theme .dashboard-page-content {
+html.light-theme .dashboard-layout .dashboard-page-content {
   background: #f5f7fb;
 }
 
@@ -727,13 +723,13 @@ html.light-theme .dashboard-page-content {
    RESPONSIVE
    ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
-  html.light-theme .dashboard-topbar {
+  html.light-theme .dashboard-layout .dashboard-topbar {
     background: #ffffff;
   }
 
-  html.light-theme .dashboard-sidebar {
+  html.light-theme .dashboard-layout .dashboard-sidebar {
     background: #ffffff;
   }
 
@@ -743,22 +739,22 @@ html.light-theme .dashboard-page-content {
    ========================================== */
 
 @media (max-width: 600px) {
-  .dashboard-brand span{
+  .dashboard-layout .dashboard-brand span{
   display: none !important;
   
   }
-  .dashboard-brand {
+  .dashboard-layout .dashboard-brand {
     width: fit-content;
     gap: 0;
   }
 
-  .dashboard-topbar {
+  .dashboard-layout .dashboard-topbar {
     height: 64px;
     min-height: 64px;
     padding: 0 10px;
     display: flex;
   }
- .dashboard-search {
+ .dashboard-layout .dashboard-search {
     width: 100%;
     height: 48px;
     display: flex;
@@ -773,7 +769,7 @@ html.light-theme .dashboard-page-content {
 }
  
   /* Bottom navigation */
-  .dashboard-sidebar {
+  .dashboard-layout .dashboard-sidebar {
     position: fixed;
     left: 10px;
     right: 10px;
@@ -801,7 +797,7 @@ html.light-theme .dashboard-page-content {
     
   }
 
-  .dashboard-sidebar-nav {
+  .dashboard-layout .dashboard-sidebar-nav {
     width: 100%;
     height: 100%;
 
@@ -813,7 +809,7 @@ html.light-theme .dashboard-page-content {
     gap: 2px;
   }
 
-  .dashboard-nav-item {
+  .dashboard-layout .dashboard-nav-item {
     flex: 1;
 
     width: auto;
@@ -835,23 +831,23 @@ html.light-theme .dashboard-page-content {
     
   }
 
-  .dashboard-nav-item span {
+  .dashboard-layout .dashboard-nav-item span {
     display: block;
     font-size: 9px;
     line-height: 1;
   }
 
-  .dashboard-nav-item svg {
+  .dashboard-layout .dashboard-nav-item svg {
     width: 19px;
     height: 19px;
   }
 
-  .dashboard-logout {
+  .dashboard-layout .dashboard-logout {
     display: none;
   }
 
-  .dashboard-app {
-    padding-bottom: 68px;
+  .dashboard-layout .dashboard-app {
+    padding-bottom: 6px;
   }
 }
 
@@ -862,7 +858,7 @@ html.light-theme .dashboard-page-content {
 
 @media (max-width: 600px) {
 
-  html.light-theme .dashboard-sidebar {
+  html.light-theme .dashboard-layout .dashboard-sidebar {
     background: #ffffff;
     border-right: none;
     border-top: 1px solid #e5e7eb;
@@ -871,16 +867,16 @@ html.light-theme .dashboard-page-content {
       0 -2px 10px rgba(15, 23, 42, 0.06);
   }
 
-  html.light-theme .dashboard-nav-item {
+  html.light-theme .dashboard-layout .dashboard-nav-item {
     color: #64748b;
   }
 
-  html.light-theme .dashboard-nav-item:hover {
+  html.light-theme .dashboard-layout .dashboard-nav-item:hover {
     background: #f1f5f9;
     color: #1e293b;
   }
 
-  html.light-theme .dashboard-nav-item.active {
+  html.light-theme .dashboard-layout .dashboard-nav-item.active {
     background: #eff6ff;
     color: #2563eb;
   }
