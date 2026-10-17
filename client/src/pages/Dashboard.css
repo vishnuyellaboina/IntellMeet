@@ -1533,6 +1533,9 @@ html.light-theme .dashboard-home .cancel-button:disabled {
 }
 
 @media (max-width: 600px) {
+  .dashboard-home .dashboard-home-content{
+    padding: 0;
+  }
   .dashboard-home .meeting-card {
     grid-template-columns: 40px minmax(0, 1fr) auto;
     gap: 8px;
