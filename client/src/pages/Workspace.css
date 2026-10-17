@@ -590,5 +590,8 @@ html.light-theme .workspace-page .workspace-layout{
   .workspace-page{
     padding: 0;
   }
+  .workspace-page{
+    padding-bottom: 60px;
+  }
 }
 

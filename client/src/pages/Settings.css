@@ -1697,7 +1697,7 @@ html.light-theme.compact-mode .settings-card {
 
 @media (max-width: 600px) {
   .settings-page {
-    padding: 0;
+    padding: 0px 0px 60px;
   }
 
   .settings-header h1 {

@@ -2361,35 +2361,39 @@ html.light-theme .meeting-details-page .refresh-ai-button:hover:not(:disabled) {
   }
 
 /* ACTION ITEMS — MOBILE LAYOUT (600px) */
-.meeting-details-page .action-table {
-  width: 100%;
-  min-width: 0;
-  overflow: visible;
-}
-
-.meeting-details-page .action-table-header {
-  display: none !important;
-}
-
-/* ACTION ITEMS — EQUAL 50% COLUMNS */
+/* ACTION ITEMS — MOBILE GRID (600px) */
 .meeting-details-page .action-table-row {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px !important;
   column-gap: 0 !important;
+  width: 100%;
+  padding-left: 22px;
+  padding-right: 22px;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
-/* FIRST COLUMN — LEFT HALF */
+/* LEFT COLUMN */
 .meeting-details-page .action-table-row > .action-task,
 .meeting-details-page .action-table-row > .priority-badge {
   grid-column: 1 !important;
-  justify-self: start;
+  justify-self: start !important;
   margin-left: 0 !important;
 }
 
-/* SECOND COLUMN — RIGHT HALF */
-.meeting-details-page .action-table-row > .action-assignee,
+/* RIGHT COLUMN — ASSIGNEE */
+.meeting-details-page .action-table-row > .action-assignee {
+  grid-column: 2 !important;
+  justify-self: stretch !important;
+  width: 100%;
+  margin-left: 0 !important;
+  box-sizing: border-box;
+}
+
+/* RIGHT COLUMN — STATUS */
 .meeting-details-page .action-table-row > .action-status {
   grid-column: 2 !important;
-  justify-self: start;
+  justify-self: start !important;
   margin-left: 0 !important;
 }
 
