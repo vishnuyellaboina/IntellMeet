@@ -1472,293 +1472,111 @@ html.light-theme .dashboard-home .cancel-button:disabled {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@media (max-width: 800px) {
-  .dashboard-home .dashboard-home-content {
-    padding: 10px 0px 10px 15px;
-  }
-  .dashboard-home .quick-actions {
-    grid-template-columns: 1fr;
-  }
-  .dashboard-home .meeting-card {
-    align-items: flex-start;
-  }
-  .dashboard-home .meeting-card-actions {
-    flex-wrap: wrap;
-  }
-}
-@media (max-width: 600px) {
-  .dashboard-home .dashboard-home-content {
-    padding: 10px 0px 10px 0px;
-    }
-    .dashboard-home .dashboard-header {
-      align-items: flex-start;
-    }
-    .dashboard-home .dashboard-header-actions {
-      gap: 10px;
-    }
-    .dashboard-home .profile-info {
-      display: none;
-    }
-    .dashboard-home .stats-grid {
-      grid-template-columns: 1fr;
-    }
-    .dashboard-home .section-title {
-      align-items: flex-start;
-    }
-    .dashboard-home .meeting-card {
-      flex-wrap: wrap;
-    }
-    .dashboard-home .meeting-card-info {
-      width: calc(100% - 54px);
-    }
-    .dashboard-home .meeting-card-actions {
-      width: 100%;
-      justify-content: flex-start;
-      padding-left: 53px;
-    }
-  /* ==========================================
-       DASHBOARD PAGE
-    ==========================================*/
 
-    /* ==========================================
-       HEADER
-    ==========================================*/
-    .dashboard-home .dashboard-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-    .dashboard-home .dashboard-header h1 {
-      margin: 0;
-      font-size: 22px;
-      line-height: 1.2;
-    }
-    .dashboard-home .header-description {
-      margin-top: 5px;
-      font-size: 11px;
-      line-height: 1.4;
-    }
-    .dashboard-home .dashboard-header-actions {
-      gap: 7px;
-      flex-shrink: 0;
-    }
-    /* ==========================================
-       QUICK ACTIONS
-    ==========================================*/
-    .dashboard-home .quick-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .dashboard-home .create-meeting,
-.dashboard-home .join-meeting {
-      min-width: 0;
-      padding: 12px;
-      gap: 9px;
-      border-radius: 12px;
-    }
-    .dashboard-home .create-meeting > div,
-.dashboard-home .join-meeting > div {
-      width: 36px;
-      min-width: 36px;
-      height: 36px;
-    }
-    .dashboard-home .create-meeting strong,
-.dashboard-home .join-meeting strong {
-      display: block;
-      font-size: 12px;
-      line-height: 1.2;
-    }
-    .dashboard-home .create-meeting small,
-.dashboard-home .join-meeting small {
-      display: block;
-      margin-top: 3px;
-      font-size: 9px;
-      line-height: 1.3;
-    }
-    /* ==========================================
-       STAT CARDS
-    ==========================================*/
-    .dashboard-home .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 9px;
-      margin-bottom: 10px;
-    }
-    .dashboard-home .stat-card {
-      min-width: 0;
-      padding: 11px;
-      gap: 9px;
-      border-radius: 11px;
-    }
-    .dashboard-home .stat-icon {
-      width: 34px;
-      min-width: 34px;
-      height: 34px;
-    }
-    .dashboard-home .stat-card h3 {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.1;
-    }
-    .dashboard-home .stat-card p {
-      margin-top: 3px;
-      font-size: 9px;
-    }
-    /* ==========================================
-       RECENT MEETINGS HEADER
-    ==========================================*/
-    .dashboard-home .section-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: px;
-      margin-bottom: 10px;
-    }
-    .dashboard-home .section-title h2 {
-      margin: 0px;
-      font-size: 17px;
-    }
-    /* ==========================================
-       MEETING LIST
-    ==========================================*/
-    .dashboard-home .meetings-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 9px;
-    }
-    /* ==========================================
-       MEETING CARD
-    ==========================================*/
-    .dashboard-home .meeting-card {
-      width: 100%;
-      min-width: 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px;
-      box-sizing: border-box;
-      border-radius: 11px;
-    }
-    .dashboard-home .meeting-card-info {
-      width: auto;
-      min-width: 0;
-      flex: 1;
-    }
-    .dashboard-home .meeting-card-info h3 {
-      font-size: 13px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .dashboard-home .meeting-card-info p {
-      font-size: 10px;
-    }
-    .dashboard-home .meeting-card-info span {
-      font-size: 9px;
-    }
-    /* ==========================================
-       MEETING CARD ACTIONS
-    ==========================================*/
-    .dashboard-home .meeting-card-actions {
-      width: auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 5px;
-      padding-left: 0;
-    }
-    .dashboard-home .meeting-card-actions button {
-      min-height: 34px;
-      padding: 7px 9px;
-      font-size: 10px;
-    }
-    /* ==========================================
-       CREATE / JOIN MODAL
-       MOBILE ONLY
-    ==========================================*/
-    .dashboard-home .modal-overlay {
-      padding: 12px;
-    }
-    .dashboard-home .meeting-modal {
-      width: 100%;
-      max-width: 430px;
-      max-height: 90vh;
-      padding: 18px;
-      box-sizing: border-box;
-      overflow-y: auto;
-      border-radius: 16px;
-    }
-    .dashboard-home .modal-header {
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-    .dashboard-home .modal-header h2 {
-      font-size: 19px;
-    }
-    .dashboard-home .modal-header p {
-      font-size: 11px;
-    }
-    .dashboard-home .modal-close {
-      width: 32px;
-      height: 32px;
-      min-width: 32px;
-    }
-    /* ==========================================
-       FORM
-    ==========================================*/
-    .dashboard-home .meeting-form {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .dashboard-home .meeting-form label {
-      font-size: 11px;
-    }
-    .dashboard-home .meeting-form input,
-.dashboard-home .meeting-form textarea,
-.dashboard-home .meeting-form select {
-      width: 100%;
-      min-height: 40px;
-      box-sizing: border-box;
-      font-size: 13px;
-    }
-    .dashboard-home .meeting-form textarea {
-      min-height: 75px;
-      resize: vertical;
-    }
-    /* ==========================================
-       FORM BUTTONS
-    ==========================================*/
-    .dashboard-home .meeting-form-buttons,
-.dashboard-home .modal-actions {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .dashboard-home .meeting-form-buttons button,
-.dashboard-home .modal-actions button {
-      width: 100%;
-      min-height: 42px;
-      font-size: 12px;
-    }
-    /* ==========================================
-       MOBILE SPACING
-    ==========================================*/
-  html.light-theme .dashboard-home .meeting-modal {
-        box-shadow:
-          0 20px 50px rgba(15, 23, 42, 0.15);
-      }
-      html.light-theme .dashboard-home .meeting-form input,
-html.light-theme .dashboard-home .meeting-form textarea,
-html.light-theme .dashboard-home .meeting-form select {
-        background: #ffffff;
-        color: #172033;
-      }
+/* ==========================================
+   DASHBOARD MEETING CARDS
+   800px and 600px
+   ========================================== */
+
+@media (max-width: 1000px) {
+  .dashboard-home .meetings-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard-home .meeting-card {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dashboard-home .meeting-card-icon {
+    grid-column: 1;
+    grid-row: 1;
+    width: 40px;
+    min-width: 40px;
+  }
+
+  .dashboard-home .meeting-card-info {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .dashboard-home .meeting-card-actions {
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 6px;
+    width: auto;
+    min-width: 0;
+    padding-left: 0;
+  }
+
+  .dashboard-home .meeting-card-info h3,
+  .dashboard-home .meeting-card-info p,
+  .dashboard-home .meeting-room-id {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
 }
+
+@media (max-width: 600px) {
+  .dashboard-home .meeting-card {
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .dashboard-home .meeting-card-icon {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .dashboard-home .meeting-card-info {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .dashboard-home .meeting-card-info h3 {
+    font-size: 12px;
+  }
+
+  .dashboard-home .meeting-card-info p {
+    font-size: 10px;
+  }
+
+  .dashboard-home .meeting-card-info > span {
+    min-width: 0;
+    font-size: 9px;
+  }
+
+  .dashboard-home .meeting-card-actions {
+    grid-column: 3;
+    gap: 4px;
+  }
+
+  .dashboard-home .meeting-card-actions button {
+    padding: 6px 7px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .dashboard-home .meeting-status {
+    padding: 4px 5px;
+    font-size: 9px;
+  }
+}
+
