@@ -353,34 +353,45 @@ const MeetingDetails = () => {
     <h1>{meeting.title}</h1>
 
     <div className="meeting-id-row">
+  <span>Meeting ID:</span>
 
-      <span>Meeting ID:</span>
+  <strong>{meeting.roomId}</strong>
 
-      <strong>
-        {meeting.roomId}
-      </strong>
+  <button
+    className="mini-copy-button"
+    onClick={handleCopyMeetingId}
+    title="Copy Meeting ID"
+  >
+    {copied ? (
+      <Check size={14} />
+    ) : (
+      <Copy size={14} />
+    )}
+  </button>
 
-      <button
-        className="mini-copy-button"
-        onClick={handleCopyMeetingId}
-        title="Copy Meeting ID"
-      >
-        {copied ? (
-          <Check size={14} />
-        ) : (
-          <Copy size={14} />
-        )}
-      </button>
+  <span
+    className={`meeting-status-badge ${status.toLowerCase()}`}
+  >
+    <Video size={13} />
+    {status}
+  </span>
 
-      <span
-        className={`meeting-status-badge ${status.toLowerCase()}`}
-      >
-        <Video size={13} />
-        {status}
-      </span>
-
-    </div>
-
+  {insights && (
+    <button
+      className="refresh-ai-button"
+      onClick={generateAIInsights}
+      disabled={generatingAI}
+    >
+      <RefreshCw
+        size={15}
+        className={generatingAI ? "spinning" : ""}
+      />
+      {generatingAI
+        ? "Generating..."
+        : "Refresh AI Insights"}
+    </button>
+  )}
+</div>
   </div>
 
   <p>
@@ -397,26 +408,7 @@ const MeetingDetails = () => {
       {insights && (
         <div className="ai-refresh-row">
 
-          <button
-            className="refresh-ai-button"
-            onClick={generateAIInsights}
-            disabled={generatingAI}
-          >
-
-            <RefreshCw
-              size={15}
-              className={
-                generatingAI
-                  ? "spinning"
-                  : ""
-              }
-            />
-
-            {generatingAI
-              ? "Generating..."
-              : "Refresh AI Insights"}
-
-          </button>
+          
 
         </div>
       )}

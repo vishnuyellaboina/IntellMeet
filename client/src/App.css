@@ -717,3 +717,24 @@ html.light-theme ::-webkit-scrollbar-thumb {
 html.light-theme ::-webkit-scrollbar-thumb:hover {
   background: #aebdcd;
 }
+
+/* ==========================================
+   GLOBAL SCROLLBAR — HIDE, KEEP SCROLLING
+========================================== */
+
+html,
+body,
+#root,
+#root * {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar,
+#root *::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
